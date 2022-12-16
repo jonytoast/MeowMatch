@@ -8,9 +8,41 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+<div class="isolate bg-white">
+  <div class="px-6 pt-6 lg:px-8">
+    <div>
+        <!-- Navagtion bar -->
+      <nav class="flex items-center justify-between" aria-label="Global">
+        <div class="flex lg:min-w-0 lg:flex-1" aria-label="Global">
+          <a href="#" class="-m-1.5 p-1.5">
+            <img src="" alt="logo">
+          </a>
+        </div>
+        <div class="flex lg:hidden">
+          <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+            <span class="sr-only">Open main menu</span>
+            <!-- bar icon for mobile -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+        </div>
+        <!-- Nav links -->
+        <div class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
+          <a href="#" class="font-semibold text-gray-900 hover:text-gray-400">About</a>
+
+          <a href="#" class="font-semibold text-gray-900 hover:text-gray-400">Facts</a>
+
+          <a href="#" class="font-semibold text-gray-900 hover:text-gray-400">Animals</a>
+
+        </div>
+        <!-- Nav button -->
+        <div class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
+          <a href="#" class="inline-block rounded-lg px-3 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20">Find animal</a>
+        </div>
+      </nav>
+      
+
   
     
 </body>
