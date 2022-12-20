@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
 <div class="isolate bg-white">
   <div class="px-6 pt-6 lg:px-8">
-    <div>
+    <div id="top">
         <!-- Navagtion bar -->
       <nav class="flex items-center justify-between" aria-label="Global">
         <div class="flex lg:min-w-0 lg:flex-1" aria-label="Global">
@@ -29,11 +30,11 @@
         </div>
         <!-- Nav links -->
         <div class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end lg:gap-x-12">
-          <a href="#" class="font-semibold text-gray-900 hover:text-gray-400">About us</a>
+          <a href="#about-us" class="font-semibold text-gray-900 hover:text-gray-400">About us</a>
 
-          <a href="#" class="font-semibold text-gray-900 hover:text-gray-400">Facts</a>
+          <a href="#facts" class="font-semibold text-gray-900 hover:text-gray-400">Facts</a>
 
-          <a href="#" class="font-semibold text-gray-900 hover:text-gray-400">Animals</a>
+          <a href="#match-example" class="font-semibold text-gray-900 hover:text-gray-400">Animals</a>
 
         </div>
       </nav>
@@ -47,7 +48,7 @@
                 <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Adopt Some Warm Cuteness Today</h1>
                 <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Find a Furbaby Around you that Needs a Fur-ever Home!</p>
                 <div class="mt-8 flex gap-x-4 sm:justify-center">
-                  <a href="#" class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">Get Started</a>
+                  <a href="#how-to" class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">Get Started</a>
                 </div>
               </div>
           </div>
@@ -60,7 +61,7 @@
         <div class="md:grid md:grid-cols-3 md:gap-6">
           <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
-              <h3 class="text-lg font-medium leading-6 text-gray-900">Here's How:</h3>
+              <h3 id="how-to" class="text-lg font-medium leading-6 text-gray-900">Here's How:</h3>
               <p class="mt-1 text-sm text-gray-600">Answer these simple questions about what you look for in your next pet, and we'll do the rest!</p>
             </div>
           </div>
@@ -126,9 +127,17 @@
                       </div>
                     </div>
                   </fieldset>
+                  <fieldset>
+                    <legend class="contents text-base font-medium text-gray-900">"Where you at?"</legend>
+                    <p class="text-sm text-gray-500">Enter your 5-digit zipcode so we can finalize the search!</p>
+                    <div>
+                      <label for="zipcode" class="block text-sm font-medium text-gray-700">5-Digit Zipcode</label>
+                      <input type="text" name="zipcode" id="zipcode" class="block w-full rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder='ex: "10001"'>
+                        
+                  </fieldset>
                 </div>
                 <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
-                  <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Find Matches</button>
+                  <button type="submit" class="flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Find Your New Furbaby</button>
                 </div>
               </div>
             </form>
@@ -136,10 +145,54 @@
         </div>
       </div>
 
+      
+
+      <!-- About us Section -->
+
+      <div class="relative px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
+            <div>
+              <h1 id="about-us" class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">About Us</h1>
+              <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Since 2010, we have been specializing in helping local cats and dogs find their new forever homes. We are dedicated to promoting the motto "adopt, don't shop," and have connections with over 95% of the country's pet adoption facilities. Besides connecting pets and pet owners, we also provide referrals to pet healthcare facilities and can recommend the best veterinaries in your area as your request.</p>
+            </div>
+        </div>
+      </div>
+
+      <!-- Facts Section -->
+      <div class="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
+        <div>
+          <h1 id="facts" class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Facts</h1>
+          <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">"Adopt, Don't Shop" is our mission statement, and here's why:</p>
+        </div>
+
+        <div class="overflow-hidden bg-white shadow sm:rounded-lg">
+          <div class="border-t border-gray-200">
+            <dl>
+              <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">Placeholder</dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Placeholder</dd>
+              </div>
+              <div class="bg-white-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">Placeholder</dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Placeholder</dd>
+              </div>
+              <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">Placeholder</dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Placeholder</dd>
+              </div>
+              <div class="bg-white-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">Placeholder</dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Placeholder</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
       <!-- Pet matches example-->
 
       <div>
-        <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Example Matches</h1>
+        <h1 id="match-example" class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Example Matches</h1>
         <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Here's what you'll see once we're able to find pets around you that match your input:</p>
       </div>
 
@@ -193,7 +246,10 @@
       </div>
 
 
-  
+
+      <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+        <a id="back-to-top" href="#top" class="flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Back to Top</a>
+      </div>
     
 </body>
 </html>
