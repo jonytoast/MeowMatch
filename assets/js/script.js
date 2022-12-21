@@ -2,17 +2,19 @@ var startButton = document.querySelector('.start-button');
 
 var searchFormEl = document.querySelector('.search-form');
 var searchBoxEl = document.querySelector('.search-box');
-var selectionEl = document.querySelector('.select1');
+var petTypeEl = document.querySelector('.petType');
+
+var resultsContainerEl = document.querySelector('#results-container')
 
 
 function startUserFlow(){
     console.log("i've started")
 }
 
-function getData(){
+function getData(type){
   var pf = new petfinder.Client({apiKey: "8xTjKkX9rqOoNSgYVcICbmHSHx7E8NcVyYx0pXUxWTPBB8RzJG", secret: "7B3fC5cIclR0jWTEliyi7cM52VgwzLrPm382rKwe"});
 
-  pf.animal.search({type: "dog", gender: "male"})
+  pf.animal.search({type: type, gender: "male", location: "10598"})
     .then(function (response) {
         console.log(response.data.animals)
         showData(response.data.animals)
@@ -25,6 +27,25 @@ function getData(){
 function showData(animals){
   for (var i = 0; i < animals.length; i++) {  
     console.log(animals[i].name + " " + animals[i].type + " " + animals[i].gender);
+
+    var petBoxEl = document.createElement('div');
+    petBoxEl.classList = 'results-list-item';
+
+    var petNameEl = document.createElement('div');
+    petNameEl.textContent = animals[i].name;
+
+    var petTypeEl = document.createElement('div');
+    petTypeEl.textContent = animals[i].type;
+
+    var petGenderEl = document.createElement('div');
+    petGenderEl.textContent = animals[i].gender;
+
+    petBoxEl.appendChild(petNameEl);
+    petBoxEl.appendChild(petTypeEl);
+    petBoxEl.appendChild(petGenderEl);
+
+    resultsContainerEl.appendChild(petBoxEl);
+
   }
 }
 
@@ -34,12 +55,14 @@ var formSubmitHandler = function (event) {
   event.preventDefault();
 
   var searchContent = searchBoxEl.value.trim();
-  var selectContent = selectionEl.value.trim();
+  var petType = petTypeEl.value.trim();
 
-  console.log(searchContent + " " + selectContent);
+  console.log(searchContent + " " + petType);
 
   searchBoxEl.value = "";
-  selectionEl.value = "";
+  petTypeEl.value = "";
+
+  getData(petType);
   
 
   // if (searchCity) {
@@ -54,7 +77,5 @@ var formSubmitHandler = function (event) {
   // }
 };
 
-
-getData();
 startButton.addEventListener('click', startUserFlow);
 searchFormEl.addEventListener('submit', formSubmitHandler);
