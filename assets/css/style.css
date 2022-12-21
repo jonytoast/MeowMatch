@@ -15,6 +15,10 @@ html {
     align-items: center;
 }
 
+.menu-item {
+    transition-duration: 0.5s;
+    transition-property: font-size, color;
+
 #title {
     font-size: 2.5rem;
     font-family: 'Pacifico', cursive;
@@ -93,8 +97,9 @@ h1 {
 }
 
 .form {
+    background: linear-gradient(90deg, var(--blue) 0%, var(--pink) 100%);
+    border-radius: 10px;
     background-color: rgba(255,255,255,0.8);
-    border-radius: 25px;
 }
 
 .form-odd {
@@ -113,8 +118,6 @@ h1 {
 }
 
 #back-to-top {
-    padding: 5px 3px;
-    position: fixed;
     left: 5px;
     bottom: 5px;
 }
