@@ -40,12 +40,17 @@ function showData(animals){
     var petGenderEl = document.createElement('div');
     petGenderEl.textContent = animals[i].gender;
 
+    if (animals[i].primary_photo_cropped.small){
+      var petImgEl = document.createElement('img');
+      petImgEl.setAttribute("src", animals[i].primary_photo_cropped.small);
+      petBoxEl.appendChild(petImgEl);
+    }
+    
     petBoxEl.appendChild(petNameEl);
     petBoxEl.appendChild(petTypeEl);
     petBoxEl.appendChild(petGenderEl);
 
     resultsContainerEl.appendChild(petBoxEl);
-
   }
 }
 
