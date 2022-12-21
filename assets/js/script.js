@@ -12,7 +12,7 @@ function startUserFlow(){
 function getData(){
   var pf = new petfinder.Client({apiKey: "8xTjKkX9rqOoNSgYVcICbmHSHx7E8NcVyYx0pXUxWTPBB8RzJG", secret: "7B3fC5cIclR0jWTEliyi7cM52VgwzLrPm382rKwe"});
 
-  pf.animal.search()
+  pf.animal.search({type: "dog", gender: "male"})
     .then(function (response) {
         console.log(response.data.animals)
         showData(response.data.animals)
@@ -24,7 +24,7 @@ function getData(){
 
 function showData(animals){
   for (var i = 0; i < animals.length; i++) {  
-      console.log(animals[i].name)
+    console.log(animals[i].name + " " + animals[i].type + " " + animals[i].gender);
   }
 }
 
@@ -40,6 +40,7 @@ var formSubmitHandler = function (event) {
 
   searchBoxEl.value = "";
   selectionEl.value = "";
+  
 
   // if (searchCity) {
   //   updateHistoryButtons(searchCity);
