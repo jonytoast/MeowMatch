@@ -62,3 +62,27 @@ h1 {
     transition: none;
 }
 
+.form {
+    background: linear-gradient(90deg, var(--blue) 0%, var(--pink) 100%);
+    border: 5px solid var(--shadow);
+    border-radius: 10px;
+}
+
+.form-odd {
+    background-color: var(--blue);
+}
+.form-even {
+    background-color: var(--purple);
+}
+
+#map {
+    max-width: 80vw;
+}
+
+#back-to-top {
+    padding: 5px 3px;
+    position: fixed;
+    left: 5px;
+    bottom: 5px;
+}
+
