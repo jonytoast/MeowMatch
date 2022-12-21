@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Pawsome</title>
 </head>
 <body>
 <div class="isolate">
@@ -14,10 +18,11 @@
     <div id="top">
         <!-- Navagtion bar -->
       <nav class="flex items-center justify-between" aria-label="Global">
-        <div class="flex lg:min-w-0 lg:flex-1" aria-label="Global">
+        <div id="title-container" class="flex lg:min-w-0 lg:flex-1" aria-label="Global">
           <a href="#" class="-m-1.5 p-1.5">
             <img src="./assets/images/logo.png" alt="logo" class="w-16">
           </a>
+          <h2 id="title">PAWSOME</h2>
         </div>
         <div class="flex lg:hidden">
           <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
@@ -29,7 +34,7 @@
           </button>
         </div>
         <!-- Nav links -->
-        <div class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end lg:gap-x-12">
+        <div id="nav-links" class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end lg:gap-x-12">
           <a href="#match-example" class="font-semibold text-gray-900 hover:text-gray-400 hover:underline">Animals</a>
 
           <a href="#facts" class="font-semibold text-gray-900 hover:text-gray-400 hover:underline">Facts</a>
@@ -56,9 +61,10 @@
       </header>
       
       <!-- Form section and About section -->
-
+      
       <div class="mt-10 sm:mt-0 h-screen">
         <h1 id="about-us" class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl pb-6 ">About Us</h1>
+      <div id="form-container" class="mt-10 sm:mt-0 h-screen">
         <div class="md:grid md:grid-cols-3 md:gap-6">
           <div class="md:col-span-1">
             <div class="px-4 sm:px-0 border-b-2 border-black">
@@ -147,89 +153,91 @@
       </div>
 
       <!-- Facts Section -->
-      <div class="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
-        <div>
+      <div id="facts-container" class="pt-20 pb-32 sm:pt-48 sm:pb-40">
+        <div id="facts-text">
           <h1 id="facts" class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Facts</h1>
           <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center"><strong>"Adopt, Don't Shop"</strong> is our mission statement, and here's why we believe in it:</p>
-        </div>
-
-        <div class="form overflow-hidden shadow sm:rounded-lg">
-          <div class="border-t border-gray-200">
-            <dl>
-              <div class="form-odd px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-white">There's A LOT of cats and dogs waiting to be adopted around you ...</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Each year, about 2 million dogs and 2.1 million cats enter animal shelters</dd>
-              </div>
-              <div class="form-even px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-white">You think breeders are the way to go, but ...</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">breeders cost a lot more, while animal shelters offer a variety of breeds for you to select from for your new pet</dd>
-              </div>
-              <div class="form-odd px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-white">Resue cats and dogs may be easier on you as a new pet owner ...</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">resue cats and dogs may already have some basic training and skills</dd>
-              </div>
-              <div class="form-even px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-white">Most important of all ...</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Over 920,000 shelter animals are euthanized each year</dd>
-              </div>
-            </dl>
+          <div class="form overflow-hidden shadow sm:rounded-lg">
+            <div class="border-t border-gray-200">
+              <dl>
+                <div class="form-odd px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="text-sm font-medium text-black">There's A LOT of cats and dogs waiting to be adopted around you ...</dt>
+                  <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Each year, about 2 million dogs and 2.1 million cats enter animal shelters</dd>
+                </div>
+                <div class="form-even px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="text-sm font-medium text-black">You think breeders are the way to go, but ...</dt>
+                  <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">breeders cost a lot more, while animal shelters offer a variety of breeds for you to select from for your new pet</dd>
+                </div>
+                <div class="form-odd px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="text-sm font-medium text-black">Resue cats and dogs may be easier on you as a new pet owner ...</dt>
+                  <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">resue cats and dogs may already have some basic training and skills</dd>
+                </div>
+                <div class="form-even px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt class="text-sm font-medium text-black">Most important of all ...</dt>
+                  <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Over 920,000 shelter animals are euthanized each year</dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </div>
+
+        
       </div>
 
       <!-- Pet matches example-->
-
-      <div>
-        <h1 id="match-example" class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Example Matches</h1>
-        <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Here's what you'll see once we're able to find pets around you that match your input:</p>
-      </div>
-
-      <div class="form overflow-hidden bg-white shadow sm:rounded-lg">
-        <div class="px-4 py-5 sm:px-6">
-          <h3 class="text-lg font-medium leading-6 text-gray-900">Pet Information</h3>
-          <p class="mt-1 max-w-2xl text-sm text-gray-500">Details of the pet up for adoption</p>
+      <div id="match-example-container">
+        <div>
+          <h1 id="match-example" class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Example Matches</h1>
+          <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Here's what you'll see once we're able to find pets around you that match your input:</p>
         </div>
-        <div class="border-t border-gray-200">
-          <dl>
-            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt class="text-sm font-medium text-gray-500">Pet name</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Tux</dd>
-            </div>
-            <div id="example-image" class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <img src="./assets/images/pet-example-img.jpg" alt="cat-example-image">
-            </div>
-            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt class="text-sm font-medium text-gray-500">Pet Type</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Cat</dd>
-            </div>
-            <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt class="text-sm font-medium text-gray-500">Pet Gender</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Male</dd>
-            </div>
-            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt class="text-sm font-medium text-gray-500">Breed</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">American Short Hair</dd>
-            </div>
-            <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt class="text-sm font-medium text-gray-500">Age</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Adult</dd>
-            </div>
-            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt class="text-sm font-medium text-gray-500">Pet Location</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">860 Broadway, New York, NY 10003</dd>
-            </div>
-            <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt class="text-sm font-medium text-gray-500">Contact Email</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">mrtux@gmail.com</dd>
-            </div>
-            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt class="text-sm font-medium text-gray-500">Contact Phone Number</dt>
-              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">212-XXX-XXXX</dd>
-            </div>
-            <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12092.517328408147!2d-73.9899209!3d40.7371796!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xaf44b237dcb0c4c5!2sPetco!5e0!3m2!1sen!2sus!4v1671503295699!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </dl>
+
+        <div class="form overflow-hidden bg-white shadow sm:rounded-lg">
+          <div class="px-4 py-5 sm:px-6">
+            <h3 class="text-lg font-medium leading-6 text-gray-900">Pet Information</h3>
+            <p class="mt-1 max-w-2xl text-sm text-gray-500">Details of the pet up for adoption</p>
+          </div>
+          <div class="border-t border-gray-200">
+            <dl>
+              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">Pet name</dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Tux</dd>
+              </div>
+              <div id="example-image" class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <img src="./assets/images/pet-example-img.jpg" alt="cat-example-image">
+              </div>
+              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">Pet Type</dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Cat</dd>
+              </div>
+              <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">Pet Gender</dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Male</dd>
+              </div>
+              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">Breed</dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">American Short Hair</dd>
+              </div>
+              <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">Age</dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Adult</dd>
+              </div>
+              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">Pet Location</dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">860 Broadway, New York, NY 10003</dd>
+              </div>
+              <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">Contact Email</dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">mrtux@gmail.com</dd>
+              </div>
+              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="text-sm font-medium text-gray-500">Contact Phone Number</dt>
+                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">212-XXX-XXXX</dd>
+              </div>
+              <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12092.517328408147!2d-73.9899209!3d40.7371796!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xaf44b237dcb0c4c5!2sPetco!5e0!3m2!1sen!2sus!4v1671503295699!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </dl>
+          </div>
         </div>
       </div>
 
@@ -242,7 +250,7 @@
       <!-- Footer section -->
       <footer class="text-center py-16 flex items-center justify-center flex-col border-t-2 border-black mt-16">
           <img src="./assets/images/logo.png" alt="logo" class="w-12">
-          <h4>© 2022 Adopt Dev Team, All rights reserved.</h4>
+          <h4>© 2022 Pawsome Team, All rights reserved.</h4>
       </footer>
 
     
