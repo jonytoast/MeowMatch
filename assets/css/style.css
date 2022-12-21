@@ -16,7 +16,34 @@ body {
     background-color: var(--yellow);
 }
 
+.menu-item {
+    
+    transition-duration: 0.5s;
+    transition-property: font-size, color;
+}
+
+.menu-item:hover {
+    color: var(--purple);
+    font-size: 1.1em;
+}
+
+.menu-item:active {
+    color: var(--shadow);
+    transition: none;
+    transform: translateY(3px);
+}
+
+
+h1 {
+    background: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--pink) 100%);
+    backgroud-clip:text;
+    -webkit-background-clip: text;
+    color: transparent;
+    
+}
+
 .btn {
+    width: fit-content;
     background-color: var(--blue);
     transition-duration: 0.5s;
     transition-property: background-color,color,box-shadow, transform;
@@ -34,3 +61,4 @@ body {
     box-shadow: none;
     transition: none;
 }
+
