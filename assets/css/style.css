@@ -1,4 +1,36 @@
-html {
-    scroll-behavior:smooth;
+:root {
+    --blue: #9CCFE7;
+    --purple: #977FD7;
+    --pink: #F5A9CB;
+    --yellow: #FFFFC2;
+    --shadow: rgb(220, 213, 213);
 }
 
+html {
+    scroll-behavior:smooth;
+
+}
+
+
+body {
+    background-color: var(--yellow);
+}
+
+.btn {
+    background-color: var(--blue);
+    transition-duration: 0.5s;
+    transition-property: background-color,color,box-shadow, transform;
+}
+
+.btn:hover {
+    background-color: var(--pink);
+    transform: translateY(-3px);
+    box-shadow: 2px 2px 5px grey;
+}
+
+.btn:active {
+    background-color: var(--shadow);
+    transform: translateY(3px);
+    box-shadow: none;
+    transition: none;
+}
