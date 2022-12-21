@@ -17,7 +17,6 @@ body {
 }
 
 .menu-item {
-    
     transition-duration: 0.5s;
     transition-property: font-size, color;
 }
@@ -64,7 +63,6 @@ h1 {
 
 .form {
     background: linear-gradient(90deg, var(--blue) 0%, var(--pink) 100%);
-    border: 5px solid var(--shadow);
     border-radius: 10px;
 }
 
@@ -80,8 +78,6 @@ h1 {
 }
 
 #back-to-top {
-    padding: 5px 3px;
-    position: fixed;
     left: 5px;
     bottom: 5px;
 }
