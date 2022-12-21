@@ -11,35 +11,34 @@ html {
 
 }
 
+#title-container {
+    align-items: center;
+}
+
+#title {
+    font-size: 2.5rem;
+    font-family: 'Pacifico', cursive;
+}
+
+#nav-links {
+    font-family: 'Pacifico', cursive;
+}
 
 body {
     background-color: var(--yellow);
 }
-
-.menu-item {
-    
-    transition-duration: 0.5s;
-    transition-property: font-size, color;
-}
-
-.menu-item:hover {
-    color: var(--purple);
-    font-size: 1.1em;
-}
-
-.menu-item:active {
-    color: var(--shadow);
-    transition: none;
-    transform: translateY(3px);
-}
-
 
 h1 {
     background: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--pink) 100%);
     backgroud-clip:text;
     -webkit-background-clip: text;
     color: transparent;
+    font-family: 'Pacifico', cursive;
     
+}
+
+#form-container {
+    margin-bottom: 80px;
 }
 
 .btn {
@@ -47,6 +46,37 @@ h1 {
     background-color: var(--blue);
     transition-duration: 0.5s;
     transition-property: background-color,color,box-shadow, transform;
+}
+
+#about-us-container {
+    margin-top: 40px;
+    background-image: url("../images/cat-picture.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 35px;
+}
+
+#about-us-text {
+    padding: 25px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 25px;
+}
+
+#facts-container {
+    margin-top: 40px;
+    background-image: url("../images/dog-picture.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 35px;
+}
+
+#facts-text {
+    margin-right:auto;
+    margin-left:auto;
+    width: 70%;
+    padding: 25px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 25px;
 }
 
 .btn:hover {
@@ -63,16 +93,19 @@ h1 {
 }
 
 .form {
-    background: linear-gradient(90deg, var(--blue) 0%, var(--pink) 100%);
-    border: 5px solid var(--shadow);
-    border-radius: 10px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 25px;
 }
 
 .form-odd {
-    background-color: var(--blue);
+    background-color: transparent;
 }
 .form-even {
-    background-color: var(--purple);
+    background-color: var(--shadow);
+}
+
+#match-example-container {
+    margin-top: 50px;
 }
 
 #map {
