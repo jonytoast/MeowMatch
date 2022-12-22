@@ -18,8 +18,10 @@ html {
 .menu-item {
     transition-duration: 0.5s;
     transition-property: font-size, color;
+}
 
 #title {
+    padding-bottom: 20px;
     font-size: 2.5rem;
     font-family: 'Pacifico', cursive;
 }
@@ -52,14 +54,6 @@ h1 {
     transition-property: background-color,color,box-shadow, transform;
 }
 
-#about-us-container {
-    margin-top: 40px;
-    background-image: url("../images/cat-picture.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 35px;
-}
-
 #about-us-text {
     padding: 25px;
     background-color: rgba(255,255,255,0.8);
@@ -68,9 +62,10 @@ h1 {
 
 #facts-container {
     margin-top: 40px;
-    background-image: url("../images/dog-picture.jpeg");
+    background-image: url("../images/cat-picture.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     border-radius: 35px;
 }
 
