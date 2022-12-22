@@ -20,6 +20,38 @@ html {
     font-family: 'Pacifico', cursive;
 }
 
+#about-us {
+    padding: 50px 70px;
+    border-radius: 25px;
+    background-position:top;
+    background-repeat: no-repeat;
+    background-size:cover;
+    transition-property: background-image;
+    transition-duration: 1s;
+}
+
+#about-us-text {
+    padding: 20px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 25px;
+}
+
+
+#intro-container {
+    padding: 90px 70px;
+    border-radius: 25px;
+    background-position:top;
+    background-repeat: no-repeat;
+    background-size:cover;
+    transition-property: background-image;
+    transition-duration: 1s;
+}
+
+#intro-text {
+    padding: 20px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 25px;
+}
 
 body {
     background-color: var(--yellow);
@@ -34,6 +66,7 @@ h1 {
 }
 
 .btn {
+    cursor: pointer;
     width: fit-content;
     background-color: var(--blue);
     transition-duration: 0.5s;
@@ -68,9 +101,11 @@ h1 {
 
 #fact-container {
     font-size: 1.2rem;
+
 }
 
 #cat-facts-container img {
+    margin-top: 15px;
     margin-right: auto;
     margin-left: auto;
 }

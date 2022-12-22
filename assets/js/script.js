@@ -1,4 +1,30 @@
 $("#cat-facts-container").hide();
+$("#about-us").hide();
+$("#about-us").fadeIn(1000);
+
+function backgroundImage() {
+
+
+
+    setInterval(function() {
+        var requestImageUrl = "https://api.thecatapi.com/v1/images/search?api_key=live_lZBJdQ1ecQZc9JU2ukmJv99RO1tv7mY4bc4POLm4xjKf1pXJhN01UblBZGaUEqgZ"
+    
+        fetch(requestImageUrl)
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(data){
+            
+            $("#intro-container").css('background-image', 'url(' + data[0].url + ')')
+        })
+
+    },4000);
+    
+}
+
+backgroundImage();
+
+
 
 // random cat facts and cat gifs
 function showFact() {
