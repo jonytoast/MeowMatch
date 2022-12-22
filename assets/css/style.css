@@ -11,24 +11,15 @@ html {
 
 }
 
-#title-container {
-    align-items: center;
-}
-
 .menu-item {
     transition-duration: 0.5s;
     transition-property: font-size, color;
 }
 
 #title {
-    padding-bottom: 20px;
-    font-size: 2.5rem;
     font-family: 'Pacifico', cursive;
 }
 
-#nav-links {
-    font-family: 'Pacifico', cursive;
-}
 
 body {
     background-color: var(--yellow);
@@ -40,11 +31,6 @@ h1 {
     -webkit-background-clip: text;
     color: transparent;
     font-family: 'Pacifico', cursive;
-    
-}
-
-#form-container {
-    margin-bottom: 80px;
 }
 
 .btn {
@@ -52,12 +38,6 @@ h1 {
     background-color: var(--blue);
     transition-duration: 0.5s;
     transition-property: background-color,color,box-shadow, transform;
-}
-
-#about-us-text {
-    padding: 25px;
-    background-color: rgba(255,255,255,0.8);
-    border-radius: 25px;
 }
 
 #facts-container {
@@ -102,10 +82,6 @@ h1 {
 }
 .form-even {
     background-color: var(--shadow);
-}
-
-#match-example-container {
-    margin-top: 50px;
 }
 
 #map {
