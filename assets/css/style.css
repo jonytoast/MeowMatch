@@ -21,7 +21,7 @@ html {
 }
 
 #about-us {
-    padding: 50px 70px;
+
     border-radius: 25px;
     background-position:top;
     background-repeat: no-repeat;
@@ -58,6 +58,7 @@ body {
 }
 
 h1 {
+
     background: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--pink) 100%);
     backgroud-clip:text;
     -webkit-background-clip: text;
@@ -74,7 +75,7 @@ h1 {
 }
 
 #adopt-container {
-    margin-top: 40px;
+
     background-image: url("../images/cat-picture.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -94,7 +95,6 @@ h1 {
 /* random cat facts styling */
 #cat-facts-container {
     text-align: center;
-    padding: 25px auto;
     background-color: rgba(255,255,255,0.6);
     border-radius: 35px;
 }
@@ -145,7 +145,8 @@ h1 {
 }
 
 #back-to-top {
-    left: 5px;
+    
+    left: 0px;
     bottom: 5px;
 }
 
