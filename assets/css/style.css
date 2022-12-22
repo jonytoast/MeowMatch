@@ -40,7 +40,7 @@ h1 {
     transition-property: background-color,color,box-shadow, transform;
 }
 
-#facts-container {
+#adopt-container {
     margin-top: 40px;
     background-image: url("../images/cat-picture.jpg");
     background-repeat: no-repeat;
@@ -49,13 +49,34 @@ h1 {
     border-radius: 35px;
 }
 
-#facts-text {
+#adopt-text {
     margin-right:auto;
     margin-left:auto;
     width: 70%;
     padding: 25px;
     background-color: rgba(255,255,255,0.8);
     border-radius: 25px;
+}
+
+/* random cat facts styling */
+#cat-facts-container {
+    text-align: center;
+    padding: 25px auto;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 35px;
+}
+
+#fact-container {
+    font-size: 1.2rem;
+}
+
+#cat-facts-container img {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#next {
+    margin: 15px auto;
 }
 
 .btn:hover {
