@@ -13,20 +13,19 @@
     <title>Pawsome</title>
 </head>
 <body>
-<div class="isolate">
   <div class="px-6 pt-6 lg:px-8">
     <div id="top">
         <!-- Navagtion bar -->
       <nav class="flex items-center justify-between" aria-label="Global">
-        <div id="title-container" class="flex lg:min-w-0 lg:flex-1" aria-label="Global">
+        <div id="title-container" class="flex lg:min-w-0 lg:flex-1 items-center" aria-label="Global">
           <a href="#" class="-m-1.5 p-1.5">
             <img src="./assets/images/logo.png" alt="logo" class="w-16">
           </a>
-          <h2 id="title">PAWSOME</h2>
+            <h2 id="title" class="text-xl">PAWSOME</h2>
         </div>
 
         <!-- Nav links -->
-        <div id="nav-links" class="space-x-12 lg:flex lg:min-w-0 lg:flex-1 lg:justify-end lg:space-x-12">
+        <div class="space-x-12 lg:flex lg:min-w-0 lg:flex-1 lg:justify-end lg:space-x-12">
           <a href="#match-example" class="font-semibold text-gray-900 hover:text-gray-400 hover:underline">Animals</a>
 
           <a href="#facts" class="font-semibold text-gray-900 hover:text-gray-400 hover:underline">Facts</a>
@@ -42,7 +41,7 @@
         <div class="relative px-6 lg:px-8">
           <div class="mx-auto max-w-3xl pt-32 sm:pt-48 sm:pb-40">
               <div>
-                <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl pb-32">Adopt Some Warm Cuteness Today</h1>
+                <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl pb-8">Adopt Some Warm Cuteness Today</h1>
                 <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Find a Furbaby Around you that Needs a Fur-ever Home!</p>
                 <div class="mt-8 flex gap-x-4 sm:justify-center">
                   <a href="#how-to" class="btn inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Get Started</a>
@@ -52,12 +51,14 @@
         </div>
       </header>
       
-      <!-- Form section and About section -->
+      <!-- Form section -->
       
       <div class="mt-10 sm:mt-0 h-screen mb-8">
+        <!-- About us section -->
         <h1 id="about-us" class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl pb-6 ">About Us</h1>
         <p class="mt-1 text-md text-black lg:pb-20">Since 2010, we have been specializing in helping local cats and dogs find their new forever homes. We are dedicated to promoting the motto "adopt, don't shop," and have connections with over 95% of the country's pet adoption facilities. Besides connecting pets and pet owners, we also provide referrals to pet healthcare facilities and can recommend the best veterinaries in your area as your request.</p>
-      <div id="form-container" class="mt-10 sm:mt-0">
+        <!-- END OF ABOUT US SECTION -->
+        <div id="form-container" class="mt-10 sm:mt-0">
         <div class="md:grid md:grid-cols-3 md:gap-6">
           <div class="md:col-span-1">
             <div class="px-4 sm:px-0 border-b-2 border-black">
@@ -234,17 +235,20 @@
       </div>
 
       <!-- Back to top button -->
+      <div class="invisible lg:visible">
         <a id="back-to-top" class="fixed btn flex-col justify-center rounded-md border border-transparent py-3 px-4 text-lg font-medium text-white shadow-sm" href="#top">
           <p class="text-center">^</p>
             Top
         </a>
+      </div>
+
 
       <!-- Footer section -->
+
       <footer class="text-center py-16 flex items-center justify-center flex-col border-t-2 border-black mt-16">
           <img src="./assets/images/logo.png" alt="logo" class="w-12">
           <h4>© 2022 Pawsome Team, All rights reserved.</h4>
       </footer>
 
-    
 </body>
 </html>
