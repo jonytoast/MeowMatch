@@ -43,6 +43,7 @@ function showData(animals){
     if (animals[i].primary_photo_cropped){
       var petImgEl = document.createElement('img');
       petImgEl.setAttribute("src", animals[i].primary_photo_cropped.small);
+      petImgEl.classList = 'pet-img';
       petBoxEl.appendChild(petImgEl);
     }
     

@@ -8,3 +8,10 @@
 .results-title{
     margin-top: 20px;
 }
+
+.pet-img{
+    height: 200px;
+    width: 200px;
+    object-fit: fill;
+    /* object-position: left; */
+}
