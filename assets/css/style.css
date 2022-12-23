@@ -20,12 +20,45 @@ html {
     font-family: 'Pacifico', cursive;
 }
 
+#about-us {
+
+    border-radius: 25px;
+    background-position:top;
+    background-repeat: no-repeat;
+    background-size:cover;
+    transition-property: background-image;
+    transition-duration: 1s;
+}
+
+#about-us-text {
+    padding: 20px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 25px;
+}
+
+
+#intro-container {
+    padding: 90px 70px;
+    border-radius: 25px;
+    background-position:top;
+    background-repeat: no-repeat;
+    background-size:cover;
+    transition-property: background-image;
+    transition-duration: 1s;
+}
+
+#intro-text {
+    padding: 20px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 25px;
+}
 
 body {
     background-color: var(--yellow);
 }
 
 h1 {
+
     background: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--pink) 100%);
     backgroud-clip:text;
     -webkit-background-clip: text;
@@ -34,14 +67,15 @@ h1 {
 }
 
 .btn {
+    cursor: pointer;
     width: fit-content;
     background-color: var(--blue);
     transition-duration: 0.5s;
     transition-property: background-color,color,box-shadow, transform;
 }
 
-#facts-container {
-    margin-top: 40px;
+#adopt-container {
+
     background-image: url("../images/cat-picture.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -49,13 +83,35 @@ h1 {
     border-radius: 35px;
 }
 
-#facts-text {
+#adopt-text {
     margin-right:auto;
     margin-left:auto;
     width: 70%;
     padding: 25px;
     background-color: rgba(255,255,255,0.8);
     border-radius: 25px;
+}
+
+/* random cat facts styling */
+#cat-facts-container {
+    text-align: center;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 35px;
+}
+
+#fact-container {
+    font-size: 1.2rem;
+
+}
+
+#cat-facts-container img {
+    margin-top: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#next {
+    margin: 15px auto;
 }
 
 .btn:hover {
@@ -89,7 +145,8 @@ h1 {
 }
 
 #back-to-top {
-    left: 5px;
+    
+    left: 0px;
     bottom: 5px;
 }
 
