@@ -11,9 +11,16 @@ html {
 
 }
 
-.menu-item {
+#nav-links a {
     transition-duration: 0.5s;
-    transition-property: font-size, color;
+    transition-property: color;
+}
+#nav-links a:hover {
+    color: var(--purple);
+}
+
+#nav-links a:active {
+    transform: translateY(3px);
 }
 
 #title {
@@ -104,6 +111,13 @@ h1 {
 
 }
 
+#donation-container {
+    text-align: center;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 35px;
+}
+
+
 #cat-facts-container img {
     margin-top: 15px;
     margin-right: auto;
@@ -140,13 +154,44 @@ h1 {
     background-color: var(--shadow);
 }
 
-#map {
-    max-width: 80vw;
+/* Nonprofit list styling */
+#list div {
+    padding: 5px;
+    margin-top:15px;
+    margin-bottom: 15px;
+    border: 6px solid var(--shadow);
+    border-radius: 15px;
+    transition-duration: 0.5s;
+    transition-property: background-color,border;
+}
+
+#list div:hover {
+    background-color: white;
+    border: 6px solid var(--blue);
+
+}
+
+#list div:hover a {
+    color: var(--pink);
+}
+
+#list div:active {
+    transform: translateY(3px);
+}
+
+#list a {
+    font-size: 1.2rem;
+    color: var(--purple)
 }
 
 #back-to-top {
-    
-    left: 0px;
-    bottom: 5px;
+    height: fit-content;
+    transform: rotate(270deg);
+    left: -20px;
+    bottom: 100px;
+}
+
+#back-to-top:active {
+    transform: rotate(270deg) translateY(3px);
 }
 
