@@ -52,6 +52,9 @@ $("#cat-facts-container").hide();
 $("#about-us").hide();
 $("#about-us").fadeIn(3000);
 $("#collapse-list").hide();
+$("#empty-list").hide();
+$("#show-clicked-list").show();
+$("#clear-list").hide();
 
 function backgroundImage() {
 
@@ -137,14 +140,19 @@ function nextFact() {
 
 }
 
+
 // Cat Charity Nonprofit List
 function showNonProfit() {
 
     click2.play();
+    $("#clear-list").hide();
     $("#show-list").hide();
+    $("#show-clicked-list").show();
+    $("#list").empty();
+    $("#empty-list").hide();
 
 
-    var requestNonProfitUrl = "https://partners.every.org/v0.2/browse/cats?take=30&apiKey=f7f12b23de0a26a6c9af08f844f5c3ba"
+    var requestNonProfitUrl = "https://partners.every.org/v0.2/browse/cats?take=100&apiKey=f7f12b23de0a26a6c9af08f844f5c3ba"
 
     // GET request for Nonprofit list
     fetch(requestNonProfitUrl)
@@ -158,16 +166,27 @@ function showNonProfit() {
         for (var x=0; x < data.nonprofits.length; x++) {
 
             var container = $("<div>");
+            container.attr("class","charity");
+            var saveBtn = $("<p>").html("Save This Charity");
+            saveBtn.attr("class","btn block mx-auto my-1.5 rounded-lg px-1.5 py-0 text-base font-semibold leading-7 text-white shadow-sm");
+            
             var NPName = $("<a>").text(data.nonprofits[x].name);
             NPName.attr("href",data.nonprofits[x].profileUrl);
             NPName.attr("target","blank");
             var NPDescription = $("<p>").html(data.nonprofits[x].description + '<a href=' + data.nonprofits[x].profileUrl + ' target="blank"> ... LEARN MORE >></a>');
             container.append(NPName);
+            container.append(saveBtn);
             container.append(NPDescription);
 
             $("#list").append(container);
 
+            saveBtn.attr("data-name", data.nonprofits[x].name);
+            saveBtn.attr("data-content",data.nonprofits[x].description);
+            saveBtn.attr("data-link",data.nonprofits[x].profileUrl);
+
         }
+
+        
 
 
 
@@ -177,13 +196,100 @@ function showNonProfit() {
     $("#collapse-list").show();
 }
 
+
+
 function collapseList() {
     collapse.play();
     $("#list").empty();
     $("#show-list").show();
     $("#collapse-list").hide();
+    $("#show-clicked-list").show();
+    $("#clear-list").hide();
 
 }
+
+function clearList() {
+    collapse.play();
+    $("#list").empty();
+    $("#empty-list").show();
+    localStorage.clear();
+    $("#clear-list").hide();
+    $("#collapse-list").hide();
+}
+
+
+
+// Save charity to list function 
+$("#list").on("click", function(event) {
+
+    search.play();
+
+    var savedList = localStorage.getItem("charityList") || "";
+
+    var target = event.target
+    event.stopPropagation();
+
+    if (target.textContent === "Save This Charity" && !savedList.includes(target.getAttribute("data-name"))) {
+
+        var charityObj = {
+            charityName: target.getAttribute("data-name"),
+            charityInfo: target.getAttribute("data-content"),
+            charityUrl: target.getAttribute("data-link")
+        }
+
+        var charityString = JSON.stringify(charityObj);
+
+        savedList += charityString + "^"
+
+        localStorage.setItem("charityList",savedList);
+
+
+    }
+
+
+})
+
+// Show saved list function
+$("#show-clicked-list").on("click",function() {
+
+    click2.play();
+    $("#show-clicked-list").hide();
+    $("#clear-list").show();
+    $("#show-list").show();
+    $("#collapse-list").show();
+    $("#list").empty();
+
+    var savedString = localStorage.getItem("charityList") || "";
+
+    
+
+    var savedArray = savedString.split("^");
+    savedArray.pop();
+
+    if (savedString === "") {
+        $("#empty-list").show();
+        $("#collapse-list").hide();
+        $("#clear-list").hide();
+    } 
+    
+
+    for (var i=0; i<savedArray.length; i++) {
+
+        var savedObj = JSON.parse(savedArray[i]);
+
+        $("#list").append($("<a>").text(savedObj.charityName).attr("href", savedObj.charityUrl).attr("target","blank"));
+        $("#list").append($("<p>").text(savedObj.charityInfo + " ...").attr("class","mb-8"));
+        
+    }
+
+   
+
+
+
+
+
+})
+
 
 
 // Event Listeners
@@ -191,6 +297,8 @@ $("#show-facts").on("click",showFact);
 $("#next").on("click",nextFact)
 $("#show-list").on("click",showNonProfit);
 $("#collapse-list").on("click",collapseList);
+$("#clear-list").on("click",clearList);
+
 $("#why").on("click",function() {
     meow3.play();
 });
@@ -212,7 +320,5 @@ $("#back-to-top").on("click",function() {
 $("#zipcode").on("focus", function() {
     click.play();
 });
-
-
 
 

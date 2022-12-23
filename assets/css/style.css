@@ -178,9 +178,6 @@ h1 {
     color: var(--pink);
 }
 
-#list div:active {
-    transform: translateY(3px);
-}
 
 #list a {
     font-family: 'Cabin Sketch', cursive;
