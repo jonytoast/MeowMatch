@@ -30,17 +30,16 @@
         </div>
 
         <!-- Nav links -->
-        <div class="space-x-8 lg:flex lg:min-w-0 lg:flex-1 lg:justify-end lg:space-x-12">
-          <a href="#adopt" class="font-semibold text-gray-900 hover:text-gray-400 hover:underline">Why Adopt</a>
-          <a href="#match-example" class="font-semibold text-gray-900 hover:text-gray-400 hover:underline">Matches</a>
-          <a id="show-facts" href="#cat-facts" class="font-semibold text-gray-900 hover:text-gray-400 hover:underline">Daily Meows</a>
-
+        <div id="nav-links" class="space-x-8 lg:flex lg:min-w-0 lg:flex-1 lg:justify-end lg:space-x-12">
+          <a href="#adopt" class="font-semibold text-gray-900 hover:text-gray-400">Why Adopt</a>
+          <a href="#match-example" class="font-semibold text-gray-900 hover:text-gray-400">Matches</a>
+          <a id="show-facts" href="#cat-facts" class="font-semibold text-gray-900 hover:text-gray-400">Daily Meows</a>
+          <a id="donate" href="#donation-container" class="font-semibold text-gray-900 hover:text-gray-400">Donate</a>
 
         </div>
       </nav>
 
       <!-- Header section -->
-
       <header class="mt-10 mb-8">
         <div class="px-6 lg:px-8">
           <div class="mx-auto max-w-3xl pt-24 sm:pt-24 sm:pb-8">
@@ -169,8 +168,6 @@
         </div>
       </div>
 
-
-
       <!-- Random Cat Facts Section -->
       <div id="cat-facts-container" class="mt-10 mb-10 pt-8 pb-8">
         <div>
@@ -227,19 +224,40 @@
                 <dt class="text-sm font-medium text-gray-500">Contact Phone Number</dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">212-XXX-XXXX</dd>
               </div>
-              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12092.517328408147!2d-73.9899209!3d40.7371796!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xaf44b237dcb0c4c5!2sPetco!5e0!3m2!1sen!2sus!4v1671503295699!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-              </div>
             </dl>
           </div>
         </div>
       </div>
 
+      <!-- Donation Section -->
+      <div id="donation-container" class="mt-10 mb-8">
+        <div class="px-6 lg:px-8">
+          <div class="mx-auto max-w-3xl pt-8 sm:pt-8 sm:pb-8">
+            <div>
+              <div id="donation-text">
+                <h1 id="donation-title" class="mt-6 pt-6 text-4xl font-bold tracking-tight sm:text-center sm:text-6xl pb-6 ">Every Little Bit Helps!</h1>
+                <p class="mt-6 mb-8 text-lg leading-8 text-gray-600 sm:text-center">Love cats but are allergic? Donate to these cat nonprofit instead:</p>
+              </div>
+              <div class="mt-2 mb-2 flex gap-x-4 sm:justify-center">
+                <a id="show-list" class="btn rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm">See Nonprofit List</a>
+              </div>
+              <div id="list">
+
+              </div>
+              <div class="mt-2 mb-2 flex gap-x-4 sm:justify-center">
+                <a href="#top" id="collapse-list" class="btn rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Collapse List</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
       <!-- Back to top button -->
-      <div class="invisible lg:visible">
-        <a id="back-to-top" class="fixed btn flex-col justify-center rounded-md border border-transparent py-3 px-4 text-lg font-medium text-white shadow-sm" href="#top">
-          <p class="text-center">^</p>
-            Top
+      <div>
+        <a id="back-to-top" class="fixed btn flex-col justify-center rounded-md border border-transparent py-0 px-4 text-lg font-medium text-white shadow-sm" href="#top">
+          <p class="text-center">Top</p>
         </a>
       </div>
 

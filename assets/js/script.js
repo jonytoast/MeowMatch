@@ -1,6 +1,7 @@
 $("#cat-facts-container").hide();
 $("#about-us").hide();
-$("#about-us").fadeIn(1000);
+$("#about-us").fadeIn(3000);
+$("#collapse-list").hide();
 
 function backgroundImage() {
 
@@ -81,9 +82,56 @@ function nextFact() {
 
 }
 
+// Cat Charity Nonprofit List
+function showNonProfit() {
+
+    $("#show-list").hide();
+
+
+    var requestNonProfitUrl = "https://partners.every.org/v0.2/browse/cats?take=30&apiKey=f7f12b23de0a26a6c9af08f844f5c3ba"
+
+    // GET request for Nonprofit list
+    fetch(requestNonProfitUrl)
+    .then(function(response){
+        return response.json()
+
+    })
+    .then(function(data){
+
+
+        for (var x=0; x < data.nonprofits.length; x++) {
+
+            var container = $("<div>");
+            var NPName = $("<a>").text(data.nonprofits[x].name);
+            NPName.attr("href",data.nonprofits[x].profileUrl);
+            NPName.attr("target","blank");
+            var NPDescription = $("<p>").html(data.nonprofits[x].description + '<a href=' + data.nonprofits[x].profileUrl + ' target="blank"> ... LEARN MORE >></a>');
+            container.append(NPName);
+            container.append(NPDescription);
+
+            $("#list").append(container);
+
+        }
+
+
+
+
+    })
+
+    $("#collapse-list").show();
+}
+
+function collapseList() {
+    $("#list").empty();
+    $("#show-list").show();
+    $("#collapse-list").hide();
+
+}
+
 $("#show-facts").on("click",showFact);
 $("#next").on("click",nextFact)
-
+$("#show-list").on("click",showNonProfit);
+$("#collapse-list").on("click",collapseList);
 
 
 
