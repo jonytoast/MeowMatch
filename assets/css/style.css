@@ -12,6 +12,7 @@ html {
 }
 
 #nav-links a {
+    font-family: 'Aclonica', sans-serif;
     transition-duration: 0.5s;
     transition-property: color;
 }
@@ -24,7 +25,8 @@ html {
 }
 
 #title {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 1.5rem;
 }
 
 #about-us {
@@ -65,15 +67,16 @@ body {
 }
 
 h1 {
-
+    font-family: 'Cabin Sketch', cursive;
     background: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--pink) 100%);
     backgroud-clip:text;
     -webkit-background-clip: text;
     color: transparent;
-    font-family: 'Pacifico', cursive;
+    
 }
 
 .btn {
+    font-family: 'VT323', monospace;
     cursor: pointer;
     width: fit-content;
     background-color: var(--blue);
@@ -180,6 +183,7 @@ h1 {
 }
 
 #list a {
+    font-family: 'Cabin Sketch', cursive;
     font-size: 1.2rem;
     color: var(--purple)
 }

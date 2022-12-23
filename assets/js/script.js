@@ -1,10 +1,47 @@
+// Sound effects
+var click = new Audio();
+click.src = "../audio/Click.wav";
+
+var click2 = new Audio();
+click2.src = "../audio/Click-2.wav";
+
+var collapse = new Audio();
+collapse.src = "../audio/Collapse.wav";
+
+var search = new Audio();
+search.src = "../audio/Search.wav";
+
+var meow1 = new Audio();
+meow1.src = "../audio/Meow-1.wav";
+
+var meow2 = new Audio();
+meow2.src = "../audio/Meow-2.wav";
+
+var meow3 = new Audio();
+meow3.src = "../audio/Meow-3.wav";
+
+var meow4 = new Audio();
+meow4.src = "../audio/Meow-4.wav";
+
+var meow5 = new Audio();
+meow5.src = "../audio/Meow-5.wav";
+
+var meow6 = new Audio();
+meow6.src = "../audio/Meow-6.wav";
+
+var meow7 = new Audio();
+meow7.src = "../audio/Meow-7.wav";
+
+var meow8 = new Audio();
+meow8.src = "../audio/Meow-8.wav";
+
+
 $("#cat-facts-container").hide();
 $("#about-us").hide();
 $("#about-us").fadeIn(3000);
 $("#collapse-list").hide();
 
 function backgroundImage() {
-
 
 
     setInterval(function() {
@@ -85,6 +122,7 @@ function nextFact() {
 // Cat Charity Nonprofit List
 function showNonProfit() {
 
+    click2.play();
     $("#show-list").hide();
 
 
