@@ -1,19 +1,19 @@
 // Sound effects
 var click = new Audio();
 click.src = "assets/audio/Click.wav";
-click.volume = 0.2;
+click.volume = 0.1;
 
 var click2 = new Audio();
 click2.src = "assets/audio/Click-2.wav";
-click2.volume = 0.2;
+click2.volume = 0.1;
 
 var collapse = new Audio();
 collapse.src = "assets/audio/Collapse.wav";
-collapse.volume = 0.2;
+collapse.volume = 0.1;
 
 var search = new Audio();
 search.src = "assets/audio/Search.wav";
-search.volume = 0.2;
+search.volume = 0.1;
 
 var meow1 = new Audio()
 meow1.src = "assets/audio/Meow-1.wav";
@@ -46,31 +46,6 @@ meow7.volume = 0.1;
 var meow8 = new Audio();
 meow8.src = "assets/audio/Meow-8.wav";
 meow8.volume = 0.1;
-
-
-function playMeowA() {
-    meow3.play();
-}
-
-function playMeowB() {
-    meow5.play();
-}
-
-function playMeowC() {
-    meow7.play();
-}
-
-function playMeowD() {
-    meow8.play();
-}
-
-function playMeowE() {
-    meow4.play();
-}
-
-function playMeowF() {
-    meow1.play();
-}
 
 
 $("#cat-facts-container").hide();
@@ -216,13 +191,27 @@ $("#show-facts").on("click",showFact);
 $("#next").on("click",nextFact)
 $("#show-list").on("click",showNonProfit);
 $("#collapse-list").on("click",collapseList);
-$("#why").on("click",playMeowA);
-$("#matches").on("click",playMeowB);
-$("#donate").on("click",playMeowC);
-$("#start").on("click",playMeowD);
-$("#search").on("click",playMeowE);
-$("#back-to-top").on("click",playMeowF);
-
+$("#why").on("click",function() {
+    meow3.play();
+});
+$("#matches").on("click",function() {
+    meow5.play();
+});
+$("#donate").on("click",function() {
+    meow7.play();
+});
+$("#start").on("click",function() {
+    meow8.play();
+});
+$("#search").on("click",function() {
+    meow4.play()
+});
+$("#back-to-top").on("click",function() {
+    meow1.play();
+});
+$("#zipcode").on("focus", function() {
+    click.play();
+});
 
 
 
