@@ -104,23 +104,23 @@
             </div>
           </div>
           <div class="mt-5 md:col-span-2 md:mt-0">
-            <form action="#" method="POST">
+            <form action="#">
               <div class="overflow-hidden shadow sm:rounded-md">
                 <div class="form space-y-6 px-4 py-5 sm:p-6">
                   <fieldset>
                     <legend class="contents text-base font-medium text-gray-900">"Boy or Girl?"</legend>
                     <p class="text-sm text-gray-500">Select the gender of the pet you're looking for</p>
-                    <div class="mt-4 space-y-4">
+                    <div class="mt-4 space-y-4 gender-field">
                       <div class="flex items-center">
-                         <input id="push-everything" name="pet-gender" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                         <input id="push-everything" value="male" name="pet-gender" type="radio" class="male-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                         <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">Male</label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-email" name="pet-gender" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <input id="push-email" name="pet-gender" value="female" type="radio" class="female-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                         <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">Female</label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="pet-gender" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <input id="push-nothing" name="pet-gender" value="" type="radio" class="eitherGender-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                         <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">It doesn't matter!</label>
                       </div>
                     </div>
@@ -130,23 +130,23 @@
                     <p class="text-sm text-gray-500">But just in case you have a preference, select the ideal age of the pet you're looking for</p>
                     <div class="mt-4 space-y-4">
                       <div class="flex items-center">
-                         <input id="push-everything" name="pet-age" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                         <input id="push-everything" name="pet-age" type="radio" class="baby-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                         <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">Baby</label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-email" name="pet-age" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <input id="push-email" name="pet-age" type="radio" class="young-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                         <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">Young</label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="pet-age" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <input id="push-nothing" name="pet-age" type="radio" class="adult-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                         <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">Adult</label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="pet-age" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <input id="push-nothing" name="pet-age" type="radio" class="senior-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                         <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">Senior</label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="pet-age" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <input id="push-nothing" name="pet-age" type="radio" class="anyAge-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                         <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">It doesn't matter!</label>
                       </div>
                     </div>
@@ -160,8 +160,8 @@
                   </fieldset>
                 </div>
               </div>
-              <div class="px-4 py-3 text-right sm:px-6">
-                <a class="btn flex justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white shadow-sm">Find Your New Furbaby</a>
+              <div class="px-4 py-3 text-right sm:px-6" type="submit">
+                <a class="submit-btn btn flex justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white shadow-sm">Find Your New Furbaby</a>
                </div>
             </form>
           </div>
@@ -268,6 +268,10 @@
           <img src="./assets/images/logo.png" alt="logo" class="w-12">
           <h4>© 2022 MEOWMATCH Team, All rights reserved.</h4>
       </footer>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/@petfinder/petfinder-js/dist/petfinder.min.js"></script>
+
   <script src="./assets/js/script.js"></script>
 </body>
 </html>

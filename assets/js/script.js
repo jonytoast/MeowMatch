@@ -3,6 +3,13 @@ $("#about-us").hide();
 $("#about-us").fadeIn(3000);
 $("#collapse-list").hide();
 
+var searchFormEl = document.querySelector('.search-form');
+var submitBtnEl = document.querySelector('.submit-btn');
+var genderEl = document.querySelector('.gender-field');
+
+
+
+
 function backgroundImage() {
 
 
@@ -127,6 +134,89 @@ function collapseList() {
     $("#collapse-list").hide();
 
 }
+
+
+var formSubmitHandler = function (event) {
+    event.preventDefault();
+  
+    // gender
+    var genderSelection;
+
+    var maleChoice = document.querySelector('.male-radio');
+    var femaleChoice = document.querySelector('.female-radio');
+    var eitherGenderChoice = document.querySelector('.eitherGender-radio');
+
+    if (maleChoice.checked){
+        genderSelection = "male"
+    } else if (femaleChoice.checked) {
+        genderSelection = "female"
+    } else {
+        genderSelection = "";
+    }
+
+    // age
+    var ageSelection;
+
+    var babyChoice = document.querySelector('.baby-radio');
+    var youngChoice = document.querySelector('.young-radio');
+    var adultChoice = document.querySelector('.adult-radio');
+    var seniorChoice = document.querySelector('.senior-radio');
+    var anyAgeChoice = document.querySelector('.anyAge-radio');
+
+    if (babyChoice.checked){
+        ageSelection = "baby"
+    } else if (youngChoice.checked) {
+        ageSelection = "young"
+    } else if (adultChoice.checked) {
+        ageSelection = "adult"
+    } else if (seniorChoice.checked) {
+        ageSelection = "senior"
+    } else{
+        ageSelection = "";
+    }
+
+  
+    getData(genderSelection, ageSelection);
+
+    // searchBoxEl.value = "";
+    // petTypeEl.value = "";
+
+    
+  };
+
+
+
+function showData(animals){
+    console.log("hi")
+
+    for (var i = 0; i < animals.length; i++) {  
+        console.log(animals[i].type + " " + animals[i].age + " " + animals[i].gender);
+    }
+}
+
+// get pet data
+
+function getData(petGender, petAge){
+    var pf = new petfinder.Client({apiKey: "8xTjKkX9rqOoNSgYVcICbmHSHx7E8NcVyYx0pXUxWTPBB8RzJG", secret: "7B3fC5cIclR0jWTEliyi7cM52VgwzLrPm382rKwe"});
+  
+    pf.animal.search({type: "cat", gender: petGender, age: petAge, location: "10598"})
+      .then(function (response) {
+          console.log(response.data.animals)
+          showData(response.data.animals)
+      })
+      .catch(function (error) {
+          alert("error occured")
+          console.log(error)
+      });
+  }
+
+
+
+
+
+getData("male", "adult");
+
+submitBtnEl.addEventListener('click', formSubmitHandler);
 
 $("#show-facts").on("click",showFact);
 $("#next").on("click",nextFact)
