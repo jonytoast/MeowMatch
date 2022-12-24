@@ -60,6 +60,10 @@ $("#empty-list").hide();
 $("#show-clicked-list").show();
 $("#clear-list").hide();
 
+$("#start").on("click",function() {
+    $("#intro-text").fadeOut(4000);
+})
+
 function backgroundImage() {
 
 
@@ -86,11 +90,13 @@ backgroundImage();
 // random cat facts and cat gifs
 function showFact() {
 
+    $("#cat-facts-container").fadeIn(3000);
+
     $("#fact-container").children().remove();
 
     meow2.play();
 
-    $("#cat-facts-container").show();
+    
 
     var requestFactUrl = "https://catfact.ninja/fact?max_length=140"
 
