@@ -135,7 +135,7 @@ function collapseList() {
 
 }
 
-
+// handle form submit
 var formSubmitHandler = function (event) {
     event.preventDefault();
   
@@ -175,31 +175,31 @@ var formSubmitHandler = function (event) {
         ageSelection = "";
     }
 
-  
-    getData(genderSelection, ageSelection);
+    // zip
+    var zipSelection = (document.querySelector('.zip-entry')).value;
+    
+    // data call
+    getData(genderSelection, ageSelection, zipSelection);
 
     // searchBoxEl.value = "";
     // petTypeEl.value = "";
 
-    
   };
 
 
 
 function showData(animals){
-    console.log("hi")
-
-    for (var i = 0; i < animals.length; i++) {  
-        console.log(animals[i].type + " " + animals[i].age + " " + animals[i].gender);
+    for (var i = 0; i < animals.length && i < 10; i++) {  
+        console.log(animals[i].contact.address.postcode + " " + animals[i].age + " " + animals[i].gender);
     }
 }
 
 // get pet data
 
-function getData(petGender, petAge){
+function getData(petGender, petAge, petZip){
     var pf = new petfinder.Client({apiKey: "8xTjKkX9rqOoNSgYVcICbmHSHx7E8NcVyYx0pXUxWTPBB8RzJG", secret: "7B3fC5cIclR0jWTEliyi7cM52VgwzLrPm382rKwe"});
   
-    pf.animal.search({type: "cat", gender: petGender, age: petAge, location: "10598"})
+    pf.animal.search({type: "cat", gender: petGender, age: petAge, location: petZip})
       .then(function (response) {
           console.log(response.data.animals)
           showData(response.data.animals)
