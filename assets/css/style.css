@@ -11,17 +11,21 @@ html {
 
 }
 
+body {
+    background: linear-gradient(180deg, var(--yellow) 0%, var(--blue) 100%);
+}
+
+#menu {
+    background: linear-gradient(180deg, var(--blue) 0%, var(--yellow) 100%);
+}
+
 #nav-links a {
     font-family: 'Londrina Solid', cursive;
     transition-duration: 0.5s;
     transition-property: color;
 }
 #nav-links a:hover {
-    color: var(--purple);
-}
-
-#nav-links a:active {
-    transform: translateY(3px);
+    color: white;
 }
 
 #title {
@@ -62,9 +66,6 @@ html {
     border-radius: 25px;
 }
 
-body {
-    background-color: var(--yellow);
-}
 
 h1 {
     font-family: 'Cabin Sketch', cursive;
