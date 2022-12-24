@@ -49,10 +49,12 @@ meow8.volume = 0.1;
 
 
 $("#cat-facts-container").hide();
+$("#about-us").hide();
+$("#about-us").show("fast");
 $("#about-us-text").hide();
-$("#about-us-text").fadeIn(1500);
+$("#about-us-text").fadeIn(2500);
 $("#intro-container").hide();
-$("#intro-container").fadeIn(3500);
+$("#intro-container").fadeIn(4000);
 $("#collapse-list").hide();
 $("#empty-list").hide();
 $("#show-clicked-list").show();
@@ -84,7 +86,7 @@ backgroundImage();
 // random cat facts and cat gifs
 function showFact() {
 
-    $("#fact-container").empty();
+    $("#fact-container").children().remove();
 
     meow2.play();
 
@@ -115,14 +117,13 @@ function showFact() {
 
 function nextFact() {
 
+    $("#fact-container").children().remove();
+
     search.play();
 
     var requestNextFactUrl = "https://catfact.ninja/fact?max_length=140"
 
     var requestNextGifUrl= "https://cataas.com/cat/gif"
-
-    $("#fact-container").children().filter("img").attr("src","");
-    $("#fact-container").children().filter("h3").text("");
 
     // GET request for next random cat gifs
     fetch(requestNextGifUrl)
