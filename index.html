@@ -84,18 +84,17 @@
       </div>
       
       <!-- Form section -->
-      <div id="form-container" class="mt-8 mb-10 sm:mt-8 mb-10">
-        <div class="mt-10 sm:mt-0">
+      <div id="form-container" class="mt-8 mb-10 mx-auto w-10/12 sm:mt-8 mb-10">
         <div class="md:grid md:grid-cols-3 md:gap-6">
           <div class="md:col-span-1">
             <div class="px-4 sm:px-0 border-b-2 border-black">
-              <h3 id="how-to" class="text-xl pt-32 font-medium leading-6 text-gray-900">Here's How:</h3>
+              <h3 id="how-to" class="text-xl pt-14 sm:pt-32 font-medium leading-6 text-gray-900">Here's How:</h3>
               <p class="mt-1 text-md text-black">Answer these simple questions about what you look for in your next pet, and we'll do the rest!</p>
             </div>
           </div>
           <div class="mt-5 md:col-span-2 md:mt-0">
             <form action="#" method="POST">
-              <div class="overflow-hidden shadow sm:rounded-md">
+              <div class="overflow-hidden shadow rounded-md sm:rounded-md">
                 <div class="form space-y-6 px-4 py-5 sm:p-6">
                   <fieldset>
                     <legend class="contents text-base font-medium text-gray-900">"Boy or Girl?"</legend>
@@ -145,21 +144,21 @@
                     <legend class="contents text-base font-medium text-gray-900">"Where you at?"</legend>
                     <p class="text-sm text-gray-500">Enter your 5-digit zipcode so we can finalize the search!</p>
                     <div>
-                      <label for="zipcode" class="block text-sm font-medium text-gray-700">5-Digit Zipcode</label>
-                      <input type="text" name="zipcode" id="zipcode" class="block w-full rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder='ex: "10001"'>
+                      <label for="zipcode" class="mt-4 block text-sm font-medium text-gray-700">5-Digit Zipcode</label>
+                      <input type="text" name="zipcode" id="zipcode" class="block w-2/4 rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder='ex: "10001"'>
                   </fieldset>
                 </div>
               </div>
-              <div class="px-4 py-3 text-right sm:px-6">
-                <a id="search" class="btn flex justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white shadow-sm">Find Your New Furbaby</a>
-               </div>
+              <div class="flex justify-center sm:block sm:mx-auto px-4 py-3">
+                <a id="search" class="btn rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white">Find Your New Furbaby</a>
+              </div>
             </form>
           </div>
         </div>
       </div>
 
       <!-- Random Cat Facts Section -->
-      <div id="cat-facts-container" class="mt-10 mb-10 pt-8 pb-8">
+      <div id="cat-facts-container" class="w-10/12 mx-auto mt-10 mb-10 px-2 pt-6 pb-6">
         <div>
           <h1 id="cat-facts" class="mt-8 mb-8 text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Random Cat Facts</h1>
           <p class="mt-6 mb-6 text-lg leading-8 text-gray-600 sm:text-center">Accompanied by (very cute) GIFs of cats:</p>
@@ -170,13 +169,13 @@
       </div>
 
       <!-- Pet matches example-->
-      <div id="match-example-container">
+      <div id="match-example-container" class="w-11/12 mx-auto">
         <div>
-          <h1 id="match-example" class="text-4xl pt-8 pb-8 font-bold tracking-tight sm:text-center sm:text-6xl">Example Matches</h1>
-          <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Here's what you'll see once we're able to find cats around you that match your input:</p>
+          <h1 id="match-example" class="mt-6 text-center text-4xl font-bold sm:text-center sm:text-6xl pb-6">Example Matches</h1>
+          <p class="mt-6 mb-6 text-base text-gray-600 text-center sm:text-xl" >Here's what you'll see once we're able to find cats around you that match your input:</p>
         </div>
 
-        <div class="form overflow-hidden bg-white shadow sm:rounded-lg">
+        <div class="form overflow-hidden bg-white shadow rounded-lg sm:rounded-lg">
           <div class="px-4 py-5 sm:px-6">
             <h3 class="text-lg font-medium leading-6 text-gray-900">Cat Information</h3>
             <p class="mt-1 max-w-2xl text-sm text-gray-500">Details of the cat up for adoption</p>
@@ -220,17 +219,17 @@
       </div>
 
       <!-- Donation Section -->
-      <div id="donation-container" class="mt-10 mb-8">
+      <div id="donation-container" class="w-11/12 pb-8 mx-auto mt-10 mb-8">
         <div class="px-6 lg:px-8">
           <div class="mx-auto max-w-3xl pt-8 sm:pt-8 sm:pb-8">
             <div>
               <div id="donation-text">
-                <h1 id="donation-title" class="mt-6 pt-6 text-4xl font-bold tracking-tight sm:text-center sm:text-6xl pb-6 ">Every Little Bit Helps!</h1>
-                <p class="mt-6 mb-8 text-lg leading-8 text-gray-600 sm:text-center">Love cats but are allergic? Donate to these cat nonprofit instead:</p>
+                <h1 id="donation-title" class="mt-6 text-center text-4xl font-bold sm:text-center sm:text-6xl pb-6">Every Little Bit Helps!</h1>
+                <p class="mt-6 mb-6 text-base text-gray-600 text-center sm:text-xl">Love cats but are allergic? Donate to these cat nonprofit instead:</p>
               </div>
-              <div class="mt-2 mb-2 flex gap-x-4 sm:justify-center">
-                <a id="show-list" class="btn rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm">See Nonprofit List</a>
-                <a id="show-clicked-list" class="btn rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Your Saved List</a>
+              <div class="mt-2 mb-2 flex gap-x-4 justify-center sm:justify-center">
+                <a id="show-list" class="btn rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">See Nonprofit List</a>
+                <a id="show-clicked-list" class="btn rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Your Saved List</a>
               </div>
               <div>
                 <p id="empty-list">Your List is Empty!</p>
@@ -238,9 +237,9 @@
               <div id="list">
 
               </div>
-              <div class="mt-2 mb-2 flex gap-x-4 sm:justify-center">
-                <a href="#top" id="collapse-list" class="btn rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Collapse List</a>
-                <a id="clear-list" class="btn rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Clear List</a>
+              <div class="mt-2 mb-2 flex gap-x-2 justify-center sm:justify-center">
+                <a href="#top" id="collapse-list" class="btn rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Collapse List</a>
+                <a id="clear-list" class="btn rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Clear List</a>
               </div>
             </div>
           </div>

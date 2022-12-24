@@ -50,18 +50,18 @@ meow8.volume = 0.1;
 
 $("#cat-facts-container").hide();
 $("#about-us").hide();
-$("#about-us").show("fast");
+$("#about-us").show("slow");
 $("#about-us-text").hide();
-$("#about-us-text").fadeIn(2500);
+$("#about-us-text").fadeIn(3000);
 $("#intro-container").hide();
-$("#intro-container").fadeIn(4000);
+$("#intro-container").fadeIn(5000);
 $("#collapse-list").hide();
 $("#empty-list").hide();
 $("#show-clicked-list").show();
 $("#clear-list").hide();
 
 $("#start").on("click",function() {
-    $("#intro-text").fadeOut(4000);
+    $("#intro-text").attr("style","visibility:hidden");
 })
 
 function backgroundImage() {
@@ -326,7 +326,7 @@ $("#search").on("click",function() {
 $("#back-to-top").on("click",function() {
     meow1.play();
 });
-$("#zipcode").on("focus", function() {
+$("input").on("focus", function() {
     click.play();
 });
 
