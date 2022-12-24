@@ -176,7 +176,7 @@ var formSubmitHandler = function (event) {
     }
 
     // zip
-    var zipSelection = (document.querySelector('.zip-entry')).value;
+    var zipSelection = (document.querySelector('.zip-entry')).value || null;
     
     // data call
     getData(genderSelection, ageSelection, zipSelection);
