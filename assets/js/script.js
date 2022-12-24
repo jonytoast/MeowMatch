@@ -49,8 +49,10 @@ meow8.volume = 0.1;
 
 
 $("#cat-facts-container").hide();
-$("#about-us").hide();
-$("#about-us").fadeIn(3000);
+$("#about-us-text").hide();
+$("#about-us-text").fadeIn(1500);
+$("#intro-container").hide();
+$("#intro-container").fadeIn(3500);
 $("#collapse-list").hide();
 $("#empty-list").hide();
 $("#show-clicked-list").show();
