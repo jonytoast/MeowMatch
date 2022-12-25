@@ -179,25 +179,26 @@
         <a id="next" class="btn flex justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white shadow-sm">Next</a>
       </div>
 
-      <!-- Pet matches example-->
-      <div id="match-example-container">
+      <!-- Petmatch Results -->
+      <div id="match-results-container">
         <div>
           <h1 id="match-example" class="text-4xl pt-8 pb-8 font-bold tracking-tight sm:text-center sm:text-6xl">Example Matches</h1>
           <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Here's what you'll see once we're able to find cats around you that match your input:</p>
         </div>
 
-        <div class="form overflow-hidden bg-white shadow sm:rounded-lg">
-          <div class="px-4 py-5 sm:px-6">
-            <h3 class="text-lg font-medium leading-6 text-gray-900">Cat Information</h3>
-            <p class="mt-1 max-w-2xl text-sm text-gray-500">Details of the cat up for adoption</p>
+        <!-- Append items via js-->
+        <div class="pet-box result-item form overflow-hidden bg-white shadow sm:rounded-lg">
+          <div class="box-intro px-4 py-5 sm:px-6">
+            <h3 class="cat-info text-lg font-medium leading-6 text-gray-900">Cat Information</h3>
+            <p class="cat-details mt-1 max-w-2xl text-sm text-gray-500">Details of the cat up for adoption</p>
           </div>
-          <div class="border-t border-gray-200">
-            <dl>
-              <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-gray-500">Pet name</dt>
-                <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Mr. Tux</dd>
+          <div class="main-result-info border-t border-gray-200">
+            <dl class="main-section-container">
+              <div class="pet-name-field bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                <dt class="pet-name-label text-sm font-medium text-gray-500">Pet name</dt>
+                <dd class="pet-name-value mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Mr. Tux</dd>
               </div>
-              <div id="example-image" class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <div id="example-image" class="pet-image px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <img src="./assets/images/pet-example-img.jpg" alt="cat-example-image">
               </div>
               <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
