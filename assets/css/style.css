@@ -11,24 +11,29 @@ html {
 
 }
 
+body {
+    background: linear-gradient(180deg, var(--yellow) 0%, var(--blue) 100%);
+}
+
+#menu {
+    background: linear-gradient(180deg, var(--blue) 0%, var(--yellow) 100%);
+}
+
 #nav-links a {
+    font-family: 'Londrina Solid', cursive;
     transition-duration: 0.5s;
     transition-property: color;
 }
 #nav-links a:hover {
-    color: var(--purple);
-}
-
-#nav-links a:active {
-    transform: translateY(3px);
+    color: white;
 }
 
 #title {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Londrina Solid', cursive;
+    font-size: 1.5rem;
 }
 
 #about-us {
-
     border-radius: 25px;
     background-position:top;
     background-repeat: no-repeat;
@@ -37,7 +42,7 @@ html {
     transition-duration: 1s;
 }
 
-#about-us-text {
+#about-us-container {
     padding: 20px;
     background-color: rgba(255,255,255,0.5);
     border-radius: 25px;
@@ -50,6 +55,7 @@ html {
     background-position:top;
     background-repeat: no-repeat;
     background-size:cover;
+    background-image: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--pink) 100%);
     transition-property: background-image;
     transition-duration: 1s;
 }
@@ -60,20 +66,18 @@ html {
     border-radius: 25px;
 }
 
-body {
-    background-color: var(--yellow);
-}
 
 h1 {
-
+    font-family: 'Cabin Sketch', cursive;
     background: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--pink) 100%);
     backgroud-clip:text;
     -webkit-background-clip: text;
     color: transparent;
-    font-family: 'Pacifico', cursive;
+    
 }
 
 .btn {
+    font-family: 'VT323', monospace;
     cursor: pointer;
     width: fit-content;
     background-color: var(--blue);
@@ -147,7 +151,6 @@ h1 {
 
 .form {
     background: linear-gradient(90deg, var(--blue) 0%, var(--pink) 100%);
-    border-radius: 10px;
     background-color: rgba(255,255,255,0.8);
 }
 
@@ -179,11 +182,9 @@ h1 {
     color: var(--pink);
 }
 
-#list div:active {
-    transform: translateY(3px);
-}
 
 #list a {
+    font-family: 'Cabin Sketch', cursive;
     font-size: 1.2rem;
     color: var(--purple)
 }
