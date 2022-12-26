@@ -186,92 +186,120 @@ var formSubmitHandler = function (event) {
 
 function showData(animals){
     
-    // **TO DO -- CLEAR PREVIOUS CHILDREN ELEMENTS**
-    
-    for (var i = 0; i < animals.length && i < 10; i++) {  
-        console.log(animals[i].contact.address.postcode + " " + animals[i].age + " " + animals[i].gender);
-    }
-
-      
-    // variables
-    var petName = animals[0].name;
-    
-    var petImageURL;
-    if(animals[0].primary_photo_cropped){
-        petImageURL = animals[0].primary_photo_cropped.small
-    } else{
-        petImageURL = "./assets/images/pet-example-img.jpg"
-    }
-    
-    console.log(petImageURL);
-    
-
-    // Continer elements
     var resultsContainerEl = document.querySelector('#match-results-container')
-
-    var petBoxEl = document.createElement('div');
-    petBoxEl.classList = 'pet-box result-item form overflow-hidden bg-white shadow sm:rounded-lg';
-
-    // Description section
-    var boxIntro = document.createElement('div');
-    boxIntro.classList = 'box-intro px-4 py-5 sm:px-6';
-
-    var catInformation = document.createElement('h3');
-    catInformation.classList = "cat-info text-lg font-medium leading-6 text-gray-900"
-    catInformation.textContent = "Cat information"
-
-    var catDetails = document.createElement('p');
-    catDetails.classList = "cat-details mt-1 max-w-2xl text-sm text-gray-500"
-    catDetails.textContent = "Details of the cat up for adoption"
-
-    boxIntro.appendChild(catInformation);
-    boxIntro.appendChild(catDetails);
-
-    petBoxEl.appendChild(boxIntro);
-
-
-    // // Main elements
-    var mainSection = document.createElement('div');
-    mainSection.classList = "main-result-info border-t border-gray-200"
-
-    var mainSectionContainer = document.createElement('dl');
-    mainSectionContainer.classList = "main-section-container"
-
-        // pet name
-    var petNameField = document.createElement('div');
-    petNameField.classList = "pet-name-field bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-
-    var petNameLabel = document.createElement('dt');
-    petNameLabel.classList = "pet-name-label text-sm font-medium text-gray-500"
-    petNameLabel.textContent = "Pet name"
-
-    var petNameValue = document.createElement('dd');
-    petNameValue.classList = "pet-name-value mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"
-    petNameValue.textContent = petName;
-
-    petNameField.appendChild(petNameLabel);
-    petNameField.appendChild(petNameValue);
-    mainSectionContainer.appendChild(petNameField);
-           
-    // **image**
-    var petImageDiv = document.createElement('div');
-    petImageDiv.classList = "pet-image px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-    petImageDiv.setAttribute("id", "example-image")
+    while (resultsContainerEl.firstChild) {
+        resultsContainerEl.removeChild(resultsContainerEl.firstChild);
+    }
     
-    var petImage = document.createElement('img');
-    petImage.setAttribute("src", petImageURL)
-    
-    petImageDiv.appendChild(petImage)
-    mainSectionContainer.appendChild(petImageDiv);
+    for (var i = 0; i < animals.length && i < 7; i++) {  
+        // console.log(animals[i].contact.address.postcode + " " + animals[i].age + " " + animals[i].gender);
+        // console.log("loop: " + i)
 
-``
+        // variables
+        var petName = animals[i].name;     
+        var petImageURL;
+        if(animals[i].primary_photo_cropped){
+            petImageURL = animals[i].primary_photo_cropped.small;
+        } else{
+            petImageURL = "./assets/images/pet-example-img.jpg";
+        }
 
-    // container EL
-    mainSection.appendChild(mainSectionContainer);
-    petBoxEl.appendChild(mainSection);
-    resultsContainerEl.appendChild(petBoxEl);
+        var petGender = animals[i].gender;
+        var petBreed = animals[i].breeds.primary;
+        var petAge = animals[i].age;
+        var petLocation = animals[i].contact.address.city + ", " + animals[i].contact.address.state;
+        var petEmail = animals[i].contact.email || "not listed"
+        var petPhone = animals[i].contact.phone || "not listed"
+
+        // Continer elements
+        var petBoxEl = document.createElement('div');
+        petBoxEl.classList = 'pet-box result-item form overflow-hidden bg-white shadow sm:rounded-lg';
+
+        // Description section
+        var boxIntro = document.createElement('div');
+        boxIntro.classList = 'box-intro px-4 py-5 sm:px-6';
+
+        var catInformation = document.createElement('h3');
+        catInformation.classList = "cat-info text-lg font-medium leading-6 text-gray-900"
+        catInformation.textContent = "Cat information"
+
+        var catDetails = document.createElement('p');
+        catDetails.classList = "cat-details mt-1 max-w-2xl text-sm text-gray-500"
+        catDetails.textContent = "Details of the cat up for adoption"
+
+        boxIntro.appendChild(catInformation);
+        boxIntro.appendChild(catDetails);
+
+        petBoxEl.appendChild(boxIntro);
 
 
+        // // Main elements
+        var mainSection = document.createElement('div');
+        mainSection.classList = "main-result-info border-t border-gray-200"
+
+        var mainSectionContainer = document.createElement('dl');
+        mainSectionContainer.classList = "main-section-container"
+
+            // name
+        var petNameField = document.createElement('div');
+        petNameField.classList = "pet-name-field bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+
+        var petNameLabel = document.createElement('dt');
+        petNameLabel.classList = "pet-name-label text-sm font-medium text-gray-500"
+        petNameLabel.textContent = "Pet name"
+
+        var petNameValue = document.createElement('dd');
+        petNameValue.classList = "pet-name-value mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"
+        petNameValue.textContent = petName;
+
+        petNameField.appendChild(petNameLabel);
+        petNameField.appendChild(petNameValue);
+        mainSectionContainer.appendChild(petNameField);
+            
+            // image
+        var petImageDiv = document.createElement('div');
+        petImageDiv.classList = "pet-image px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+        petImageDiv.setAttribute("id", "example-image")
+        
+        var petImage = document.createElement('img');
+        petImage.setAttribute("src", petImageURL)
+        
+        petImageDiv.appendChild(petImage)
+        mainSectionContainer.appendChild(petImageDiv);
+
+            // additional fields
+
+        var valuesArray = [petGender, petBreed, petAge, petLocation, petEmail, petPhone];
+        var labelsArray = ["Gender", "Breed", "Age", "Location", "Email", "Phone"];    
+
+        for (var j = 0; j < valuesArray.length; j++) {  
+        
+            var fieldContainer = document.createElement('div');
+            fieldContainer.classList = "px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6";
+            if (j % 2 == 0){
+                fieldContainer.classList.add("bg-white");
+            }
+
+            var fieldText = document.createElement('dt');
+            // fieldText.classList = labelsArray[j].toLowerCase() + "-text-field text-sm font-medium text-gray-500";
+            fieldText.classList = "text-sm font-medium text-gray-500";
+            fieldText.textContent = labelsArray[j];
+            
+            var fieldValue = document.createElement('dd');
+            fieldValue.classList = "mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0";
+            fieldValue.textContent = valuesArray[j];
+
+            fieldContainer.appendChild(fieldText);
+            fieldContainer.appendChild(fieldValue);
+            mainSectionContainer.appendChild(fieldContainer);
+        }
+
+        // container EL
+        mainSection.appendChild(mainSectionContainer);
+        petBoxEl.appendChild(mainSection);
+        resultsContainerEl.appendChild(petBoxEl);
+
+    }
 }
 
 // get pet data
