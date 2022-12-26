@@ -8,8 +8,6 @@ var submitBtnEl = document.querySelector('.submit-btn');
 
 function backgroundImage() {
 
-
-
     setInterval(function() {
         var requestImageUrl = "https://api.thecatapi.com/v1/images/search?api_key=live_lZBJdQ1ecQZc9JU2ukmJv99RO1tv7mY4bc4POLm4xjKf1pXJhN01UblBZGaUEqgZ"
     
@@ -22,8 +20,7 @@ function backgroundImage() {
             $("#intro-container").css('background-image', 'url(' + data[0].url + ')')
         })
 
-    },4000);
-    
+    },4000);    
 }
 
 backgroundImage();
