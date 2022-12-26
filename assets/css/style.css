@@ -103,6 +103,10 @@ h1 {
     border-radius: 25px;
 }
 
+.pet-box{
+    margin-bottom: 50px;
+}
+
 /* random cat facts styling */
 #cat-facts-container {
     text-align: center;
