@@ -59,6 +59,7 @@ $("#collapse-list").hide();
 $("#empty-list").hide();
 $("#show-clicked-list").show();
 $("#clear-list").hide();
+$("#search-again").hide();
 
 
 $("#start").on("click",function() {
@@ -307,6 +308,7 @@ $("#show-clicked-list").on("click",function() {
 
 // handle form submit
 var formSubmitHandler = function (event) {
+    event.stopPropagation();
     event.preventDefault();
   
     // gender
@@ -359,13 +361,18 @@ var formSubmitHandler = function (event) {
 
 
 function showData(animals){
+
+
+    $("#match-example").html("Matches");
+    $("#match-example-text").hide();
+    $("#search-again").show();
     
     var resultsContainerEl = document.querySelector('#match-results-container')
     while (resultsContainerEl.firstChild) {
         resultsContainerEl.removeChild(resultsContainerEl.firstChild);
     }
     
-    for (var i = 0; i < animals.length && i < 7; i++) {  
+    for (var i = 0; i < animals.length; i++) {  
         // console.log(animals[i].contact.address.postcode + " " + animals[i].age + " " + animals[i].gender);
         // console.log("loop: " + i)
 
@@ -375,7 +382,7 @@ function showData(animals){
         if(animals[i].primary_photo_cropped){
             petImageURL = animals[i].primary_photo_cropped.small;
         } else{
-            petImageURL = "./assets/images/pet-example-img.jpg";
+            petImageURL = "assets/images/cat-placeholder.jpg";
         }
 
         var petGender = animals[i].gender;
@@ -387,7 +394,7 @@ function showData(animals){
 
         // Continer elements
         var petBoxEl = document.createElement('div');
-        petBoxEl.classList = 'pet-box result-item form overflow-hidden bg-white shadow sm:rounded-lg';
+        petBoxEl.classList = 'pet-box result-item form overflow-hidden bg-white shadow rounded-lg sm:rounded-lg';
 
         // Description section
         var boxIntro = document.createElement('div');
@@ -525,4 +532,12 @@ $("input").on("focus", function() {
     click.play();
 });
 
+$("#search").on("click",function() {
+    meow6.play();
+})
+
+$("#search-again").on("click",function() {
+    // reset form here
+    collapse.play();
+})
 
