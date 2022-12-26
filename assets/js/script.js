@@ -68,8 +68,6 @@ $("#start").on("click",function() {
 var submitBtnEl = document.querySelector('.submit-btn');
 
 
-function backgroundImage() {
-
 
 function backgroundImage() {
 
