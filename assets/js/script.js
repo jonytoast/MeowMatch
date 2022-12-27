@@ -518,7 +518,16 @@ function showData(animals){
             
             var fieldValue = document.createElement('dd');
             fieldValue.classList = "mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0";
-            fieldValue.textContent = valuesArray[j];
+
+            if(labelsArray[j] == "Email"){
+                var addressLink = document.createElement('a');
+                addressLink.setAttribute("href", "mailto: " + valuesArray[j]);
+                addressLink.textContent = valuesArray[j];
+                fieldValue.appendChild(addressLink)
+            }
+            else{
+                fieldValue.textContent = valuesArray[j];
+            }
 
             fieldContainer.appendChild(fieldText);
             fieldContainer.appendChild(fieldValue);
