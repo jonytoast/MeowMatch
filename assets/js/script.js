@@ -183,8 +183,6 @@ function showNonProfit() {
     })
     .then(function(data){
 
-    
-        console.log(data);
         var remainingCharityString = localStorage.getItem("charityList") || "";
        
 
@@ -298,10 +296,12 @@ $("#show-clicked-list").on("click",function() {
 
     var savedString = localStorage.getItem("charityList") || "";
 
-    
-
     var savedArray = savedString.split("^");
     savedArray.pop();
+
+    if (savedArray[0] === "") {
+        savedArray.shift();
+    }
 
     if (savedString === "") {
         $("#empty-list").show();
@@ -316,12 +316,12 @@ $("#show-clicked-list").on("click",function() {
         var savedObj = JSON.parse(savedArray[i]);
 
         var removeBtn = $("<p>").html("Remove from List");
-        removeBtn.attr("class", "btn remove-btn block mx-auto my-1.5 rounded-lg px-1.5 py-0 text-base font-semibold leading-7 text-white shadow-sm");
+        removeBtn.attr("class", "btn block mx-auto my-1.5 rounded-lg px-1.5 py-0 text-base font-semibold leading-7 text-white shadow-sm");
 
         $("#list").append(listContainer);
         listContainer.append($("<a>").text(savedObj.charityName).attr("href", savedObj.charityUrl).attr("target","blank"));
         listContainer.append(removeBtn);
-        listContainer.append($("<p>").html(savedObj.charityInfo + " ..." + '<a href=' + savedObj.charityUrl + ' target="blank"> ... LEARN MORE >></a>').attr("class","mb-8"));
+        listContainer.append($("<p>").html(savedObj.charityInfo + " ..." + '<a href=' + savedObj.charityUrl + ' target="blank"> ... LEARN MORE >></a>'));
         
         
     }
@@ -329,19 +329,38 @@ $("#show-clicked-list").on("click",function() {
     // removing charity from saved list
     $(".saved-charity").on("click",function(event) {
 
-        console.log(savedArray);
+        collapse.play();
         
         var target = event.target;
+        var targetContent = target.previousElementSibling.textContent;
+
   
 
-        if (target.textContent === "Remove from List" && savedString.includes) {
+        // identifies and removes charity from saved list and saves updated list to local storage
+        for (var y=0; y<savedArray.length; y++) {
 
-            target.parentElement.setAttribute("style","display:none");
+            if (target.textContent === "Remove from List" && savedArray[y].includes(targetContent)) {
+
+                savedArray.splice(y,1);
+
+                var newSavedString = savedArray.toString();
+
+                var newFormattedString = newSavedString.replaceAll("},{","}^{") + "^";
+
+                localStorage.setItem("charityList",newFormattedString);
+
+                target.parentElement.setAttribute("style","display:none");
 
 
+            }
         }
 
-
+        if (newFormattedString === "^") {
+            localStorage.clear();
+            $("#empty-list").show();
+            $("#clear-list").hide();
+            $("#collapse-list").hide();
+        }
         
         
     })
