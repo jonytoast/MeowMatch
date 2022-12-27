@@ -3,6 +3,7 @@
     --purple: #977FD7;
     --pink: #F5A9CB;
     --yellow: #FFFFC2;
+    --green: #c9ffb4;
     --shadow: rgb(220, 213, 213);
 }
 
@@ -12,7 +13,7 @@ html {
 }
 
 body {
-    background: linear-gradient(180deg, var(--yellow) 0%, var(--blue) 100%);
+    background: linear-gradient(180deg, var(--yellow) 0%, var(--shadow) 100%);
 }
 
 #menu {
@@ -83,7 +84,8 @@ h1 {
     background-color: var(--blue);
     transition-duration: 0.5s;
     transition-property: background-color,color,box-shadow, transform;
-}
+} 
+
 
 #adopt-container {
 

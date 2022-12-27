@@ -94,9 +94,8 @@
           </div>
           <div class="mt-5 md:col-span-2 md:mt-0">
 
-            <form action="#">
+            <form id="form">
               <div class="overflow-hidden shadow sm:rounded-md">
-
                 <div class="form space-y-6 px-4 py-5 sm:p-6">
                   <fieldset>
                     <legend class="contents text-base font-medium text-gray-900">"Boy or Girl?"</legend>
@@ -114,6 +113,7 @@
                         <input id="push-nothing" name="pet-gender" value="" type="radio" class="eitherGender-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                         <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">It doesn't matter!</label>
                       </div>
+                      <p id="gender-alert" style="color:red">Please Select a Gender for Your Search!</p>
                     </div>
                   </fieldset>
                   <fieldset>
@@ -140,6 +140,7 @@
                         <input id="push-nothing" name="pet-age" type="radio" class="anyAge-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
                         <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">It doesn't matter!</label>
                       </div>
+                      <p id="age-alert" style="color:red">Please Select an Age for Your Search!</p>
                     </div>
                   </fieldset>
                   <fieldset>
@@ -149,14 +150,15 @@
 
                       <label for="zipcode" class="block text-sm font-medium text-gray-700">5-Digit Zipcode:</label>
                       <input type="text" name="zipcode" id="zipcode" class="zip-entry block w-full rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder='ex: "10001"'>
+                      <p id="zip-alert" style="color:red">Please Enter a Zipcode for Your Search!</p>
                   </fieldset>
                 </div>
               </div>
               <div class="px-4 py-3 text-right sm:px-6" type="submit">
-                <a class="submit-btn btn flex justify-center rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white shadow-sm">Find Your New Furbaby</a>
+                <a href="#match-example-container" id="search" class="submit-btn btn block mx-auto rounded-lg px-4 py-1.5 font-semibold sm:flex text-white">Find Your New Furbaby</a>
                </div>
-
             </form>
+            <p id="error" style="color:red">Oops! An Error Occured. Try Again?</p>
           </div>
         </div>
       </div>
@@ -173,25 +175,23 @@
       </div>
 
       <!-- Petmatch Results ** MOVE THIS BCK INTO RESULTS CONTAINER TO CLEAR ON SEARCH??-->
-      <div>
-        <h1 id="match-example" class="text-4xl pt-8 pb-8 font-bold tracking-tight sm:text-center sm:text-6xl">Matches</h1>
-        <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Here's what you'll see once we're able to find cats around you that match your input:</p>
-      </div>
+      
 
 
       <!-- Pet matches example-->
       <div id="match-example-container" class="w-11/12 mx-auto">
+        <div>
+          <h1 id="match-example" class="mt-6 text-center text-4xl font-bold sm:text-center sm:text-6xl pb-6">Sample Match</h1>
+          <p id="match-example-text" class="mt-6 mb-6 text-base text-gray-600 text-center sm:text-xl">Here's what you'll see once we're able to find cats around you that match your input:</p>
+        </div>
 
       <!-- Petmatch Results -->
       <div id="match-results-container">
-
-
         <!-- Append items via js-->
-        <div class="pet-box result-item form overflow-hidden bg-white shadow sm:rounded-lg">
+        <div class="pet-box result-item form overflow-hidden bg-white shadow rounded-lg sm:rounded-lg">
           <div class="box-intro px-4 py-5 sm:px-6">
             <h3 class="cat-info text-lg font-medium leading-6 text-gray-900">Cat Information</h3>
             <p class="cat-details mt-1 max-w-2xl text-sm text-gray-500">Details of the cat up for adoption</p>
-
           </div>
           <div class="main-result-info border-t border-gray-200">
             <dl class="main-section-container">
@@ -230,6 +230,8 @@
           </div>
         </div>
       </div>
+      <!-- Search-again Button -->
+      <a id="search-again" href="#form-container" class="btn block mx-auto rounded-lg px-4 py-1.5 font-semibold sm:flex text-white">Do Another Search</a>
 
       <!-- Donation Section -->
       <div id="donation-container" class="w-11/12 pb-8 mx-auto mt-10 mb-8">

@@ -11,6 +11,10 @@ var collapse = new Audio();
 collapse.src = "assets/audio/Collapse.wav";
 collapse.volume = 0.1;
 
+var warning = new Audio();
+warning.src = "assets/audio/warning.wav";
+warning.volume = 0.1;
+
 var search = new Audio();
 search.src = "assets/audio/Search.wav";
 search.volume = 0.1;
@@ -55,10 +59,15 @@ $("#about-us-text").hide();
 $("#about-us-text").fadeIn(3000);
 $("#intro-container").hide();
 $("#intro-container").fadeIn(5000);
+$("#gender-alert").hide();
+$("#age-alert").hide();
+$("#zip-alert").hide();
+$("#error").hide();
 $("#collapse-list").hide();
 $("#empty-list").hide();
 $("#show-clicked-list").show();
 $("#clear-list").hide();
+$("#search-again").hide();
 
 
 $("#start").on("click",function() {
@@ -174,8 +183,18 @@ function showNonProfit() {
     })
     .then(function(data){
 
+    
+        console.log(data);
+        var remainingCharityString = localStorage.getItem("charityList") || "";
+       
 
         for (var x=0; x < data.nonprofits.length; x++) {
+
+            // Excludes already-saved charities from being displayed in the charity list
+            if (remainingCharityString.includes(data.nonprofits[x].name)) {
+
+                continue;
+            } 
 
             var container = $("<div>");
             container.attr("class","charity");
@@ -238,9 +257,16 @@ $("#list").on("click", function(event) {
     var savedList = localStorage.getItem("charityList") || "";
 
     var target = event.target
-    event.stopPropagation();
+    event.stopPropagation(); 
+
+
+
 
     if (target.textContent === "Save This Charity" && !savedList.includes(target.getAttribute("data-name"))) {
+
+        // Remove already-clicked charity from charity list
+        target.parentElement.setAttribute("style","display:none");
+
 
         var charityObj = {
             charityName: target.getAttribute("data-name"),
@@ -293,11 +319,6 @@ $("#show-clicked-list").on("click",function() {
         
     }
 
-   
-
-
-
-
 
 })
 
@@ -307,7 +328,12 @@ $("#show-clicked-list").on("click",function() {
 
 // handle form submit
 var formSubmitHandler = function (event) {
+
+    event.stopPropagation();
     event.preventDefault();
+    $("#error").hide();
+
+    
   
     // gender
     var genderSelection;
@@ -316,17 +342,24 @@ var formSubmitHandler = function (event) {
     var femaleChoice = document.querySelector('.female-radio');
     var eitherGenderChoice = document.querySelector('.eitherGender-radio');
 
-    if (maleChoice.checked){
+    if (maleChoice.checked){ 
         genderSelection = "male"
     } else if (femaleChoice.checked) {
         genderSelection = "female"
-    } else {
+    } else if (eitherGenderChoice.checked) {
         genderSelection = "";
+    } else {
+        $("input").val("");
+        $("input").prop('checked', false);
+        $("#gender-alert").show();
+        $("#age-alert").show();
+        $("#zip-alert").show();
+        warning.play();
+        return;
     }
 
     // age
     var ageSelection;
-
     var babyChoice = document.querySelector('.baby-radio');
     var youngChoice = document.querySelector('.young-radio');
     var adultChoice = document.querySelector('.adult-radio');
@@ -341,53 +374,79 @@ var formSubmitHandler = function (event) {
         ageSelection = "adult"
     } else if (seniorChoice.checked) {
         ageSelection = "senior"
-    } else{
+    } else if (anyAgeChoice.checked) {
         ageSelection = "";
+    } else {
+        $("input").val("");
+        $("input").prop('checked', false);
+        $("#gender-alert").show();
+        $("#age-alert").show();
+        $("#zip-alert").show();
+        warning.play();
+        return;
+        
     }
 
     // zip
     var zipSelection = (document.querySelector('.zip-entry')).value || null;
+
+    if(zipSelection === null) {
+        $("input").val("");
+        $("input").prop('checked', false);
+        $("#gender-alert").show();
+        $("#age-alert").show();
+        $("#zip-alert").show();
+        warning.play();
+        return;
+        
+    }
     
     // data call
     getData(genderSelection, ageSelection, zipSelection);
 
-    // searchBoxEl.value = "";
-    // petTypeEl.value = "";
+
 
   };
 
 
 
 function showData(animals){
+
+
+    $("#match-example").html("Matches");
+    $("#match-example-text").hide();
+    $("#search-again").show();
     
     var resultsContainerEl = document.querySelector('#match-results-container')
     while (resultsContainerEl.firstChild) {
         resultsContainerEl.removeChild(resultsContainerEl.firstChild);
     }
     
-    for (var i = 0; i < animals.length && i < 7; i++) {  
-        // console.log(animals[i].contact.address.postcode + " " + animals[i].age + " " + animals[i].gender);
-        // console.log("loop: " + i)
+    for (var i = 0; i < animals.length; i++) {  
+    
 
         // variables
         var petName = animals[i].name;     
         var petImageURL;
+
+        
         if(animals[i].primary_photo_cropped){
             petImageURL = animals[i].primary_photo_cropped.small;
-        } else{
-            petImageURL = "./assets/images/pet-example-img.jpg";
+        } else {
+            // Skip over results without image
+            continue;
         }
 
         var petGender = animals[i].gender;
         var petBreed = animals[i].breeds.primary;
         var petAge = animals[i].age;
         var petLocation = animals[i].contact.address.city + ", " + animals[i].contact.address.state;
-        var petEmail = animals[i].contact.email || "not listed"
-        var petPhone = animals[i].contact.phone || "not listed"
+        var petEmail = animals[i].contact.email || "not listed";
+        var petPhone = animals[i].contact.phone || "not listed";
 
         // Continer elements
         var petBoxEl = document.createElement('div');
-        petBoxEl.classList = 'pet-box result-item form overflow-hidden bg-white shadow sm:rounded-lg';
+        petBoxEl.classList = 'pet-box result-item form overflow-hidden bg-white shadow rounded-lg sm:rounded-lg';
 
         // Description section
         var boxIntro = document.createElement('div');
@@ -403,7 +462,6 @@ function showData(animals){
 
         boxIntro.appendChild(catInformation);
         boxIntro.appendChild(catDetails);
-
         petBoxEl.appendChild(boxIntro);
 
 
@@ -442,7 +500,6 @@ function showData(animals){
         mainSectionContainer.appendChild(petImageDiv);
 
             // additional fields
-
         var valuesArray = [petGender, petBreed, petAge, petLocation, petEmail, petPhone];
         var labelsArray = ["Gender", "Breed", "Age", "Location", "Email", "Phone"];    
 
@@ -455,7 +512,7 @@ function showData(animals){
             }
 
             var fieldText = document.createElement('dt');
-            // fieldText.classList = labelsArray[j].toLowerCase() + "-text-field text-sm font-medium text-gray-500";
+     
             fieldText.classList = "text-sm font-medium text-gray-500";
             fieldText.textContent = labelsArray[j];
             
@@ -477,8 +534,13 @@ function showData(animals){
 }
 
 // get pet data
-
 function getData(petGender, petAge, petZip){
+
+    $("#gender-alert").hide();
+    $("#age-alert").hide();
+    $("#zip-alert").hide();
+    meow6.play();
+
     var pf = new petfinder.Client({apiKey: "8xTjKkX9rqOoNSgYVcICbmHSHx7E8NcVyYx0pXUxWTPBB8RzJG", secret: "7B3fC5cIclR0jWTEliyi7cM52VgwzLrPm382rKwe"});
   
     pf.animal.search({type: "cat", gender: petGender, age: petAge, location: petZip})
@@ -487,8 +549,9 @@ function getData(petGender, petAge, petZip){
           showData(response.data.animals)
       })
       .catch(function (error) {
-          alert("error occured")
-          console.log(error)
+        $("#error").show();
+        warning.play();
+        console.log(error)
       });
   }
 
@@ -515,9 +578,7 @@ $("#donate").on("click",function() {
 $("#start").on("click",function() {
     meow8.play();
 });
-$("#search").on("click",function() {
-    meow4.play()
-});
+
 $("#back-to-top").on("click",function() {
     meow1.play();
 });
@@ -525,4 +586,11 @@ $("input").on("focus", function() {
     click.play();
 });
 
+
+// Resets form when user clicks on "Do Another Search"
+$("#search-again").on("click",function() {
+    collapse.play();
+    $("input").val("");
+    $("input").prop('checked', false);
+})
 
