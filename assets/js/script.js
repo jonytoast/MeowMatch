@@ -184,7 +184,7 @@ function showNonProfit() {
     .then(function(data){
 
         var remainingCharityString = localStorage.getItem("charityList") || "";
-       
+
 
         for (var x=0; x < data.nonprofits.length; x++) {
 
@@ -215,14 +215,10 @@ function showNonProfit() {
 
         }
 
-        
-
-
-
-
     })
 
     $("#collapse-list").show();
+    
 }
 
 
@@ -460,6 +456,8 @@ var formSubmitHandler = function (event) {
 
 function showData(animals){
 
+    // Scrolls screen down to result section 
+    window.scrollBy(0,750);
 
     $("#match-example").html("Matches");
     $("#match-example-text").hide();
@@ -570,6 +568,7 @@ function showData(animals){
             if(labelsArray[j] == "Email"){
                 var addressLink = document.createElement('a');
                 addressLink.setAttribute("href", "mailto: " + valuesArray[j]);
+                addressLink.setAttribute("style","color:blue; text-decoration:underline; cursor:pointer");
                 addressLink.textContent = valuesArray[j];
                 fieldValue.appendChild(addressLink)
             }
@@ -607,6 +606,8 @@ function getData(petGender, petAge, petZip){
       })
       .catch(function (error) {
         $("#error").show();
+        $("input").val("");
+        $("input").prop('checked', false);
         warning.play();
         console.log(error)
       });
