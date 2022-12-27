@@ -286,7 +286,7 @@ $("#list").on("click", function(event) {
 
 })
 
-// Show saved list function
+// Display saved list function
 $("#show-clicked-list").on("click",function() {
 
     click2.play();
@@ -312,15 +312,44 @@ $("#show-clicked-list").on("click",function() {
 
     for (var i=0; i<savedArray.length; i++) {
 
+        var listContainer = $("<div>").attr("class","saved-charity");
         var savedObj = JSON.parse(savedArray[i]);
 
-        $("#list").append($("<a>").text(savedObj.charityName).attr("href", savedObj.charityUrl).attr("target","blank"));
-        $("#list").append($("<p>").text(savedObj.charityInfo + " ...").attr("class","mb-8"));
+        var removeBtn = $("<p>").html("Remove from List");
+        removeBtn.attr("class", "btn remove-btn block mx-auto my-1.5 rounded-lg px-1.5 py-0 text-base font-semibold leading-7 text-white shadow-sm");
+
+        $("#list").append(listContainer);
+        listContainer.append($("<a>").text(savedObj.charityName).attr("href", savedObj.charityUrl).attr("target","blank"));
+        listContainer.append(removeBtn);
+        listContainer.append($("<p>").html(savedObj.charityInfo + " ..." + '<a href=' + savedObj.charityUrl + ' target="blank"> ... LEARN MORE >></a>').attr("class","mb-8"));
+        
         
     }
 
+    // removing charity from saved list
+    $(".saved-charity").on("click",function(event) {
+
+        console.log(savedArray);
+        
+        var target = event.target;
+  
+
+        if (target.textContent === "Remove from List" && savedString.includes) {
+
+            target.parentElement.setAttribute("style","display:none");
+
+
+        }
+
+
+        
+        
+    })
 
 })
+
+
+
 
 
 
