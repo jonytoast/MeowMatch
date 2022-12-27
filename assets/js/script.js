@@ -565,7 +565,7 @@ function showData(animals){
             var fieldValue = document.createElement('dd');
             fieldValue.classList = "mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0";
 
-            if(labelsArray[j] == "Email"){
+            if(labelsArray[j] == "Email" && valuesArray[j] !== "not listed"){
                 var addressLink = document.createElement('a');
                 addressLink.setAttribute("href", "mailto: " + valuesArray[j]);
                 addressLink.setAttribute("style","color:blue; text-decoration:underline; cursor:pointer");
