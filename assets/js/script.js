@@ -246,7 +246,7 @@ function clearList() {
 // Save charity to list function 
 $("#list").on("click", function(event) {
 
-    search.play();
+
 
     var savedList = localStorage.getItem("charityList") || "";
 
@@ -261,6 +261,7 @@ $("#list").on("click", function(event) {
         // Remove already-clicked charity from charity list
         target.parentElement.setAttribute("style","display:none");
 
+        search.play();
 
         var charityObj = {
             charityName: target.getAttribute("data-name"),
@@ -325,7 +326,7 @@ $("#show-clicked-list").on("click",function() {
     // removing charity from saved list
     $(".saved-charity").on("click",function(event) {
 
-        collapse.play();
+        
         
         var target = event.target;
         var targetContent = target.previousElementSibling.textContent;
@@ -337,6 +338,7 @@ $("#show-clicked-list").on("click",function() {
 
             if (target.textContent === "Remove from List" && savedArray[y].includes(targetContent)) {
 
+                collapse.play();
                 savedArray.splice(y,1);
 
                 var newSavedString = savedArray.toString();
