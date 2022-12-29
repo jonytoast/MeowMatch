@@ -26,6 +26,8 @@ Here are the screenshots of the webpage:
 
 ## Installation
 
+https://jonytoast.github.io/MeowMatch/
+
 N/A
 
 ## Usage
