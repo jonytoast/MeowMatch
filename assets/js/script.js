@@ -74,6 +74,11 @@ $("#start").on("click",function() {
     $("#intro-text").attr("style","visibility:hidden");
 })
 
+$("#dismiss").on("click",function() {
+    $("#intro-text").attr("style","visibility:hidden");
+    collapse.play();
+})
+
 var submitBtnEl = document.querySelector('.submit-btn');
 
 
@@ -92,7 +97,9 @@ function backgroundImage() {
             $("#intro-container").css('background-image', 'url(' + data[0].url + ')')
         })
 
-    },4000);    
+    },4000);   
+    
+
 }
 
 backgroundImage();
@@ -117,7 +124,7 @@ function showFact() {
     // GET request for random cat gifs
     fetch(requestGifUrl)
     .then(function(response){
-        $("#fact-container").append($("<img>").attr("src",response.url))
+        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg"))
     })
 
     // GET request for random cat facts
@@ -146,7 +153,7 @@ function nextFact() {
     // GET request for next random cat gifs
     fetch(requestNextGifUrl)
     .then(function(response){
-        $("#fact-container").append($("<img>").attr("src",response.url))
+        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg"))
     })
 
     // GET request for next random cat facts
@@ -542,7 +549,8 @@ function showData(animals){
         petImageDiv.setAttribute("id", "example-image")
         
         var petImage = document.createElement('img');
-        petImage.setAttribute("src", petImageURL)
+        petImage.setAttribute("src", petImageURL);
+        petImage.setAttribute("class","rounded-lg");
         
         petImageDiv.appendChild(petImage)
         mainSectionContainer.appendChild(petImageDiv);
