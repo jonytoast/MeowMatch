@@ -2,10 +2,13 @@
 
 ## Description
 
+MeowMatch is an app designed to help you find and connect with cats in your area.  Search by gender, age, and location to find a pet that matches your desires.
 
+To find cats, enter your preferences, and click "Find Your New Furbaby" to display results, show cat name, image, age, breed, location and more
+
+In addition to finding a pet, you can view cat facts, as well as pet related charities you can save or learn more about.
 
 This App is created for both large and small viewports.
-
 
 The URL of the deployed webpage can be found at:
 
