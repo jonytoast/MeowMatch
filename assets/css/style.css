@@ -80,7 +80,7 @@ body {
 #intro-container {
     padding: 90px 70px;
     border-radius: 25px;
-    background-position:top;
+    background-position:center;
     background-repeat: no-repeat;
     background-size:cover;
     background-image: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--pink) 100%);
