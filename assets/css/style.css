@@ -1,10 +1,18 @@
 :root {
     --blue: #9CCFE7;
+    --periwinkle: #B7CEFF;
+    --aquamarine: #92A4CC;
     --purple: #977FD7;
     --pink: #F5A9CB;
     --yellow: #FFFFC2;
     --green: #c9ffb4;
     --shadow: rgb(220, 213, 213);
+    --bg-blue: #D9E6F3;
+    --bg-taro: #F1E0EA;
+    --bg-peach: #FCE6E9;
+    --bg-nude: #FBE3D7;
+    --linear-gradient: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--pink) 100%);
+    --btn-gradient: linear-gradient(90deg, var(--periwinkle) 0%, var(--aquamarine) 100%);
 }
 
 html {
@@ -12,12 +20,30 @@ html {
 
 }
 
+@keyframes bg-shift {
+    0% {
+        background-color: var(--bg-blue);
+    }
+
+    33% {
+        background-color: var(--bg-taro);
+    }
+
+    66% {
+        background-color: var(--bg-peach);
+    }
+
+    100% {
+        background-color: var(--bg-nude);
+    }
+    
+}
 body {
-    background: linear-gradient(180deg, var(--yellow) 0%, var(--shadow) 100%);
+    animation: bg-shift 8s ease infinite alternate;
 }
 
 #menu {
-    background: linear-gradient(180deg, var(--blue) 0%, var(--yellow) 100%);
+    background: linear-gradient(180deg, var(--periwinkle) 0%, transparent 100%);
 }
 
 #nav-links a {
@@ -46,6 +72,7 @@ body {
 #about-us-container {
     padding: 20px;
     background-color: rgba(255,255,255,0.5);
+    border: 10px double var(--periwinkle);
     border-radius: 25px;
 }
 
@@ -67,24 +94,56 @@ body {
     border-radius: 25px;
 }
 
+@keyframes background-shift {
+
+    0% {
+        background-position: left;
+    }
+
+    100% {
+        background-position: right;
+    }
+    
+}
+
 
 h1 {
     font-family: 'Cabin Sketch', cursive;
-    background: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--pink) 100%);
+    background: var(--linear-gradient);
+    background-size: 200%;
+    background-position: left;
     backgroud-clip:text;
     -webkit-background-clip: text;
     color: transparent;
+    animation: background-shift 3s ease infinite alternate;
     
 }
+
 
 .btn {
     font-family: 'VT323', monospace;
     cursor: pointer;
     width: fit-content;
-    background-color: var(--blue);
+    background: var(--btn-gradient);
+    background-size: 300%;
+    background-position: left;
     transition-duration: 0.5s;
-    transition-property: background-color,color,box-shadow, transform;
+    transition-property: background, color, box-shadow, transform;
+    animation: background-shift 2s infinite alternate-reverse;
 } 
+
+.btn:hover {
+    background: var(--pink);
+    transform: translateY(-3px);
+    box-shadow: 2px 2px 5px grey;
+}
+
+.btn:active {
+    background: var(--shadow);
+    transform: translateY(3px);
+    box-shadow: none;
+    transition: none;
+}
 
 
 #adopt-container {
@@ -138,18 +197,7 @@ h1 {
     margin: 15px auto;
 }
 
-.btn:hover {
-    background-color: var(--pink);
-    transform: translateY(-3px);
-    box-shadow: 2px 2px 5px grey;
-}
 
-.btn:active {
-    background-color: var(--shadow);
-    transform: translateY(3px);
-    box-shadow: none;
-    transition: none;
-}
 
 .form {
     background: linear-gradient(90deg, var(--blue) 0%, var(--pink) 100%);

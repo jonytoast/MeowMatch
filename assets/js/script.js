@@ -74,6 +74,11 @@ $("#start").on("click",function() {
     $("#intro-text").attr("style","visibility:hidden");
 })
 
+$("#dismiss").on("click",function() {
+    $("#intro-text").attr("style","visibility:hidden");
+    collapse.play();
+})
+
 var submitBtnEl = document.querySelector('.submit-btn');
 
 
@@ -92,7 +97,9 @@ function backgroundImage() {
             $("#intro-container").css('background-image', 'url(' + data[0].url + ')')
         })
 
-    },4000);    
+    },4000);   
+    
+
 }
 
 backgroundImage();
@@ -117,7 +124,7 @@ function showFact() {
     // GET request for random cat gifs
     fetch(requestGifUrl)
     .then(function(response){
-        $("#fact-container").append($("<img>").attr("src",response.url))
+        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg"))
     })
 
     // GET request for random cat facts
@@ -146,7 +153,7 @@ function nextFact() {
     // GET request for next random cat gifs
     fetch(requestNextGifUrl)
     .then(function(response){
-        $("#fact-container").append($("<img>").attr("src",response.url))
+        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg"))
     })
 
     // GET request for next random cat facts
@@ -246,7 +253,7 @@ function clearList() {
 // Save charity to list function 
 $("#list").on("click", function(event) {
 
-    search.play();
+
 
     var savedList = localStorage.getItem("charityList") || "";
 
@@ -261,6 +268,7 @@ $("#list").on("click", function(event) {
         // Remove already-clicked charity from charity list
         target.parentElement.setAttribute("style","display:none");
 
+        search.play();
 
         var charityObj = {
             charityName: target.getAttribute("data-name"),
@@ -325,7 +333,7 @@ $("#show-clicked-list").on("click",function() {
     // removing charity from saved list
     $(".saved-charity").on("click",function(event) {
 
-        collapse.play();
+        
         
         var target = event.target;
         var targetContent = target.previousElementSibling.textContent;
@@ -337,6 +345,7 @@ $("#show-clicked-list").on("click",function() {
 
             if (target.textContent === "Remove from List" && savedArray[y].includes(targetContent)) {
 
+                collapse.play();
                 savedArray.splice(y,1);
 
                 var newSavedString = savedArray.toString();
@@ -540,7 +549,8 @@ function showData(animals){
         petImageDiv.setAttribute("id", "example-image")
         
         var petImage = document.createElement('img');
-        petImage.setAttribute("src", petImageURL)
+        petImage.setAttribute("src", petImageURL);
+        petImage.setAttribute("class","rounded-lg");
         
         petImageDiv.appendChild(petImage)
         mainSectionContainer.appendChild(petImageDiv);

@@ -48,8 +48,9 @@
           <div id="intro-text" class="sm:mt-24 sm:w-3/4 sm:mx-auto">
             <h1 class="mt-2 sm:mt-12 text-center text-4xl font-bold sm:text-center sm:text-6xl pb-6">Adopt Today!</h1>
             <p class="mt-6 mb-6 text-base text-gray-600 text-center sm:text-xl">Find a Furbaby Around you that Needs a Fur-ever Home!</p>
-            <div class="mt-4 mb-8 flex justify-center">
-              <a id="start" href="#how-to" class="btn mx-auto rounded-lg px-4 py-1.5 font-semibold leading-7 text-white">Start</a>
+            <div class="mt-2 mb-2 flex gap-x-4 justify-center sm:justify-center">
+              <a id="start" href="#how-to" class="btn rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Start</a>
+              <a id="dismiss" class="btn rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Maybe Later</a>
             </div>
           </div>
         </div>
@@ -102,16 +103,16 @@
                     <p class="text-sm text-gray-500">Select the gender of the pet you're looking for</p>
                     <div class="mt-4 space-y-4 gender-field">
                       <div class="flex items-center">
-                         <input id="push-everything" value="male" name="pet-gender" type="radio" class="male-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">Male</label>
+                         <input id="male" value="male" name="pet-gender" type="radio" class="male-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <label for="male" class="ml-3 block text-sm font-medium text-gray-700">Male</label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-email" name="pet-gender" value="female" type="radio" class="female-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">Female</label>
+                        <input id="female" name="pet-gender" value="female" type="radio" class="female-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <label for="female" class="ml-3 block text-sm font-medium text-gray-700">Female</label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="pet-gender" value="" type="radio" class="eitherGender-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">It doesn't matter!</label>
+                        <input id="either-gender" name="pet-gender" value="" type="radio" class="eitherGender-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <label for="either-gender" class="ml-3 block text-sm font-medium text-gray-700">It doesn't matter!</label>
                       </div>
                       <p id="gender-alert" style="color:red">Please Select a Gender for Your Search!</p>
                     </div>
@@ -121,24 +122,24 @@
                     <p class="text-sm text-gray-500">But just in case you have a preference, select the ideal age of the pet you're looking for</p>
                     <div class="mt-4 space-y-4">
                       <div class="flex items-center">
-                         <input id="push-everything" name="pet-age" type="radio" class="baby-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                        <label for="push-everything" class="ml-3 block text-sm font-medium text-gray-700">Baby</label>
+                         <input id="baby" name="pet-age" type="radio" class="baby-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <label for="baby" class="ml-3 block text-sm font-medium text-gray-700">Baby</label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-email" name="pet-age" type="radio" class="young-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                        <label for="push-email" class="ml-3 block text-sm font-medium text-gray-700">Young</label>
+                        <input id="young" name="pet-age" type="radio" class="young-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <label for="young" class="ml-3 block text-sm font-medium text-gray-700">Young</label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="pet-age" type="radio" class="adult-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">Adult</label>
+                        <input id="adult" name="pet-age" type="radio" class="adult-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <label for="adult" class="ml-3 block text-sm font-medium text-gray-700">Adult</label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="pet-age" type="radio" class="senior-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">Senior</label>
+                        <input id="senior" name="pet-age" type="radio" class="senior-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <label for="senior" class="ml-3 block text-sm font-medium text-gray-700">Senior</label>
                       </div>
                       <div class="flex items-center">
-                        <input id="push-nothing" name="pet-age" type="radio" class="anyAge-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                        <label for="push-nothing" class="ml-3 block text-sm font-medium text-gray-700">It doesn't matter!</label>
+                        <input id="all-ages" name="pet-age" type="radio" class="anyAge-radio h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <label for="all-ages" class="ml-3 block text-sm font-medium text-gray-700">It doesn't matter!</label>
                       </div>
                       <p id="age-alert" style="color:red">Please Select an Age for Your Search!</p>
                     </div>
@@ -200,7 +201,7 @@
                 <dd class="pet-name-value mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Mr. Tux</dd>
               </div>
               <div id="example-image" class="pet-image px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <img src="./assets/images/pet-example-img.jpg" alt="cat-example-image">
+                <img src="./assets/images/pet-example-img.jpg" class="rounded-lg" alt="cat-example-image">
               </div>
               <div class="pet-gender-field bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="pet-gender-text text-sm font-medium text-gray-500">Pet Gender</dt>
@@ -220,7 +221,7 @@
               </div>
               <div class="pet-email-field bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="pet-email-text text-sm font-medium text-gray-500">Contact Email</dt>
-                <dd class="pet-email-value mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">mrtux@gmail.com</dd>
+                <dd class="pet-email-value mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0 text-decoration-line: underline text-blue-700">mrtux@gmail.com</dd>
               </div>
               <div class="pet-phone-field px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="pet-phone-text text-sm font-medium text-gray-500">Contact Phone Number</dt>
@@ -240,7 +241,7 @@
             <div>
               <div id="donation-text">
                 <h1 id="donation-title" class="mt-6 text-center text-4xl font-bold sm:text-center sm:text-6xl pb-6">Every Little Bit Helps!</h1>
-                <p class="mt-6 mb-6 text-base text-gray-600 text-center sm:text-xl">Love cats but are allergic? Donate to these cat nonprofit instead:</p>
+                <p class="mt-6 mb-6 text-base text-gray-600 text-center sm:text-xl">Love cats but are allergic? Donate to these cat nonprofits instead:</p>
               </div>
               <div class="mt-2 mb-2 flex gap-x-4 justify-center sm:justify-center">
                 <a id="show-list" class="btn rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">See Nonprofit List</a>
@@ -273,14 +274,13 @@
 
       <!-- Footer section -->
 
-      <footer class="text-center py-16 flex items-center justify-center flex-col border-t-2 border-black mt-16">
-          <img src="./assets/images/logo.png" alt="logo" class="w-12">
-          <h4>© 2022 MeowMatch Team, All rights reserved.</h4>
+      <footer class="text-center py-4 flex items-center justify-center flex-col border-t-2 border-black mt-4">
+          <img src="./assets/images/logo.png" alt="logo" class="w-8">
+          <h5>© 2022 MeowMatch Team, All rights reserved.</h5>
       </footer>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://unpkg.com/@petfinder/petfinder-js/dist/petfinder.min.js"></script>
-
   <script src="./assets/js/script.js"></script>
 </body>
 </html>
