@@ -374,9 +374,6 @@ $("#show-clicked-list").on("click",function() {
 
 
 
-
-
-
 // Event Listeners
 
 // handle form submit
@@ -502,6 +499,7 @@ function showData(animals){
         // Continer elements
         var petBoxEl = document.createElement('div');
         petBoxEl.classList = 'pet-box result-item form overflow-hidden bg-white shadow rounded-lg sm:rounded-lg';
+        
 
         // Description section
         var boxIntro = document.createElement('div');
@@ -520,7 +518,7 @@ function showData(animals){
         petBoxEl.appendChild(boxIntro);
 
 
-        // // Main elements
+        // Main elements
         var mainSection = document.createElement('div');
         mainSection.classList = "main-result-info border-t border-gray-200"
 
@@ -591,11 +589,22 @@ function showData(animals){
             mainSectionContainer.appendChild(fieldContainer);
         }
 
+        // Save button
+        var saveButtonDiv = document.createElement('div');
+        saveButtonDiv.classList = "pl-8"
+                
+        var saveButton = document.createElement('a');
+        saveButton.classList = "btn rounded-lg px-8 py-4 sm:px-8 sm:py-13.5 text-base font-semibold leading-7 text-white shadow-sm"
+        saveButton.textContent = "Save cat";
+
+
+
         // container EL
         mainSection.appendChild(mainSectionContainer);
         petBoxEl.appendChild(mainSection);
         resultsContainerEl.appendChild(petBoxEl);
-
+        saveButtonDiv.appendChild(saveButton);
+        mainSectionContainer.appendChild(saveButtonDiv);
     }
 }
 
