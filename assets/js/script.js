@@ -82,7 +82,6 @@ $("#dismiss").on("click",function() {
 var submitBtnEl = document.querySelector('.submit-btn');
 
 
-
 function backgroundImage() {
 
     setInterval(function() {
@@ -124,7 +123,7 @@ function showFact() {
     // GET request for random cat gifs
     fetch(requestGifUrl)
     .then(function(response){
-        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg"))
+        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg w-11/12 sm:w-2/4"))
     })
 
     // GET request for random cat facts
@@ -153,7 +152,7 @@ function nextFact() {
     // GET request for next random cat gifs
     fetch(requestNextGifUrl)
     .then(function(response){
-        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg"))
+        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg w-11/12 sm:w-2/4"))
     })
 
     // GET request for next random cat facts

@@ -5,7 +5,7 @@
     --purple: #977FD7;
     --pink: #F5A9CB;
     --yellow: #FFFFC2;
-    --green: #c9ffb4;
+    --green: #D7F4D2;
     --shadow: rgb(220, 213, 213);
     --bg-blue: #D9E6F3;
     --bg-taro: #F1E0EA;
@@ -60,40 +60,6 @@ body {
     font-size: 1.5rem;
 }
 
-#about-us {
-    border-radius: 25px;
-    background-position:top;
-    background-repeat: no-repeat;
-    background-size:cover;
-    transition-property: background-image;
-    transition-duration: 1s;
-}
-
-#about-us-container {
-    padding: 20px;
-    background-color: rgba(255,255,255,0.5);
-    border: 10px double var(--periwinkle);
-    border-radius: 25px;
-}
-
-
-#intro-container {
-    padding: 90px 70px;
-    border-radius: 25px;
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-image: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--pink) 100%);
-    transition-property: background-image;
-    transition-duration: 1s;
-}
-
-#intro-text {
-    padding: 20px;
-    background-color: rgba(255,255,255,0.5);
-    border-radius: 25px;
-}
-
 @keyframes background-shift {
 
     0% {
@@ -106,6 +72,115 @@ body {
     
 }
 
+@keyframes bounce {
+    0% { 
+        transform: translateY(0);
+
+    }
+
+    20% {
+        transform: translateY(-10px) scaleX(0.9) scaleY(1);
+    }
+
+    25% {
+        transform: translateY(2px) scaleX(1);
+    }
+
+    27% {
+        transform: translateY(0) scaleX(1.1) scaleY(0.9);
+    }
+
+    29% {
+        transform: translateY(0) scaleX(1);
+    }
+
+    31% {
+        transform: scaleX(1.1) scaleY(0.9);
+    }
+
+    33% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+    
+}
+
+
+@keyframes glow {
+    0% {
+        box-shadow: 0px 0px 10px 2px var(--yellow), inset 0px 0px 10px 1px var(--yellow);
+    }
+
+    50% {
+        box-shadow: 0px 0px 10px 15px var(--yellow), inset 0px 0px 10px 5px var(--yellow);
+    }
+
+    100% {
+        box-shadow: 0px 0px 10px 2px var(--yellow), inset 0px 0px 10px 1px var(--yellow);
+    }
+}
+
+@keyframes bounce {
+    0% { 
+        transform: translateY(0);
+
+    }
+
+    20% {
+        transform: translateY(-10px) scaleX(0.9) scaleY(1);
+    }
+
+    25% {
+        transform: translateY(2px) scaleX(1);
+    }
+
+    27% {
+        transform: translateY(0) scaleX(1.1) scaleY(0.9);
+    }
+
+    29% {
+        transform: translateY(0) scaleX(1);
+    }
+
+    31% {
+        transform: scaleX(1.1) scaleY(0.9);
+    }
+
+    33% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+    
+}
+
+@keyframes slideshow-frame {
+    0% {
+        border: 15px solid var(--periwinkle);
+    }
+
+    25% {
+        border: 15px solid var(--purple);
+    }
+
+    50% {
+        border: 15px solid var(--pink);
+    
+    }
+
+    75% {
+        border: 15px solid var(--green);
+    }
+
+    100% {
+        border: 15px solid var(--blue);
+    }
+}
 
 h1 {
     font-family: 'Cabin Sketch', cursive;
@@ -115,8 +190,39 @@ h1 {
     backgroud-clip:text;
     -webkit-background-clip: text;
     color: transparent;
-    animation: background-shift 3s ease infinite alternate;
+    animation: background-shift 3s ease infinite alternate, bounce 3s infinite;
     
+}
+
+
+
+#about-us-container {
+    border-radius: 35px;
+    padding: 20px;
+    border: 5px solid white;
+    background-color: rgba(255,255,255,0.7);
+    box-shadow: 0px 0px 10px 2px var(--yellow), inset 0px 0px 10px 1px var(--yellow);
+    animation: glow 3s infinite;
+
+    
+}
+
+
+#intro-container {
+    border-radius: 25px;
+    border: 15px solid var(--periwinkle);
+    animation: slideshow-frame 15s ease infinite alternate-reverse;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-image: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--pink) 100%);
+    transition-property: background-image;
+    transition-duration: 1s;
+}
+
+#intro-text {
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 25px;
 }
 
 
