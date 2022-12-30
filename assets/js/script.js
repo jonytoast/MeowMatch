@@ -607,6 +607,7 @@ function showData(animals){
         saveButton.classList = "btn rounded-lg px-6 py-4 sm:px-8 sm:py-13.5 font-semibold text-white";
         saveButton.setAttribute("data-name",petName);
         saveButton.setAttribute("data-img",petImageURL);
+        saveButton.setAttribute("data-breed",petBreed);
         saveButton.setAttribute("data-gender",petGender);
         saveButton.setAttribute("data-age",petAge);
         saveButton.setAttribute("data-location",petLocation);
@@ -637,6 +638,7 @@ $("#match-results-container").on("click",function(event) {
         var catObj = {
             catName: saveCatTarget.dataset.name,
             catUrl: saveCatTarget.dataset.img,
+            catBreed: saveCatTarget.dataset.breed,
             catGender: saveCatTarget.dataset.gender,
             catAge: saveCatTarget.dataset.age,
             catLocation: saveCatTarget.dataset.location,
@@ -696,20 +698,28 @@ $("#cat-list-btn").on("click",function() {
         removeCatBtn.attr("class", "btn block mx-auto my-1.5 rounded-lg px-1.5 py-0 text-base font-semibold leading-7 text-white shadow-sm");
 
         $("#cat-list").append(catInfoContainer);
-        catInfoContainer.append($("<h3>").text("Cat Name: " + savedCatObj.catName));
-        catInfoContainer.append($("<img>").attr("src", savedCatObj.catUrl));
-        catInfoContainer.append($("<p>").text("Cat Gender: " + savedCatObj.catGender));
-        catInfoContainer.append($("<p>").text("Cat Age: " + savedCatObj.catAge));
-        catInfoContainer.append($("<p>").text("Cat Location: " + savedCatObj.catLocation));
-        catInfoContainer.append($("<p>").html('Contact Email: ' + '<a href=' + savedCatObj.catEmail + ' target="blank">' + savedCatObj.catEmail + "</a>"));
-        catInfoContainer.append($("<p>").text("Contact Phone: " + savedCatObj.catPhone));
+        catInfoContainer.append($("<h3>").html("CAT NAME: " + savedCatObj.catName).attr("class","ml-6 mt-6 sm:text-center"));
+        catInfoContainer.append($("<img>").attr("src", savedCatObj.catUrl).attr("class","rounded-xl w-10/12 mt-4 mb-4 mx-auto border-8 border-grey-400"));
+        catInfoContainer.append($("<p>").html("CAT BREED: " + savedCatObj.catBreed).attr("class","ml-6 sm:text-center"));
+        catInfoContainer.append($("<p>").html("CAT GENDER: " + savedCatObj.catGender).attr("class","ml-6 sm:text-center"));
+        catInfoContainer.append($("<p>").html("CAT AGE: " + savedCatObj.catAge).attr("class","ml-6 sm:text-center"));
+        catInfoContainer.append($("<p>").html("CAT LOCATION: " + savedCatObj.catLocation).attr("class","ml-6 sm:text-center"));
+
+        if (savedCatObj.catEmail === "not listed") {
+            catInfoContainer.append($("<p>").html('CONTACT EMAIL: ' + savedCatObj.catEmail).attr("class","ml-6 sm:text-center"));
+        } else {
+            catInfoContainer.append($("<p>").html('CONTACT EMAIL: ' + '<a href=' + savedCatObj.catEmail + ' target="blank">' + savedCatObj.catEmail + "</a>").attr("class","ml-6 sm:text-center"));
+        }
+        
+        catInfoContainer.append($("<p>").html("CONTACT PHONE: " + savedCatObj.catPhone).attr("class","ml-6 mb-6 sm:text-center"));
         catInfoContainer.append(removeCatBtn);
 
         if(savedCatObj.catGender === "Female") {
-            catInfoContainer.css("border","6px solid var(--pink)");
+            catInfoContainer.css("border","10px solid var(--pink)");
         } else {
-            catInfoContainer.css("border","6px solid var(--blue)");
+            catInfoContainer.css("border","10px solid var(--blue)");
         }
+
         
     }
 
@@ -726,6 +736,10 @@ $("#result-list-btn").on("click",function() {
 })
 
 // todo: remove-cat function
+
+// todo: clear-cat-list function
+
+// todo: add sound effects to add-cat, remove-cat, and clear-cat-list functions
 
 // get pet data
 function getData(petGender, petAge, petZip){
