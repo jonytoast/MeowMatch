@@ -174,17 +174,26 @@
           </div>
         </div>
       </div>
-
-      <!-- Petmatch Results ** MOVE THIS BCK INTO RESULTS CONTAINER TO CLEAR ON SEARCH??-->
       
-
-
       <!-- Pet matches example-->
       <div id="match-example-container" class="w-11/12 mx-auto">
         <div>
           <h1 id="match-example" class="mt-6 text-center text-4xl font-bold sm:text-center sm:text-6xl pb-6">Sample Match</h1>
           <p id="match-example-text" class="mt-0 mb-6 text-base text-gray-600 text-center sm:text-xl">Here's what you'll see once we're able to find cats around you that match your input:</p>
+          <div class="mt-2 mb-2 flex gap-x-4 justify-center sm:justify-center">
+            <a id="cat-list-btn" class="btn mb-4 rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Your Saved Cats</a>
+            <a id="result-list-btn" class="btn mb-4 rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Back to Matches</a>
+          </div>
         </div>
+
+      <!-- Saved Cat List Section -->
+      <div id="saved-list-container">
+        <h1 id="saved-list-text" class="mt-6 text-center text-4xl font-bold sm:text-center sm:text-6xl pb-6">Your Saved Cats</h1>
+        <p id="empty-cat-list" class="text-center">Your List is Empty!</p>
+        <div id="cat-list">
+
+        </div>
+      </div>
 
       <!-- Petmatch Results -->
       <div id="match-results-container">
@@ -256,7 +265,6 @@
               <div class="mt-2 mb-2 flex gap-x-2 justify-center sm:justify-center">
                 <a href="#top" id="collapse-list" class="btn rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Collapse List</a>
                 <a id="clear-list" class="btn rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Clear List</a>
-                <a id="cat-list" class="btn rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Saved Cats</a>
               </div>
             </div>
           </div>

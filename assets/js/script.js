@@ -68,6 +68,11 @@ $("#empty-list").hide();
 $("#show-clicked-list").show();
 $("#clear-list").hide();
 $("#search-again").hide();
+$("#result-list-btn").hide();
+$("#saved-list-container").hide();
+$("#empty-cat-list").hide();
+
+
 
 
 $("#start").on("click",function() {
@@ -243,7 +248,7 @@ function clearList() {
     collapse.play();
     $("#list").empty();
     $("#empty-list").show();
-    localStorage.clear();
+    localStorage.removeItem("charityList");
     $("#clear-list").hide();
     $("#collapse-list").hide();
 }
@@ -360,7 +365,7 @@ $("#show-clicked-list").on("click",function() {
         }
 
         if (newFormattedString === "^") {
-            localStorage.clear();
+            localStorage.removeItem("charityList");
             $("#empty-list").show();
             $("#clear-list").hide();
             $("#collapse-list").hide();
@@ -382,6 +387,8 @@ var formSubmitHandler = function (event) {
     event.preventDefault();
     $("#error").hide();
 
+    $("#match-results-container").show();
+    $("#saved-list-container").hide();
     
   
     // gender
@@ -463,6 +470,10 @@ function showData(animals){
 
     // Scrolls screen down to result section 
     window.scrollBy(0,750);
+
+    
+    $("#cat-list-btn").show();
+    $("result-list-btn").hide();
 
     $("#match-example").html("Matches");
     $("#match-example-text").hide();
@@ -590,11 +601,18 @@ function showData(animals){
 
         // Save button
         var saveButtonDiv = document.createElement('div');
-        saveButtonDiv.classList = "pl-8"
+        saveButtonDiv.classList = "text-center"
                 
         var saveButton = document.createElement('a');
-        saveButton.classList = "btn rounded-lg px-8 py-4 sm:px-8 sm:py-13.5 text-base font-semibold leading-7 text-white shadow-sm"
-        saveButton.textContent = "Save cat";
+        saveButton.classList = "btn rounded-lg px-6 py-4 sm:px-8 sm:py-13.5 font-semibold text-white";
+        saveButton.setAttribute("data-name",petName);
+        saveButton.setAttribute("data-img",petImageURL);
+        saveButton.setAttribute("data-gender",petGender);
+        saveButton.setAttribute("data-age",petAge);
+        saveButton.setAttribute("data-location",petLocation);
+        saveButton.setAttribute("data-email",petEmail);
+        saveButton.setAttribute("data-phone",petPhone);
+        saveButton.textContent = "Save This Cat";
 
 
 
@@ -606,6 +624,108 @@ function showData(animals){
         mainSectionContainer.appendChild(saveButtonDiv);
     }
 }
+
+// Save-cat button function 
+$("#match-results-container").on("click",function(event) {
+
+    
+    var saveCatTarget = event.target 
+
+    if (saveCatTarget.textContent === "Save This Cat") {
+        click2.play();
+        
+        var catObj = {
+            catName: saveCatTarget.dataset.name,
+            catUrl: saveCatTarget.dataset.img,
+            catGender: saveCatTarget.dataset.gender,
+            catAge: saveCatTarget.dataset.age,
+            catLocation: saveCatTarget.dataset.location,
+            catEmail: saveCatTarget.dataset.email,
+            catPhone: saveCatTarget.dataset.phone
+        }
+
+        catString = JSON.stringify(catObj);
+
+        var savedCatString = localStorage.getItem("savedCats") || "";
+
+        if (!savedCatString.includes(catString)) {
+            
+        savedCatString += catString + "^";
+
+        localStorage.setItem("savedCats",savedCatString);
+
+        }
+    }
+})
+
+// Display saved cat list
+$("#cat-list-btn").on("click",function() {
+
+    $("#result-list-btn").show();
+    $("#cat-list-btn").hide();
+    $("#match-example").hide();
+    $("#match-example-text").hide();
+    $("#saved-list-container").show();
+    $("#match-results-container").hide();
+    $("#search-again").show();
+
+// todo: fix bug: "Back to Matches" Button needs to disappear when no search has been done yet!
+
+// todo: reformat saved-cat-list to look better
+
+    var savedCatListString = localStorage.getItem("savedCats") || "";
+    
+    if (savedCatListString === "") {
+        $("#empty-cat-list").show();
+        $("#search-again").hide();
+        $("#result-list-btn").hide();
+    }
+
+    var savedCatArray = savedCatListString.split("^");
+    savedCatArray.pop();
+
+    for (var z=0; z<savedCatArray.length; z++) {
+
+        var catInfoContainer = $("<div>").attr("class","saved-cat");
+        var savedCatObj = JSON.parse(savedCatArray[z]);
+        
+
+        console.log(savedCatObj);
+
+        var removeCatBtn = $("<p>").html("Remove this Cat");
+        removeCatBtn.attr("class", "btn block mx-auto my-1.5 rounded-lg px-1.5 py-0 text-base font-semibold leading-7 text-white shadow-sm");
+
+        $("#cat-list").append(catInfoContainer);
+        catInfoContainer.append($("<h3>").text("Cat Name: " + savedCatObj.catName));
+        catInfoContainer.append($("<img>").attr("src", savedCatObj.catUrl));
+        catInfoContainer.append($("<p>").text("Cat Gender: " + savedCatObj.catGender));
+        catInfoContainer.append($("<p>").text("Cat Age: " + savedCatObj.catAge));
+        catInfoContainer.append($("<p>").text("Cat Location: " + savedCatObj.catLocation));
+        catInfoContainer.append($("<p>").html('Contact Email: ' + '<a href=' + savedCatObj.catEmail + ' target="blank">' + savedCatObj.catEmail + "</a>"));
+        catInfoContainer.append($("<p>").text("Contact Phone: " + savedCatObj.catPhone));
+        catInfoContainer.append(removeCatBtn);
+
+        if(savedCatObj.catGender === "Female") {
+            catInfoContainer.css("border","6px solid var(--pink)");
+        } else {
+            catInfoContainer.css("border","6px solid var(--blue)");
+        }
+        
+    }
+
+
+})
+
+// Switching back to match results
+$("#result-list-btn").on("click",function() {
+    $("#result-list-btn").hide();
+    $("#cat-list-btn").show();
+    $("#match-results-container").show();
+    $("#saved-list-container").hide();
+
+})
+
+// todo: remove-cat function
 
 // get pet data
 function getData(petGender, petAge, petZip){
