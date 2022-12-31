@@ -73,7 +73,21 @@ $("#saved-list-container").hide();
 $("#empty-cat-list").hide();
 $("#match-results-container").hide();
 
+// Cursor mousemove event for interactive background
+$("#about-us-container").on("mousemove",function(event) {
+    var x = event.pageX - event.target.offsetLeft;
+    $("#about-us-container").css("--x", x + "px");    
+})
 
+$("#intro-text").on("mousemove",function(event) {
+    var x = event.pageX - event.target.offsetLeft;
+    $("#intro-text").css("--x", x + "px");
+})
+
+$("#cat-facts-container").on("mousemove",function(event) {
+    var x = event.pageX - event.target.offsetLeft;
+    $("#cat-facts-container").css("--x", x + "px");
+})
 
 $("#start").on("click",function() {
     $("#intro-text").attr("style","visibility:hidden");
@@ -712,20 +726,20 @@ $("#cat-list-btn").on("click",function() {
 
 
         $("#cat-list").append(catInfoContainer);
-        catInfoContainer.append($("<h3>").html("CAT NAME: " + savedCatObj.catName).attr("class","ml-6 mt-6 sm:text-center"));
-        catInfoContainer.append($("<img>").attr("src", savedCatObj.catUrl).attr("class","rounded-xl w-10/12 mt-4 mb-4 mx-auto border-8 border-grey-400"));
-        catInfoContainer.append($("<p>").html("CAT BREED: " + savedCatObj.catBreed).attr("class","ml-6 sm:text-center"));
-        catInfoContainer.append($("<p>").html("CAT GENDER: " + savedCatObj.catGender).attr("class","ml-6 sm:text-center"));
-        catInfoContainer.append($("<p>").html("CAT AGE: " + savedCatObj.catAge).attr("class","ml-6 sm:text-center"));
-        catInfoContainer.append($("<p>").html("CAT LOCATION: " + savedCatObj.catLocation).attr("class","ml-6 sm:text-center"));
+        catInfoContainer.append($("<h3>").html("CAT NAME: " + savedCatObj.catName).attr("class","ml-6 mt-6 sm:text-center text-gray-500"));
+        catInfoContainer.append($("<img>").attr("src", savedCatObj.catUrl).attr("class","rounded-xl w-10/12 mt-4 mb-4 mx-auto border-8 border-grey-400 text-gray-500"));
+        catInfoContainer.append($("<p>").html("CAT BREED: " + savedCatObj.catBreed).attr("class","ml-6 sm:text-center text-gray-500"));
+        catInfoContainer.append($("<p>").html("CAT GENDER: " + savedCatObj.catGender).attr("class","ml-6 sm:text-center text-gray-500"));
+        catInfoContainer.append($("<p>").html("CAT AGE: " + savedCatObj.catAge).attr("class","ml-6 sm:text-center text-gray-500"));
+        catInfoContainer.append($("<p>").html("CAT LOCATION: " + savedCatObj.catLocation).attr("class","ml-6 sm:text-center text-gray-500"));
 
         if (savedCatObj.catEmail === "not listed") {
-            catInfoContainer.append($("<p>").html('CONTACT EMAIL: ' + savedCatObj.catEmail).attr("class","ml-6 sm:text-center"));
+            catInfoContainer.append($("<p>").html('CONTACT EMAIL: ' + savedCatObj.catEmail).attr("class","ml-6 sm:text-center text-gray-500"));
         } else {
-            catInfoContainer.append($("<p>").html('CONTACT EMAIL: ' + '<a href=' + savedCatObj.catEmail + ' target="blank">' + savedCatObj.catEmail + "</a>").attr("class","ml-6 sm:text-center"));
+            catInfoContainer.append($("<p>").html('CONTACT EMAIL: ' + '<a href="mailto:' + savedCatObj.catEmail + '">' + savedCatObj.catEmail + "</a>").attr("class","ml-6 sm:text-center text-gray-500"));
         }
         
-        catInfoContainer.append($("<p>").html("CONTACT PHONE: " + savedCatObj.catPhone).attr("class","ml-6 mb-6 sm:text-center"));
+        catInfoContainer.append($("<p>").html("CONTACT PHONE: " + savedCatObj.catPhone).attr("class","ml-6 mb-6 sm:text-center text-gray-500"));
         catInfoContainer.append(removeCatBtn);
 
         if(savedCatObj.catGender === "Female") {
