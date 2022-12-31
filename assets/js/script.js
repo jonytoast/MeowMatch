@@ -722,7 +722,7 @@ $("#cat-list-btn").on("click",function() {
         if (savedCatObj.catEmail === "not listed") {
             catInfoContainer.append($("<p>").html('CONTACT EMAIL: ' + savedCatObj.catEmail).attr("class","ml-6 sm:text-center"));
         } else {
-            catInfoContainer.append($("<p>").html('CONTACT EMAIL: ' + '<a href=' + savedCatObj.catEmail + ' target="blank">' + savedCatObj.catEmail + "</a>").attr("class","ml-6 sm:text-center"));
+            catInfoContainer.append($("<p>").html('CONTACT EMAIL: ' + '<a href="mailto:' + savedCatObj.catEmail + '">' + savedCatObj.catEmail + "</a>").attr("class","ml-6 sm:text-center"));
         }
         
         catInfoContainer.append($("<p>").html("CONTACT PHONE: " + savedCatObj.catPhone).attr("class","ml-6 mb-6 sm:text-center"));
