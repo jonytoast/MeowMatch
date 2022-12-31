@@ -68,6 +68,11 @@ $("#empty-list").hide();
 $("#show-clicked-list").show();
 $("#clear-list").hide();
 $("#search-again").hide();
+$("#result-list-btn").hide();
+$("#saved-list-container").hide();
+$("#empty-cat-list").hide();
+$("#match-results-container").hide();
+
 
 
 $("#start").on("click",function() {
@@ -243,7 +248,7 @@ function clearList() {
     collapse.play();
     $("#list").empty();
     $("#empty-list").show();
-    localStorage.clear();
+    localStorage.removeItem("charityList");
     $("#clear-list").hide();
     $("#collapse-list").hide();
 }
@@ -360,7 +365,7 @@ $("#show-clicked-list").on("click",function() {
         }
 
         if (newFormattedString === "^") {
-            localStorage.clear();
+            localStorage.removeItem("charityList");
             $("#empty-list").show();
             $("#clear-list").hide();
             $("#collapse-list").hide();
@@ -382,6 +387,7 @@ var formSubmitHandler = function (event) {
     event.preventDefault();
     $("#error").hide();
 
+    
     
   
     // gender
@@ -464,8 +470,13 @@ function showData(animals){
     // Scrolls screen down to result section 
     window.scrollBy(0,750);
 
-    $("#match-example").html("Matches");
-    $("#match-example-text").hide();
+    
+    $("#cat-list-btn").show();
+    $("#result-list-btn").hide();
+    
+    $("#match-example-container").hide();
+    $("#match-results-container").show();
+    $("#saved-list-container").hide();
     $("#search-again").show();
     
     var resultsContainerEl = document.querySelector('#match-results-container')
@@ -495,9 +506,9 @@ function showData(animals){
         var petEmail = animals[i].contact.email || "not listed";
         var petPhone = animals[i].contact.phone || "not listed";
 
-        // Continer elements
+        // Container elements
         var petBoxEl = document.createElement('div');
-        petBoxEl.classList = 'pet-box result-item form overflow-hidden bg-white shadow rounded-lg sm:rounded-lg';
+        petBoxEl.classList = 'pet-box w-11/12 mx-auto result-item form overflow-hidden bg-white shadow rounded-lg sm:rounded-lg';
         
 
         // Description section
@@ -590,11 +601,19 @@ function showData(animals){
 
         // Save button
         var saveButtonDiv = document.createElement('div');
-        saveButtonDiv.classList = "pl-8"
+        saveButtonDiv.classList = "text-center"
                 
         var saveButton = document.createElement('a');
-        saveButton.classList = "btn rounded-lg px-8 py-4 sm:px-8 sm:py-13.5 text-base font-semibold leading-7 text-white shadow-sm"
-        saveButton.textContent = "Save cat";
+        saveButton.classList = "btn rounded-lg px-6 py-4 sm:px-8 sm:py-13.5 font-semibold text-white";
+        saveButton.setAttribute("data-name",petName);
+        saveButton.setAttribute("data-img",petImageURL);
+        saveButton.setAttribute("data-breed",petBreed);
+        saveButton.setAttribute("data-gender",petGender);
+        saveButton.setAttribute("data-age",petAge);
+        saveButton.setAttribute("data-location",petLocation);
+        saveButton.setAttribute("data-email",petEmail);
+        saveButton.setAttribute("data-phone",petPhone);
+        saveButton.textContent = "Save This Cat";
 
 
 
@@ -606,6 +625,180 @@ function showData(animals){
         mainSectionContainer.appendChild(saveButtonDiv);
     }
 }
+
+// Save-cat button function 
+$("#match-results-container").on("click",function(event) {
+
+    
+    var saveCatTarget = event.target 
+
+    if (saveCatTarget.textContent === "Save This Cat") {
+        click2.play();
+        
+        var catObj = {
+            catName: saveCatTarget.dataset.name,
+            catUrl: saveCatTarget.dataset.img,
+            catBreed: saveCatTarget.dataset.breed,
+            catGender: saveCatTarget.dataset.gender,
+            catAge: saveCatTarget.dataset.age,
+            catLocation: saveCatTarget.dataset.location,
+            catEmail: saveCatTarget.dataset.email,
+            catPhone: saveCatTarget.dataset.phone
+        }
+
+        catString = JSON.stringify(catObj);
+
+        var savedCatString = localStorage.getItem("savedCats") || "";
+
+        if (!savedCatString.includes(catString)) {
+            
+        savedCatString += catString + "^";
+
+        localStorage.setItem("savedCats",savedCatString);
+
+        }
+    }
+})
+
+// Display saved cat list
+$("#cat-list-btn").on("click",function() {
+
+
+
+    click2.play();
+
+    $("#cat-list").empty();
+    $("#cat-list-btn").hide();
+    $("#match-example-container").hide();
+    $("#saved-list-container").show();
+    $("#match-results-container").hide();
+    $("#search-again").show();
+    $("#empty-cat-list").hide();
+
+    if ($("#match-results-container")[0].childElementCount === 0) {
+        $("#result-list-btn").hide();
+    } 
+
+    if ($("#match-results-container")[0].childElementCount !== 0) {
+        $("#result-list-btn").show();
+    }
+
+    var savedCatListString = localStorage.getItem("savedCats") || "";
+    
+    if (savedCatListString === "") {
+        $("#empty-cat-list").show();
+        $("#search-again").show();
+        $("#result-list-btn").hide();
+    }
+
+    var savedCatArray = savedCatListString.split("^");
+    savedCatArray.pop();
+
+    for (var z=0; z<savedCatArray.length; z++) {
+
+        var catInfoContainer = $("<div>").attr("class","saved-cat w-11/12 mx-auto");
+        var savedCatObj = JSON.parse(savedCatArray[z]);
+
+        var removeCatBtn = $("<p>").text("Remove This Cat");
+        removeCatBtn.attr("class", "btn remove-btn block mx-auto my-1.5 rounded-lg px-1.5 py-0 text-base font-semibold leading-7 text-white shadow-sm");
+        removeCatBtn.attr("data-name",savedCatObj.catName);
+        removeCatBtn.attr("data-img",savedCatObj.catUrl);
+        removeCatBtn.attr("data-breed",savedCatObj.catBreed);
+        removeCatBtn.attr("data-gender",savedCatObj.catGender);
+        removeCatBtn.attr("data-age",savedCatObj.catAge);
+        removeCatBtn.attr("data-locatiion",savedCatObj.catLocation);
+        removeCatBtn.attr("data-email",savedCatObj.catEmail);
+        removeCatBtn.attr("data-phone",savedCatObj.catPhone);
+
+
+        $("#cat-list").append(catInfoContainer);
+        catInfoContainer.append($("<h3>").html("CAT NAME: " + savedCatObj.catName).attr("class","ml-6 mt-6 sm:text-center"));
+        catInfoContainer.append($("<img>").attr("src", savedCatObj.catUrl).attr("class","rounded-xl w-10/12 mt-4 mb-4 mx-auto border-8 border-grey-400"));
+        catInfoContainer.append($("<p>").html("CAT BREED: " + savedCatObj.catBreed).attr("class","ml-6 sm:text-center"));
+        catInfoContainer.append($("<p>").html("CAT GENDER: " + savedCatObj.catGender).attr("class","ml-6 sm:text-center"));
+        catInfoContainer.append($("<p>").html("CAT AGE: " + savedCatObj.catAge).attr("class","ml-6 sm:text-center"));
+        catInfoContainer.append($("<p>").html("CAT LOCATION: " + savedCatObj.catLocation).attr("class","ml-6 sm:text-center"));
+
+        if (savedCatObj.catEmail === "not listed") {
+            catInfoContainer.append($("<p>").html('CONTACT EMAIL: ' + savedCatObj.catEmail).attr("class","ml-6 sm:text-center"));
+        } else {
+            catInfoContainer.append($("<p>").html('CONTACT EMAIL: ' + '<a href=' + savedCatObj.catEmail + ' target="blank">' + savedCatObj.catEmail + "</a>").attr("class","ml-6 sm:text-center"));
+        }
+        
+        catInfoContainer.append($("<p>").html("CONTACT PHONE: " + savedCatObj.catPhone).attr("class","ml-6 mb-6 sm:text-center"));
+        catInfoContainer.append(removeCatBtn);
+
+        if(savedCatObj.catGender === "Female") {
+            catInfoContainer.css("border","10px solid var(--pink)");
+        } else {
+            catInfoContainer.css("border","10px solid var(--blue)");
+        }
+
+        
+    }
+
+
+})
+
+// Remove-cat function
+$("#cat-list").on("click",function(event) {
+
+
+
+    var removeTarget = event.target;
+
+    // Selects the remove button only
+    if (removeTarget.textContent === "Remove This Cat") {
+
+
+        collapse.play();
+        removeTarget.parentElement.setAttribute("style","display:none");
+
+        var originalCatListString = localStorage.getItem("savedCats") || "";
+        var originalCatListArray = originalCatListString.split("^");
+        originalCatListArray.pop();
+
+        // Identifies and removes cat item from local storage and updates local storage
+        for (var a=0; a<originalCatListArray.length; a++) {
+
+            var originalCatObj = JSON.parse(originalCatListArray[a]);
+
+            if (originalCatObj.catName === removeTarget.dataset.name && originalCatObj.catPhone === removeTarget.dataset.phone) {
+
+                originalCatListArray.splice(a,1);
+
+                localStorage.setItem("savedCats",originalCatListArray.toString().replaceAll("},{","}^{") + "^");
+
+
+            }
+
+            
+        }
+
+        if (localStorage.getItem("savedCats") === "^") {
+            localStorage.removeItem("savedCats");
+            $("#empty-cat-list").show();
+            $("#result-list-btn").hide()
+        }
+
+    }
+
+})
+
+// Switching back to match results
+$("#result-list-btn").on("click",function() {
+
+    click2.play();
+
+    $("#result-list-btn").hide();
+    $("#cat-list-btn").show();
+    $("#match-results-container").show();
+    $("#saved-list-container").hide();
+
+
+
+})
+
 
 // get pet data
 function getData(petGender, petAge, petZip){
@@ -668,5 +861,9 @@ $("#search-again").on("click",function() {
     collapse.play();
     $("input").val("");
     $("input").prop('checked', false);
+    $("#search-again").hide();
+    $("#match-results-container").hide();
+    $("#result-list-btn").hide();
+    $("#saved-list-container").hide();
 })
 
