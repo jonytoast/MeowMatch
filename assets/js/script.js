@@ -51,7 +51,7 @@ var meow8 = new Audio();
 meow8.src = "assets/audio/Meow-8.wav";
 meow8.volume = 0.1;
 
-
+// Page load element display setting
 $("#cat-facts-container").hide();
 $("#about-us").hide();
 $("#about-us").show("slow");
@@ -73,7 +73,7 @@ $("#saved-list-container").hide();
 $("#empty-cat-list").hide();
 $("#match-results-container").hide();
 
-// Cursor mousemove event for interactive background
+// Cursor mousemove events for interactive background
 $("#about-us-container").on("mousemove",function(event) {
     var x = event.pageX - event.target.offsetLeft;
     $("#about-us-container").css("--x", x + "px");    
@@ -89,6 +89,7 @@ $("#cat-facts-container").on("mousemove",function(event) {
     $("#cat-facts-container").css("--x", x + "px");
 })
 
+// Cat slideshow button functions
 $("#start").on("click",function() {
     $("#intro-text").attr("style","visibility:hidden");
 })
@@ -98,9 +99,7 @@ $("#dismiss").on("click",function() {
     collapse.play();
 })
 
-var submitBtnEl = document.querySelector('.submit-btn');
-
-
+// API request for cat slideshow
 function backgroundImage() {
 
     setInterval(function() {
@@ -120,11 +119,10 @@ function backgroundImage() {
 
 }
 
+// Cat slideshow callback
 backgroundImage();
 
-
-
-// random cat facts and cat gifs
+// API reqeust for random cat facts and cat GIF's
 function showFact() {
 
     $("#cat-facts-container").fadeIn(3000);
@@ -134,7 +132,7 @@ function showFact() {
     meow2.play();
 
     
-
+    // Request URL's
     var requestFactUrl = "https://catfact.ninja/fact?max_length=140"
 
     var requestGifUrl= "https://cataas.com/cat/gif"
@@ -158,6 +156,7 @@ function showFact() {
 
 }
 
+// Displays next cat fact when button is clicked
 function nextFact() {
 
     $("#fact-container").children().remove();
@@ -187,7 +186,7 @@ function nextFact() {
 }
 
 
-// Cat Charity Nonprofit List
+// Cat charity nonprofit list
 function showNonProfit() {
 
     click2.play();
@@ -197,7 +196,7 @@ function showNonProfit() {
     $("#list").empty();
     $("#empty-list").hide();
 
-
+    // API request URL
     var requestNonProfitUrl = "https://partners.every.org/v0.2/browse/cats?take=100&apiKey=f7f12b23de0a26a6c9af08f844f5c3ba"
 
     // GET request for Nonprofit list
@@ -210,7 +209,7 @@ function showNonProfit() {
 
         var remainingCharityString = localStorage.getItem("charityList") || "";
 
-
+        // Loops over returned data and displays info
         for (var x=0; x < data.nonprofits.length; x++) {
 
             // Excludes already-saved charities from being displayed in the charity list
@@ -242,12 +241,13 @@ function showNonProfit() {
 
     })
 
+    // Displays collapse-list button
     $("#collapse-list").show();
     
 }
 
 
-
+// Collapse-list function
 function collapseList() {
     collapse.play();
     $("#list").empty();
@@ -258,6 +258,7 @@ function collapseList() {
 
 }
 
+// Removes local storage of charity list
 function clearList() {
     collapse.play();
     $("#list").empty();
@@ -271,16 +272,11 @@ function clearList() {
 // Save charity to list function 
 $("#list").on("click", function(event) {
 
-
-
     var savedList = localStorage.getItem("charityList") || "";
-
     var target = event.target
     event.stopPropagation(); 
 
-
-
-
+    // Targets only save-charity buttons
     if (target.textContent === "Save This Charity" && !savedList.includes(target.getAttribute("data-name"))) {
 
         // Remove already-clicked charity from charity list
@@ -288,6 +284,7 @@ $("#list").on("click", function(event) {
 
         search.play();
 
+        // Creates objects for charity-saving via local storage
         var charityObj = {
             charityName: target.getAttribute("data-name"),
             charityInfo: target.getAttribute("data-content"),
@@ -298,6 +295,7 @@ $("#list").on("click", function(event) {
 
         savedList += charityString + "^"
 
+        // Updates local storage 
         localStorage.setItem("charityList",savedList);
 
 
@@ -316,8 +314,8 @@ $("#show-clicked-list").on("click",function() {
     $("#collapse-list").show();
     $("#list").empty();
 
+    // Retrieves local storage data of saved charities
     var savedString = localStorage.getItem("charityList") || "";
-
     var savedArray = savedString.split("^");
     savedArray.pop();
 
@@ -331,7 +329,7 @@ $("#show-clicked-list").on("click",function() {
         $("#clear-list").hide();
     } 
     
-
+    // Loops over retrieved data and displays
     for (var i=0; i<savedArray.length; i++) {
 
         var listContainer = $("<div>").attr("class","saved-charity");
@@ -348,17 +346,13 @@ $("#show-clicked-list").on("click",function() {
         
     }
 
-    // removing charity from saved list
+    // Removing charity from saved list
     $(".saved-charity").on("click",function(event) {
 
-        
-        
         var target = event.target;
         var targetContent = target.previousElementSibling.textContent;
 
-  
-
-        // identifies and removes charity from saved list and saves updated list to local storage
+        // Identifies and removes charity from saved list and saves updated list to local storage
         for (var y=0; y<savedArray.length; y++) {
 
             if (target.textContent === "Remove from List" && savedArray[y].includes(targetContent)) {
@@ -378,6 +372,7 @@ $("#show-clicked-list").on("click",function() {
             }
         }
 
+        // Removes local storage on charity list when no data remains
         if (newFormattedString === "^") {
             localStorage.removeItem("charityList");
             $("#empty-list").show();
@@ -391,10 +386,7 @@ $("#show-clicked-list").on("click",function() {
 })
 
 
-
-// Event Listeners
-
-// handle form submit
+// Handles form submit
 var formSubmitHandler = function (event) {
 
     event.stopPropagation();
@@ -404,7 +396,7 @@ var formSubmitHandler = function (event) {
     
     
   
-    // gender
+    // Gender
     var genderSelection;
 
     var maleChoice = document.querySelector('.male-radio');
@@ -427,7 +419,7 @@ var formSubmitHandler = function (event) {
         return;
     }
 
-    // age
+    // Age
     var ageSelection;
     var babyChoice = document.querySelector('.baby-radio');
     var youngChoice = document.querySelector('.young-radio');
@@ -456,7 +448,7 @@ var formSubmitHandler = function (event) {
         
     }
 
-    // zip
+    // Zipcode
     var zipSelection = (document.querySelector('.zip-entry')).value || null;
 
     if(zipSelection === null) {
@@ -470,24 +462,21 @@ var formSubmitHandler = function (event) {
         
     }
     
-    // data call
+    // Data call
     getData(genderSelection, ageSelection, zipSelection);
-
-
 
   };
 
 
-
+// Loops over returned data and displays
 function showData(animals){
 
     // Scrolls screen down to result section 
     window.scrollBy(0,750);
 
-    
+    // Buttons and container display setting
     $("#cat-list-btn").show();
     $("#result-list-btn").hide();
-    
     $("#match-example-container").hide();
     $("#match-results-container").show();
     $("#saved-list-container").hide();
@@ -501,7 +490,7 @@ function showData(animals){
     for (var i = 0; i < animals.length; i++) {  
     
 
-        // variables
+        // Variables
         var petName = animals[i].name;     
         var petImageURL;
 
@@ -509,7 +498,7 @@ function showData(animals){
         if(animals[i].primary_photo_cropped){
             petImageURL = animals[i].primary_photo_cropped.small;
         } else {
-            // Skip over results without image
+            // Skips over results without image
             continue;
         }
 
@@ -549,7 +538,7 @@ function showData(animals){
         var mainSectionContainer = document.createElement('dl');
         mainSectionContainer.classList = "main-section-container"
 
-            // name
+        // Name
         var petNameField = document.createElement('div');
         petNameField.classList = "pet-name-field bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
 
@@ -565,7 +554,7 @@ function showData(animals){
         petNameField.appendChild(petNameValue);
         mainSectionContainer.appendChild(petNameField);
             
-            // image
+        // Image
         var petImageDiv = document.createElement('div');
         petImageDiv.classList = "pet-image px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
         petImageDiv.setAttribute("id", "example-image")
@@ -577,7 +566,7 @@ function showData(animals){
         petImageDiv.appendChild(petImage)
         mainSectionContainer.appendChild(petImageDiv);
 
-            // additional fields
+        // Additional fields
         var valuesArray = [petGender, petBreed, petAge, petLocation, petEmail, petPhone];
         var labelsArray = ["Gender", "Breed", "Age", "Location", "Email", "Phone"];    
 
@@ -613,7 +602,7 @@ function showData(animals){
             mainSectionContainer.appendChild(fieldContainer);
         }
 
-        // Save button
+        // Save-cat button
         var saveButtonDiv = document.createElement('div');
         saveButtonDiv.classList = "text-center"
                 
@@ -629,9 +618,7 @@ function showData(animals){
         saveButton.setAttribute("data-phone",petPhone);
         saveButton.textContent = "Save This Cat";
 
-
-
-        // container EL
+        // Container EL
         mainSection.appendChild(mainSectionContainer);
         petBoxEl.appendChild(mainSection);
         resultsContainerEl.appendChild(petBoxEl);
@@ -674,10 +661,8 @@ $("#match-results-container").on("click",function(event) {
     }
 })
 
-// Display saved cat list
+// Displays saved cat list
 $("#cat-list-btn").on("click",function() {
-
-
 
     click2.play();
 
@@ -697,6 +682,7 @@ $("#cat-list-btn").on("click",function() {
         $("#result-list-btn").show();
     }
 
+    // Retrieves saved cat info from local storage
     var savedCatListString = localStorage.getItem("savedCats") || "";
     
     if (savedCatListString === "") {
@@ -708,6 +694,7 @@ $("#cat-list-btn").on("click",function() {
     var savedCatArray = savedCatListString.split("^");
     savedCatArray.pop();
 
+    // Loops over cat info and displays
     for (var z=0; z<savedCatArray.length; z++) {
 
         var catInfoContainer = $("<div>").attr("class","saved-cat w-11/12 mx-auto");
@@ -748,24 +735,21 @@ $("#cat-list-btn").on("click",function() {
             catInfoContainer.css("border","10px solid var(--blue)");
         }
 
-        
     }
-
 
 })
 
 // Remove-cat function
 $("#cat-list").on("click",function(event) {
 
-
-
     var removeTarget = event.target;
 
     // Selects the remove button only
     if (removeTarget.textContent === "Remove This Cat") {
 
-
         collapse.play();
+        
+        // Removes cat from cat list
         removeTarget.parentElement.setAttribute("style","display:none");
 
         var originalCatListString = localStorage.getItem("savedCats") || "";
@@ -780,15 +764,13 @@ $("#cat-list").on("click",function(event) {
             if (originalCatObj.catName === removeTarget.dataset.name && originalCatObj.catPhone === removeTarget.dataset.phone) {
 
                 originalCatListArray.splice(a,1);
-
                 localStorage.setItem("savedCats",originalCatListArray.toString().replaceAll("},{","}^{") + "^");
-
 
             }
 
-            
         }
 
+        // Cleans up local storage data when no cat is left on saved list
         if (localStorage.getItem("savedCats") === "^") {
             localStorage.removeItem("savedCats");
             $("#empty-cat-list").show();
@@ -809,12 +791,20 @@ $("#result-list-btn").on("click",function() {
     $("#match-results-container").show();
     $("#saved-list-container").hide();
 
-
-
 })
 
+// Resets form when user clicks on "Do Another Search"
+$("#search-again").on("click",function() {
+    collapse.play();
+    $("input").val("");
+    $("input").prop('checked', false);
+    $("#search-again").hide();
+    $("#match-results-container").hide();
+    $("#result-list-btn").hide();
+    $("#saved-list-container").hide();
+})
 
-// get pet data
+// Get pet data
 function getData(petGender, petAge, petZip){
 
     $("#gender-alert").hide();
@@ -838,17 +828,20 @@ function getData(petGender, petAge, petZip){
       });
   }
 
+// Selects submit button
+var submitBtnEl = document.querySelector('.submit-btn');
 
-
+// Submit function callback
 submitBtnEl.addEventListener('click', formSubmitHandler);
 
-
+// Event Listeners
 $("#show-facts").on("click",showFact);
 $("#next").on("click",nextFact)
 $("#show-list").on("click",showNonProfit);
 $("#collapse-list").on("click",collapseList);
 $("#clear-list").on("click",clearList);
 
+// Sound effect event listeners
 $("#why").on("click",function() {
     meow3.play();
 });
@@ -861,7 +854,6 @@ $("#donate").on("click",function() {
 $("#start").on("click",function() {
     meow8.play();
 });
-
 $("#back-to-top").on("click",function() {
     meow1.play();
 });
@@ -870,14 +862,5 @@ $("input").on("focus", function() {
 });
 
 
-// Resets form when user clicks on "Do Another Search"
-$("#search-again").on("click",function() {
-    collapse.play();
-    $("input").val("");
-    $("input").prop('checked', false);
-    $("#search-again").hide();
-    $("#match-results-container").hide();
-    $("#result-list-btn").hide();
-    $("#saved-list-container").hide();
-})
+
 

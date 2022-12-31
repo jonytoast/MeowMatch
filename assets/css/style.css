@@ -1,3 +1,4 @@
+/* Variables */
 :root {
     --blue: #9CCFE7;
     --periwinkle: #B7CEFF;
@@ -15,11 +16,12 @@
     --btn-gradient: linear-gradient(90deg, var(--periwinkle) 0%, var(--aquamarine) 100%);
 }
 
+/* Scroll behavior */
 html {
     scroll-behavior:smooth;
-
 }
 
+/* Animations */
 @keyframes bg-shift {
     0% {
         background-color: var(--bg-blue);
@@ -39,31 +41,34 @@ html {
     
 }
 
+/* Menu color */
 #menu {
     background: linear-gradient(180deg, var(--periwinkle) 0%, transparent 100%);
 }
 
-
-
-
+/* Navigation links styling */
 #nav-links a {
     font-family: 'Courier New', Courier, monospace;
     transition-duration: 0.5s;
     transition-property: color;
 }
+
 #nav-links a:hover {
     color: white;
 }
 
+/* Logo styling */
 #title {
     font-family: 'Londrina Solid', cursive;
     font-size: 1.5rem;
 }
 
+/* Background color animation */
 body {
     animation: bg-shift 8s ease infinite alternate;
-};
+}
 
+/* Animation for color-shifting text */
 @keyframes background-shift {
 
     0% {
@@ -76,6 +81,7 @@ body {
     
 }
 
+/* Animation for heading */
 @keyframes bounce {
     0% { 
         transform: translateY(0);
@@ -112,7 +118,7 @@ body {
     
 }
 
-
+/* Animation for glowing effect */
 @keyframes glow {
     0% {
         box-shadow: 0px 0px 10px 2px var(--yellow), inset 0px 0px 10px 1px var(--yellow);
@@ -127,7 +133,7 @@ body {
     }
 }
 
-
+/* Color-changing border animation */
 @keyframes slideshow-frame {
     0% {
         border: 15px solid var(--periwinkle);
@@ -151,6 +157,7 @@ body {
     }
 }
 
+/* Main heading styling */
 h1 {
     font-family: 'Cabin Sketch', cursive;
     background: var(--linear-gradient);
@@ -160,11 +167,9 @@ h1 {
     -webkit-background-clip: text;
     color: transparent;
     animation: background-shift 3s ease infinite alternate, bounce 3s infinite;
-    
 }
 
-
-
+/* Text-boxes styling */
 #about-us-container, #intro-text {
     --x:50%;
     border-radius: 35px;
@@ -173,9 +178,7 @@ h1 {
     background: radial-gradient(circle at var(--x) 50%, white 0%, rgba(255,255,255,0.3) 80%);
     box-shadow: 0px 0px 10px 2px var(--yellow), inset 0px 0px 10px 1px var(--yellow);
     animation: glow 3s infinite;
-
 }
-
 
 #intro-container {
     border-radius: 25px;
@@ -189,7 +192,7 @@ h1 {
     transition-duration: 1s;
 }
 
-
+/* Button styling */
 .btn {
     font-family: 'VT323', monospace;
     cursor: pointer;
@@ -200,7 +203,7 @@ h1 {
     transition-duration: 0.5s;
     transition-property: background, color, box-shadow, transform;
     animation: background-shift 2s infinite alternate-reverse;
-} 
+}
 
 .btn:hover {
     background: var(--pink);
@@ -215,15 +218,13 @@ h1 {
     transition: none;
 }
 
-
+/* Adoption section styling */
 #adopt-container {
-
     background-image: url("../images/cat-picture.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     border-radius: 35px;
-    
 }
 
 #adopt-text {
@@ -235,14 +236,13 @@ h1 {
     border-radius: 25px;
     border: 5px solid white;
     animation: glow 3s infinite;
-
 }
 
 .pet-box{
     margin-bottom: 50px;
 }
 
-/* random cat facts styling */
+/* Random cat facts styling */
 #cat-facts-container {
     text-align: center; 
     border-radius: 35px;
@@ -250,12 +250,11 @@ h1 {
     background: radial-gradient(circle at var(--x) 50%, white 0%, rgba(255,255,255,0.3) 80%);
     border: 5px solid white;
     animation: glow 3s infinite;
-
 }
 
+/* Container styling */
 #fact-container {
     font-size: 1.2rem;
-
 }
 
 #donation-container {
@@ -266,7 +265,6 @@ h1 {
     border: 5px solid white;
 }
 
-
 #cat-facts-container img {
     margin-top: 15px;
     margin-right: auto;
@@ -275,14 +273,13 @@ h1 {
     border: 15px solid var(--periwinkle);
     border-radius: 25px;
     animation: slideshow-frame 15s ease infinite alternate-reverse, 
-
 }
 
 #next {
     margin: 15px auto;
 }
 
-
+/* form styling */
 .form {
     background: linear-gradient(90deg, var(--periwinkle) 0%, var(--yellow) 100%);
     background-color: rgba(255,255,255,0.8);
@@ -291,6 +288,7 @@ h1 {
 .form-odd {
     background-color: transparent;
 }
+
 .form-even {
     background-color: var(--shadow);
 }
@@ -309,7 +307,6 @@ h1 {
 #list div:hover {
     background-color: white;
     border: 6px solid var(--blue);
-
 }
 
 #list div:hover a {
@@ -332,13 +329,13 @@ h1 {
     background-color: rgba(255,255,255,0.3);
     transition-property: background-color;
     transition-duration: 0.5s;
-    
 }
 
 #cat-list div:hover {
     background-color: white;
 }
 
+/* Back-to-top button styling */
 #back-to-top {
     height: fit-content;
     transform: rotate(270deg);
