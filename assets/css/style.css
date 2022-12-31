@@ -127,41 +127,6 @@ body {
     }
 }
 
-@keyframes bounce {
-    0% { 
-        transform: translateY(0);
-
-    }
-
-    20% {
-        transform: translateY(-10px) scaleX(0.9) scaleY(1);
-    }
-
-    25% {
-        transform: translateY(2px) scaleX(1);
-    }
-
-    27% {
-        transform: translateY(0) scaleX(1.1) scaleY(0.9);
-    }
-
-    29% {
-        transform: translateY(0) scaleX(1);
-    }
-
-    31% {
-        transform: scaleX(1.1) scaleY(0.9);
-    }
-
-    33% {
-        transform: scale(1);
-    }
-
-    100% {
-        transform: translate(0);
-    }
-    
-}
 
 @keyframes slideshow-frame {
     0% {
@@ -301,12 +266,16 @@ h1 {
     margin-top: 15px;
     margin-right: auto;
     margin-left: auto;
+    box-sizing: border-box;
+    border: 15px solid var(--periwinkle);
+    border-radius: 25px;
+    animation: slideshow-frame 15s ease infinite alternate-reverse;
+
 }
 
 #next {
     margin: 15px auto;
 }
-
 
 
 .form {
