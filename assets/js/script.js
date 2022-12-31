@@ -71,7 +71,7 @@ $("#search-again").hide();
 $("#result-list-btn").hide();
 $("#saved-list-container").hide();
 $("#empty-cat-list").hide();
-
+$("#match-results-container").hide();
 
 
 
@@ -387,8 +387,7 @@ var formSubmitHandler = function (event) {
     event.preventDefault();
     $("#error").hide();
 
-    $("#match-results-container").show();
-    $("#saved-list-container").hide();
+    
     
   
     // gender
@@ -473,10 +472,11 @@ function showData(animals){
 
     
     $("#cat-list-btn").show();
-    $("result-list-btn").hide();
-
-    $("#match-example").html("Matches");
-    $("#match-example-text").hide();
+    $("#result-list-btn").hide();
+    
+    $("#match-example-container").hide();
+    $("#match-results-container").show();
+    $("#saved-list-container").hide();
     $("#search-again").show();
     
     var resultsContainerEl = document.querySelector('#match-results-container')
@@ -506,9 +506,9 @@ function showData(animals){
         var petEmail = animals[i].contact.email || "not listed";
         var petPhone = animals[i].contact.phone || "not listed";
 
-        // Continer elements
+        // Container elements
         var petBoxEl = document.createElement('div');
-        petBoxEl.classList = 'pet-box result-item form overflow-hidden bg-white shadow rounded-lg sm:rounded-lg';
+        petBoxEl.classList = 'pet-box w-11/12 mx-auto result-item form overflow-hidden bg-white shadow rounded-lg sm:rounded-lg';
         
 
         // Description section
@@ -663,23 +663,31 @@ $("#match-results-container").on("click",function(event) {
 // Display saved cat list
 $("#cat-list-btn").on("click",function() {
 
-    $("#result-list-btn").show();
+
+
+    click2.play();
+
+    $("#cat-list").empty();
     $("#cat-list-btn").hide();
-    $("#match-example").hide();
-    $("#match-example-text").hide();
+    $("#match-example-container").hide();
     $("#saved-list-container").show();
     $("#match-results-container").hide();
     $("#search-again").show();
+    $("#empty-cat-list").hide();
 
-// todo: fix bug: "Back to Matches" Button needs to disappear when no search has been done yet!
+    if ($("#match-results-container")[0].childElementCount === 0) {
+        $("#result-list-btn").hide();
+    } 
 
-// todo: reformat saved-cat-list to look better
+    if ($("#match-results-container")[0].childElementCount !== 0) {
+        $("#result-list-btn").show();
+    }
 
     var savedCatListString = localStorage.getItem("savedCats") || "";
     
     if (savedCatListString === "") {
         $("#empty-cat-list").show();
-        $("#search-again").hide();
+        $("#search-again").show();
         $("#result-list-btn").hide();
     }
 
@@ -688,14 +696,20 @@ $("#cat-list-btn").on("click",function() {
 
     for (var z=0; z<savedCatArray.length; z++) {
 
-        var catInfoContainer = $("<div>").attr("class","saved-cat");
+        var catInfoContainer = $("<div>").attr("class","saved-cat w-11/12 mx-auto");
         var savedCatObj = JSON.parse(savedCatArray[z]);
-        
 
-        console.log(savedCatObj);
+        var removeCatBtn = $("<p>").text("Remove This Cat");
+        removeCatBtn.attr("class", "btn remove-btn block mx-auto my-1.5 rounded-lg px-1.5 py-0 text-base font-semibold leading-7 text-white shadow-sm");
+        removeCatBtn.attr("data-name",savedCatObj.catName);
+        removeCatBtn.attr("data-img",savedCatObj.catUrl);
+        removeCatBtn.attr("data-breed",savedCatObj.catBreed);
+        removeCatBtn.attr("data-gender",savedCatObj.catGender);
+        removeCatBtn.attr("data-age",savedCatObj.catAge);
+        removeCatBtn.attr("data-locatiion",savedCatObj.catLocation);
+        removeCatBtn.attr("data-email",savedCatObj.catEmail);
+        removeCatBtn.attr("data-phone",savedCatObj.catPhone);
 
-        var removeCatBtn = $("<p>").html("Remove this Cat");
-        removeCatBtn.attr("class", "btn block mx-auto my-1.5 rounded-lg px-1.5 py-0 text-base font-semibold leading-7 text-white shadow-sm");
 
         $("#cat-list").append(catInfoContainer);
         catInfoContainer.append($("<h3>").html("CAT NAME: " + savedCatObj.catName).attr("class","ml-6 mt-6 sm:text-center"));
@@ -726,20 +740,65 @@ $("#cat-list-btn").on("click",function() {
 
 })
 
+// Remove-cat function
+$("#cat-list").on("click",function(event) {
+
+
+
+    var removeTarget = event.target;
+
+    // Selects the remove button only
+    if (removeTarget.textContent === "Remove This Cat") {
+
+
+        collapse.play();
+        removeTarget.parentElement.setAttribute("style","display:none");
+
+        var originalCatListString = localStorage.getItem("savedCats") || "";
+        var originalCatListArray = originalCatListString.split("^");
+        originalCatListArray.pop();
+
+        // Identifies and removes cat item from local storage and updates local storage
+        for (var a=0; a<originalCatListArray.length; a++) {
+
+            var originalCatObj = JSON.parse(originalCatListArray[a]);
+
+            if (originalCatObj.catName === removeTarget.dataset.name && originalCatObj.catPhone === removeTarget.dataset.phone) {
+
+                originalCatListArray.splice(a,1);
+
+                localStorage.setItem("savedCats",originalCatListArray.toString().replaceAll("},{","}^{") + "^");
+
+
+            }
+
+            
+        }
+
+        if (localStorage.getItem("savedCats") === "^") {
+            localStorage.removeItem("savedCats");
+            $("#empty-cat-list").show();
+            $("#result-list-btn").hide()
+        }
+
+    }
+
+})
+
 // Switching back to match results
 $("#result-list-btn").on("click",function() {
+
+    click2.play();
+
     $("#result-list-btn").hide();
     $("#cat-list-btn").show();
     $("#match-results-container").show();
     $("#saved-list-container").hide();
 
+
+
 })
 
-// todo: remove-cat function
-
-// todo: clear-cat-list function
-
-// todo: add sound effects to add-cat, remove-cat, and clear-cat-list functions
 
 // get pet data
 function getData(petGender, petAge, petZip){
@@ -802,5 +861,9 @@ $("#search-again").on("click",function() {
     collapse.play();
     $("input").val("");
     $("input").prop('checked', false);
+    $("#search-again").hide();
+    $("#match-results-container").hide();
+    $("#result-list-btn").hide();
+    $("#saved-list-container").hide();
 })
 

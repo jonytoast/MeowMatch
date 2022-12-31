@@ -350,9 +350,15 @@ h1 {
     margin-top:15px;
     margin-bottom: 15px;
     border: 6px solid var(--shadow);
-    border-radius: 15px;
+    border-radius: 15px; 
     background-color: rgba(255,255,255,0.3);
+    transition-property: background-color;
+    transition-duration: 0.5s;
     
+}
+
+#cat-list div:hover {
+    background-color: white;
 }
 
 #back-to-top {

@@ -107,7 +107,7 @@
           <div class="mt-5 md:col-span-2 md:mt-0">
 
             <form id="form">
-              <div class="overflow-hidden shadow sm:rounded-md">
+              <div class="overflow-hidden shadow rounded-lg">
                 <div class="form space-y-6 px-4 py-5 sm:p-6">
                   <fieldset>
                     <legend class="contents text-base font-medium text-gray-900">"Boy or Girl?"</legend>
@@ -174,30 +174,19 @@
           </div>
         </div>
       </div>
-      
+
+      <!-- Results and cat list buttons -->
+      <div class="mt-2 mb-2 flex gap-x-4 justify-center sm:justify-center">
+        <a id="cat-list-btn" class="btn mb-4 rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Your Saved Cats</a>
+        <a id="result-list-btn" class="btn mb-4 rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Back to Matches</a>
+      </div>
+
       <!-- Pet matches example-->
       <div id="match-example-container" class="w-11/12 mx-auto">
         <div>
           <h1 id="match-example" class="mt-6 text-center text-4xl font-bold sm:text-center sm:text-6xl pb-6">Sample Match</h1>
           <p id="match-example-text" class="mt-0 mb-6 text-base text-gray-600 text-center sm:text-xl">Here's what you'll see once we're able to find cats around you that match your input:</p>
-          <div class="mt-2 mb-2 flex gap-x-4 justify-center sm:justify-center">
-            <a id="cat-list-btn" class="btn mb-4 rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Your Saved Cats</a>
-            <a id="result-list-btn" class="btn mb-4 rounded-lg px-1 sm:px-4 sm:py-1.5 text-base font-semibold leading-7 text-white shadow-sm">Back to Matches</a>
-          </div>
         </div>
-
-      <!-- Saved Cat List Section -->
-      <div id="saved-list-container">
-        <h1 id="saved-list-text" class="mt-6 text-center text-4xl font-bold sm:text-center sm:text-6xl pb-6">Your Saved Cats</h1>
-        <p id="empty-cat-list" class="text-center">Your List is Empty!</p>
-        <div id="cat-list">
-
-        </div>
-      </div>
-
-      <!-- Petmatch Results -->
-      <div id="match-results-container">
-        <!-- Append items via js-->
         <div class="pet-box result-item form overflow-hidden bg-white shadow rounded-lg sm:rounded-lg">
           <div class="box-intro px-4 py-5 sm:px-6">
             <h3 class="cat-info text-lg font-medium leading-6 text-gray-900">Cat Information</h3>
@@ -239,6 +228,19 @@
             </dl>
           </div>
         </div>
+      </div>
+
+      <!-- Saved Cat List Section -->
+      <div id="saved-list-container">
+        <p id="empty-cat-list" class="text-center">Your List is Empty!</p>
+        <div id="cat-list">
+
+        </div>
+      </div>
+
+      <!-- Petmatch Results -->
+      <div id="match-results-container">
+        
       </div>
       <!-- Search-again Button -->
       <a id="search-again" href="#form-container" class="btn block mx-auto rounded-lg px-4 py-1.5 font-semibold sm:flex text-white">Do Another Search</a>
