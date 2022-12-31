@@ -73,7 +73,21 @@ $("#saved-list-container").hide();
 $("#empty-cat-list").hide();
 $("#match-results-container").hide();
 
+// Cursor mousemove event for interactive background
+$("#about-us-container").on("mousemove",function(event) {
+    var x = event.pageX - event.target.offsetLeft;
+    $("#about-us-container").css("--x", x + "px");    
+})
 
+$("#intro-text").on("mousemove",function(event) {
+    var x = event.pageX - event.target.offsetLeft;
+    $("#intro-text").css("--x", x + "px");
+})
+
+$("#cat-facts-container").on("mousemove",function(event) {
+    var x = event.pageX - event.target.offsetLeft;
+    $("#cat-facts-container").css("--x", x + "px");
+})
 
 $("#start").on("click",function() {
     $("#intro-text").attr("style","visibility:hidden");
