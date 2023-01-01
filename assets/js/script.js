@@ -59,7 +59,6 @@ $("#title-container, #footer-logo").on("click",function() {
 // Forces window to scroll to top upon page reload
 history.scrollRestoration = "manual"
 
-
 // Page load element display setting
 $("#cat-facts-container").hide();
 $("#about-us").hide();
@@ -84,18 +83,57 @@ $("#match-results-container").hide();
 
 // Cursor mousemove events for interactive background
 $("#about-us-container").on("mousemove",function(event) {
-    var x = event.pageX - event.target.offsetLeft;
-    $("#about-us-container").css("--x", x + "px");    
+
+    var aboutUsContainer = $("#about-us-container");
+    var x = event.pageX - aboutUsContainer[0].offsetLeft;
+    var y = event.pageY - aboutUsContainer[0].offsetTop;
+    $("#about-us-container").css("--x", `${ x }px`);  
+    $("#about-us-container").css("--y", `${ y }px`);  
 })
 
 $("#intro-text").on("mousemove",function(event) {
-    var x = event.pageX - event.target.offsetLeft;
-    $("#intro-text").css("--x", x + "px");
+    var introText = $("#intro-text");
+    var i = event.pageX - introText[0].offsetLeft;
+    var j = event.pageY - introText[0].offsetTop;
+    $("#intro-text").css("--i", `${ i }px`);
+    $("#intro-text").css("--j", `${ j }px`);
+ 
+})
+
+$("#adopt-text").on("mouseover",function(event) {
+    var adoptText = $("#adopt-text");
+    var f = event.pageX - adoptText[0].offsetLeft;
+    var g = event.pageY - adoptText[0].offsetTop;
+    $("#adopt-text").css("--f", `${ f }px`);
+    $("#adopt-text").css("--g", `${ g }px`);
+
 })
 
 $("#cat-facts-container").on("mousemove",function(event) {
-    var x = event.pageX - event.target.offsetLeft;
-    $("#cat-facts-container").css("--x", x + "px");
+    var catFactsContainer = $("#cat-facts-container");
+    var m = event.pageX - catFactsContainer[0].offsetLeft;
+    var n = event.pageY - catFactsContainer[0].offsetTop;
+    $("#cat-facts-container").css("--m", `${ m }px`);
+    $("#cat-facts-container").css("--n", `${ n }px`);
+})
+
+$("#form-body").on("mousemove",function(event) {
+
+    var formBody = $("#form-body");
+    var a = event.pageX - formBody[0].offsetLeft;
+    var b = event.pageY - formBody[0].offsetTop;
+    $("#form-body").css("--a", `${ a }px`);
+    $("#form-body").css("--b", `${ b }px`);
+})
+
+$("#donation-container").on("mousemove",function(event) {
+
+    var donationContainer = $("#donation-container");
+    var c = event.pageX - donationContainer[0].offsetLeft;
+    var d = event.pageY - donationContainer[0].offsetTop;
+    $("#donation-container").css("--c",`${ c }px`);
+    $("#donation-container").css("--d",`${ d }px`);
+
 })
 
 // Cat slideshow button functions
