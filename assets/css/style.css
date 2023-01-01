@@ -50,11 +50,12 @@ html {
 #nav-links a {
     font-family: 'Courier New', Courier, monospace;
     transition-duration: 0.5s;
-    transition-property: color;
+    transition-property: color, text-shadow;
 }
 
 #nav-links a:hover {
     color: white;
+    text-shadow: 0 0 10px var(--yellow);
 }
 
 /* Logo styling */
