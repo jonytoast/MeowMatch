@@ -440,9 +440,6 @@ var formSubmitHandler = function (event) {
     event.preventDefault();
     $("#error").hide();
 
-    
-    
-  
     // Gender
     var genderSelection;
 
@@ -863,7 +860,6 @@ function getData(petGender, petAge, petZip){
   
     pf.animal.search({type: "cat", gender: petGender, age: petAge, location: petZip})
       .then(function (response) {
-          console.log(response.data.animals)
           showData(response.data.animals)
       })
       .catch(function (error) {
