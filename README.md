@@ -14,7 +14,7 @@ To browse through the list of charities that are dedicated to cat well-being in 
 
 This App is created for both large and small viewports.
 
-The URL of the deployed webpage can be found at:
+The URL of the deployed webpage can be found at: https://jonytoast.github.io/MeowMatch/
 
 Here are the screenshots of the webpage:
 
