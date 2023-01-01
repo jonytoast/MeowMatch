@@ -51,6 +51,15 @@ var meow8 = new Audio();
 meow8.src = "assets/audio/Meow-8.wav";
 meow8.volume = 0.1;
 
+// Page reload function when logo is clicked
+$("#title-container, #footer-logo").on("click",function() {
+    location.reload();
+})
+
+// Forces window to scroll to top upon page reload
+history.scrollRestoration = "manual"
+
+
 // Page load element display setting
 $("#cat-facts-container").hide();
 $("#about-us").hide();

@@ -41,6 +41,11 @@ html {
     
 }
 
+/* Logo styling */
+#title-container {
+    cursor: pointer;
+}
+
 /* Menu color */
 #menu {
     background: linear-gradient(180deg, var(--periwinkle) 0%, transparent 100%);
@@ -348,5 +353,9 @@ h1 {
     transform: rotate(270deg) translateY(3px);
 }
 
+/* Footer logo styling */
+#footer-logo {
+    cursor: pointer;
+}
     
 
