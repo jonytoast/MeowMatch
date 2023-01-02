@@ -51,6 +51,14 @@ var meow8 = new Audio();
 meow8.src = "assets/audio/Meow-8.wav";
 meow8.volume = 0.1;
 
+// Page reload function when logo is clicked
+$("#title-container, #footer-logo").on("click",function() {
+    location.reload();
+})
+
+// Forces window to scroll to top upon page reload
+history.scrollRestoration = "manual"
+
 // Page load element display setting
 $("#cat-facts-container").hide();
 $("#about-us").hide();
@@ -75,18 +83,57 @@ $("#match-results-container").hide();
 
 // Cursor mousemove events for interactive background
 $("#about-us-container").on("mousemove",function(event) {
-    var x = event.pageX - event.target.offsetLeft;
-    $("#about-us-container").css("--x", x + "px");    
+
+    var aboutUsContainer = $("#about-us-container");
+    var x = event.pageX - aboutUsContainer[0].offsetLeft;
+    var y = event.pageY - aboutUsContainer[0].offsetTop;
+    $("#about-us-container").css("--x", `${ x }px`);  
+    $("#about-us-container").css("--y", `${ y }px`);  
 })
 
 $("#intro-text").on("mousemove",function(event) {
-    var x = event.pageX - event.target.offsetLeft;
-    $("#intro-text").css("--x", x + "px");
+    var introText = $("#intro-text");
+    var i = event.pageX - introText[0].offsetLeft;
+    var j = event.pageY - introText[0].offsetTop;
+    $("#intro-text").css("--i", `${ i }px`);
+    $("#intro-text").css("--j", `${ j }px`);
+ 
+})
+
+$("#adopt-text").on("mouseover",function(event) {
+    var adoptText = $("#adopt-text");
+    var f = event.pageX - adoptText[0].offsetLeft;
+    var g = event.pageY - adoptText[0].offsetTop;
+    $("#adopt-text").css("--f", `${ f }px`);
+    $("#adopt-text").css("--g", `${ g }px`);
+
 })
 
 $("#cat-facts-container").on("mousemove",function(event) {
-    var x = event.pageX - event.target.offsetLeft;
-    $("#cat-facts-container").css("--x", x + "px");
+    var catFactsContainer = $("#cat-facts-container");
+    var m = event.pageX - catFactsContainer[0].offsetLeft;
+    var n = event.pageY - catFactsContainer[0].offsetTop;
+    $("#cat-facts-container").css("--m", `${ m }px`);
+    $("#cat-facts-container").css("--n", `${ n }px`);
+})
+
+$("#form-body").on("mousemove",function(event) {
+
+    var formBody = $("#form-body");
+    var a = event.pageX - formBody[0].offsetLeft;
+    var b = event.pageY - formBody[0].offsetTop;
+    $("#form-body").css("--a", `${ a }px`);
+    $("#form-body").css("--b", `${ b }px`);
+})
+
+$("#donation-container").on("mousemove",function(event) {
+
+    var donationContainer = $("#donation-container");
+    var c = event.pageX - donationContainer[0].offsetLeft;
+    var d = event.pageY - donationContainer[0].offsetTop;
+    $("#donation-container").css("--c",`${ c }px`);
+    $("#donation-container").css("--d",`${ d }px`);
+
 })
 
 // Cat slideshow button functions
@@ -140,7 +187,7 @@ function showFact() {
     // GET request for random cat gifs
     fetch(requestGifUrl)
     .then(function(response){
-        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg w-11/12 sm:w-2/4"))
+        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg shadow-lg w-11/12 sm:w-2/4"))
     })
 
     // GET request for random cat facts
@@ -170,7 +217,7 @@ function nextFact() {
     // GET request for next random cat gifs
     fetch(requestNextGifUrl)
     .then(function(response){
-        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg w-11/12 sm:w-2/4"))
+        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg shadow-lg w-11/12 sm:w-2/4"))
     })
 
     // GET request for next random cat facts
@@ -219,7 +266,7 @@ function showNonProfit() {
             } 
 
             var container = $("<div>");
-            container.attr("class","charity");
+            container.attr("class","charity shadow-lg");
             var saveBtn = $("<p>").html("Save This Charity");
             saveBtn.attr("class","btn block mx-auto my-1.5 rounded-lg px-1.5 py-0 text-base font-semibold leading-7 text-white shadow-sm");
             
@@ -332,7 +379,7 @@ $("#show-clicked-list").on("click",function() {
     // Loops over retrieved data and displays
     for (var i=0; i<savedArray.length; i++) {
 
-        var listContainer = $("<div>").attr("class","saved-charity");
+        var listContainer = $("<div>").attr("class","saved-charity shadow-lg");
         var savedObj = JSON.parse(savedArray[i]);
 
         var removeBtn = $("<p>").html("Remove from List");
@@ -393,9 +440,6 @@ var formSubmitHandler = function (event) {
     event.preventDefault();
     $("#error").hide();
 
-    
-    
-  
     // Gender
     var genderSelection;
 
@@ -511,7 +555,7 @@ function showData(animals){
 
         // Container elements
         var petBoxEl = document.createElement('div');
-        petBoxEl.classList = 'pet-box w-11/12 mx-auto result-item form overflow-hidden bg-white shadow rounded-lg sm:rounded-lg';
+        petBoxEl.classList = 'pet-box w-11/12 mx-auto result-item form overflow-hidden bg-white shadow-lg rounded-lg sm:rounded-lg';
         
 
         // Description section
@@ -561,7 +605,7 @@ function showData(animals){
         
         var petImage = document.createElement('img');
         petImage.setAttribute("src", petImageURL);
-        petImage.setAttribute("class","rounded-lg");
+        petImage.setAttribute("class","rounded-lg shadow-lg");
         
         petImageDiv.appendChild(petImage)
         mainSectionContainer.appendChild(petImageDiv);
@@ -697,7 +741,7 @@ $("#cat-list-btn").on("click",function() {
     // Loops over cat info and displays
     for (var z=0; z<savedCatArray.length; z++) {
 
-        var catInfoContainer = $("<div>").attr("class","saved-cat w-11/12 mx-auto");
+        var catInfoContainer = $("<div>").attr("class","saved-cat shadow-lg w-11/12 mx-auto");
         var savedCatObj = JSON.parse(savedCatArray[z]);
 
         var removeCatBtn = $("<p>").text("Remove This Cat");
@@ -714,7 +758,7 @@ $("#cat-list-btn").on("click",function() {
 
         $("#cat-list").append(catInfoContainer);
         catInfoContainer.append($("<h3>").html("CAT NAME: " + savedCatObj.catName).attr("class","ml-6 mt-6 sm:text-center text-gray-500"));
-        catInfoContainer.append($("<img>").attr("src", savedCatObj.catUrl).attr("class","rounded-xl w-10/12 mt-4 mb-4 mx-auto border-8 border-grey-400 text-gray-500"));
+        catInfoContainer.append($("<img>").attr("src", savedCatObj.catUrl).attr("class","rounded-xl w-10/12 shadow-lg mt-4 mb-4 mx-auto border-8 border-grey-400"));
         catInfoContainer.append($("<p>").html("CAT BREED: " + savedCatObj.catBreed).attr("class","ml-6 sm:text-center text-gray-500"));
         catInfoContainer.append($("<p>").html("CAT GENDER: " + savedCatObj.catGender).attr("class","ml-6 sm:text-center text-gray-500"));
         catInfoContainer.append($("<p>").html("CAT AGE: " + savedCatObj.catAge).attr("class","ml-6 sm:text-center text-gray-500"));
@@ -816,7 +860,6 @@ function getData(petGender, petAge, petZip){
   
     pf.animal.search({type: "cat", gender: petGender, age: petAge, location: petZip})
       .then(function (response) {
-          console.log(response.data.animals)
           showData(response.data.animals)
       })
       .catch(function (error) {

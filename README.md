@@ -4,7 +4,9 @@
 
 MeowMatch is an app designed to help you find and connect with cats in your area. MeowMatch also allows you to look at cute cat pictures, read random cat facts as well as cat-related charities you can save for later or for possible future donations. 
 
-The "Adopt Today" section functions both as a reminder for users to consider adopting a cat, and as a slideshow that displays random cat images. To dismiss the text inside the slideshow, click on "Maybe Later," and the text box will disappear for you to enjoy unlimited adorable cat pictures. If you click on "Start," you will be taken to the cat-search section of the page, where you'll be instructed on how to generate search results. To find adoptable cats, enter your preferences on cat gender, age, and type in your zipcode, and click "Find Your New Furbaby". If there's any error or missing info from the user input, the user will be prompted to try again. Upon a successul search, the screen will automatically scroll down to display search results, which include the cats' name, image, gender, breed, age, location, contact email and phone number. 
+The "Adopt Today" section functions both as a reminder for users to consider adopting a cat, and as a slideshow that displays random cat images. To dismiss the text inside the slideshow, click on "Maybe Later," and the text box will disappear for you to enjoy unlimited adorable cat pictures. 
+
+Once you click on "Start," you will be taken to the cat-search section of the page, where you'll be instructed on how to generate search results. To find adoptable cats, enter your preferences on cat gender, age, and type in your zipcode, and click "Find Your New Furbaby". If there's any error or missing info from the user input, the user will be prompted to try again. Upon a successul search, the screen will automatically scroll down to display search results, which include the cats' name, image, gender, breed, age, location, contact email and phone number. There's a save button for each cat, with which users can save the cats they're interested in adoption to their list, which is accessible via the "Your Saved Cats" button. In the saved-cat section, users can remove cats by clicking on the "Remove This Cat" button.
 
 To view cat facts, click on "Daily Meows" in the navigation bar and the page will take you to the cat fact section, where you can click "NEXT" to display the next cat fact, along with a cute cat GIF.
 
@@ -12,7 +14,7 @@ To browse through the list of charities that are dedicated to cat well-being in 
 
 This App is created for both large and small viewports.
 
-The URL of the deployed webpage can be found at:
+The URL of the deployed webpage can be found at: https://jonytoast.github.io/MeowMatch/
 
 Here are the screenshots of the webpage:
 
@@ -22,6 +24,9 @@ Here are the screenshots of the webpage:
 ![image](assets/images/Screenshot-4.png)
 ![image](assets/images/Screenshot-5.png)
 ![image](assets/images/Screenshot-6.png)
+![image](assets/images/Screenshot-7.png)
+![image](assets/images/Screenshot-8.png)
+![image](assets/images/Screenshot-9.png)
 
 
 ## Installation

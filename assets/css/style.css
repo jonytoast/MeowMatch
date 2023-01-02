@@ -41,6 +41,11 @@ html {
     
 }
 
+/* Logo styling */
+#title-container {
+    cursor: pointer;
+}
+
 /* Menu color */
 #menu {
     background: linear-gradient(180deg, var(--periwinkle) 0%, transparent 100%);
@@ -50,11 +55,12 @@ html {
 #nav-links a {
     font-family: 'Courier New', Courier, monospace;
     transition-duration: 0.5s;
-    transition-property: color;
+    transition-property: color, text-shadow;
 }
 
 #nav-links a:hover {
     color: white;
+    text-shadow: 0 0 10px var(--yellow);
 }
 
 /* Logo styling */
@@ -170,12 +176,24 @@ h1 {
 }
 
 /* Text-boxes styling */
-#about-us-container, #intro-text {
+#about-us-container {
     --x:50%;
+    --y:50%;
+    border-radius: 35px;
+    padding: 20px;
+    border: 5px solid white; 
+    background: radial-gradient(circle at var(--x) var(--y), white 0%, rgba(255,255,255,0.3) 80%);
+    box-shadow: 0px 0px 10px 2px var(--yellow), inset 0px 0px 10px 1px var(--yellow);
+    animation: glow 3s infinite;
+}
+
+#intro-text {
+    --i:50%;
+    --j:50%;
     border-radius: 35px;
     padding: 20px;
     border: 5px solid white;
-    background: radial-gradient(circle at var(--x) 50%, white 0%, rgba(255,255,255,0.3) 80%);
+    background: radial-gradient(circle at var(--i) var(--j), white 0%, rgba(255,255,255,0.3) 80%);
     box-shadow: 0px 0px 10px 2px var(--yellow), inset 0px 0px 10px 1px var(--yellow);
     animation: glow 3s infinite;
 }
@@ -228,12 +246,16 @@ h1 {
 }
 
 #adopt-text {
+    --f:50%;
+    --g:50%;
     margin-right:auto;
     margin-left:auto;
-    width: 70%;
+    width: 80%;
     padding: 25px;
-    background-color: rgba(255,255,255,0.3);
     border-radius: 25px;
+    border: 5px solid white;
+    animation: glow 3s infinite;
+    background: radial-gradient(circle at var(--f) var(--g), white 0%, rgba(255,255,255,0.3) 40%);
     border: 5px solid white;
     animation: glow 3s infinite;
 }
@@ -246,8 +268,9 @@ h1 {
 #cat-facts-container {
     text-align: center; 
     border-radius: 35px;
-    --x:50%;
-    background: radial-gradient(circle at var(--x) 50%, white 0%, rgba(255,255,255,0.3) 80%);
+    --m:50%;
+    --n:50%;
+    background: radial-gradient(circle at var(--m) var(--n), white 0%, rgba(255,255,255,0.3) 80%);
     border: 5px solid white;
     animation: glow 3s infinite;
 }
@@ -259,10 +282,14 @@ h1 {
 
 #donation-container {
     text-align: center;
-    background-color: rgba(255,255,255,0.6);
+    --c:50%;
+    --d:50%;
     border-radius: 35px;
-    animation: glow 3s infinite;
+    padding: 20px;
     border: 5px solid white;
+    background: radial-gradient(circle at var(--c) var(--d), white 0%, rgba(255,255,255,0.3) 40%);
+    box-shadow: 0px 0px 10px 2px var(--yellow), inset 0px 0px 10px 1px var(--yellow);
+    animation: glow 3s infinite;
 }
 
 #cat-facts-container img {
@@ -283,6 +310,12 @@ h1 {
 .form {
     background: linear-gradient(90deg, var(--periwinkle) 0%, var(--yellow) 100%);
     background-color: rgba(255,255,255,0.8);
+}
+
+#form-body {
+    --a: 50%;
+    --b: 50%;
+    background: radial-gradient(circle at var(--a) var(--b), var(--yellow) 0%, var(--periwinkle) 50%);
 }
 
 .form-odd {
@@ -347,5 +380,9 @@ h1 {
     transform: rotate(270deg) translateY(3px);
 }
 
+/* Footer logo styling */
+#footer-logo {
+    cursor: pointer;
+}
     
 

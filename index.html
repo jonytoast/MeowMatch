@@ -28,10 +28,10 @@
         </div>
         <!-- Nav links -->
         <div id="nav-links" class="block mt-6 space-x-2 text-center sm:space-x-6 sm:flex sm:mr-4 sm:justify-end">
-          <a id="why" href="#adopt" class="font-semibold block text-black hover:text-white sm:pl-4">Why Adopt</a>
-          <a id="matches" href="#match-example" class="font-semibold block text-black hover:text-white sm:pl-4">Matches</a>
-          <a id="show-facts" href="#cat-facts" class="font-semibold blocl text-black hover:text-white sm:pl-4">Daily Meows</a>
-          <a id="donate" href="#donation-container" class="font-semibold block text-black hover:text-white sm:pl-4">Donate</a>
+          <a id="why" href="#adopt" class="font-semibold block text-black sm:pl-4">Why Adopt</a>
+          <a id="matches" href="#match-example" class="font-semibold block text-black sm:pl-4">Matches</a>
+          <a id="show-facts" href="#cat-facts" class="font-semibold blocl text-black sm:pl-4">Daily Meows</a>
+          <a id="donate" href="#donation-container" class="font-semibold block text-black sm:pl-4">Donate</a>
         </div>
       </nav>
 
@@ -44,7 +44,7 @@
             <p id="about-us-text" class="mt-6 mb-6 text-base leading-8 text-gray-600 text-center sm:text-xl">Are you looking to adopt a cat or donate to a nonprofit that helps homeless cats? Need your daily dose of kitty cuteness? Want to learn more about cats? If your answer is yes, MeowMatch is the purr-fect App for you!</p>
           </div>
         </div>
-        <div id="intro-container" class="h-3/5 mt-24 mx-auto mb-14 w-11/12 sm:w-10/12 sm:h-screen">
+        <div id="intro-container" class="h-3/5 mt-24 mx-auto mb-14 w-11/12 shadow-lg sm:w-10/12 sm:h-screen">
           <div id="intro-text" class="mt-4 mb-4 mx-auto sm:pt-6 sm:pb-6 w-3/5 sm:mt-48 sm:mx-auto">
             <h1 class="mt-2 sm:mt-12 text-center text-4xl font-bold sm:text-center sm:text-6xl pb-2">Adopt Today!</h1>
             <p class="mt-6 mb-6 text-base text-gray-600 text-center sm:text-xl">Find a Furbaby Around you that Needs a Fur-ever Home!</p>
@@ -68,7 +68,7 @@
       </div>
 
       <!-- Why-adopt section -->
-      <div id="adopt-container" class="pt-16 mx-auto w-11/12 sm:w-10/12 mb-16 pb-24">
+      <div id="adopt-container" class="pt-16 mx-auto w-11/12 sm:w-10/12 shadow-lg mb-16 pb-24">
         <div id="adopt-text" class="w-10/12">
           <h1 id="adopt" class="mt-6 text-center text-4xl font-bold sm:text-center sm:text-6xl pb-6">Why Adopt?</h1>
           <p class="mt-6 mb-6 text-base text-gray-600 text-center sm:text-xl"><strong>"Adopt, Don't Shop"</strong> is our mission statement, and here's why we believe in it:</p>
@@ -79,11 +79,11 @@
                 <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Each year, about 2.1 million cats enter animal shelters, waiting for a new home</dd>
               </div>
               <div class="form-even px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-black">You think breeders are the way to go, but ...</dt>
+                <dt class="text-sm font-medium text-black">You might think breeders are the way to go, but ...</dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">breeders cost a lot more, while animal shelters offer a variety of breeds for you to select from for your new cat</dd>
               </div>
               <div class="form-odd px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt class="text-sm font-medium text-black">Resue cats may be easier on you as a new pet owner ...</dt>
+                <dt class="text-sm font-medium text-black">Resue cats may be easier for you as a new pet owner ...</dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">resue cats may already have some basic training and skills</dd>
               </div>
               <div class="form-even rounded-b-lg px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -107,8 +107,8 @@
           <div class="mt-5 md:col-span-2 md:mt-0">
 
             <form id="form">
-              <div class="overflow-hidden shadow rounded-lg">
-                <div class="form space-y-6 px-4 py-5 sm:p-6">
+              <div id="form-body" class="overflow-hidden shadow-lg rounded-lg">
+                <div class="space-y-6 px-4 py-5 sm:p-6">
                   <fieldset>
                     <legend class="contents text-base font-medium text-gray-900">"Boy or Girl?"</legend>
                     <p class="text-sm text-gray-500">Select the gender of the pet you're looking for</p>
@@ -168,9 +168,9 @@
               </div>
               <div class="px-4 py-3 text-right sm:px-6" type="submit">
                 <a href="#match-example-container" id="search" class="submit-btn btn block mx-auto rounded-lg px-4 py-1.5 font-semibold sm:flex text-white">Find Your New Furbaby</a>
-               </div>
+              </div>
             </form>
-            <p id="error" style="color:red">Oops! An Error Occured. Try Again?</p>
+            <p id="error" style="color:red" class="text-center">Oops! An Error Occured. Try Again?</p>
           </div>
         </div>
       </div>
@@ -187,7 +187,7 @@
           <h1 id="match-example" class="mt-6 text-center text-4xl font-bold sm:text-center sm:text-6xl pb-6">Sample Match</h1>
           <p id="match-example-text" class="mt-0 mb-6 text-base text-gray-600 text-center sm:text-xl">Here's what you'll see once we're able to find cats around you that match your input:</p>
         </div>
-        <div class="pet-box result-item form overflow-hidden bg-white shadow rounded-lg sm:rounded-lg">
+        <div class="pet-box result-item form overflow-hidden bg-white shadow-lg rounded-lg sm:rounded-lg">
           <div class="box-intro px-4 py-5 sm:px-6">
             <h3 class="cat-info text-lg font-medium leading-6 text-gray-900">Cat Information</h3>
             <p class="cat-details mt-1 max-w-2xl text-sm text-gray-500">Details of the cat up for adoption</p>
@@ -199,7 +199,7 @@
                 <dd class="pet-name-value mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Mr. Tux</dd>
               </div>
               <div id="example-image" class="pet-image px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <img src="./assets/images/pet-example-img.jpg" class="rounded-lg" alt="cat-example-image">
+                <img src="./assets/images/pet-example-img.jpg" class="rounded-lg shadow-lg" alt="cat-example-image">
               </div>
               <div class="pet-gender-field bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="pet-gender-text text-sm font-medium text-gray-500">Pet Gender</dt>
@@ -281,7 +281,7 @@
 
       <!-- Footer section -->
       <footer class="text-center py-4 flex items-center justify-center flex-col border-t-2 border-black mt-4">
-          <img src="./assets/images/logo.png" alt="logo" class="w-8">
+          <img id="footer-logo" src="./assets/images/logo.png" alt="logo" class="w-8">
           <h5>© 2022 MeowMatch Team, All rights reserved.</h5>
       </footer>
 
