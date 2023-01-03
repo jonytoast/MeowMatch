@@ -81,8 +81,8 @@ body {
 }
 
 #wrapper {
-    --p: 50%;
-    --q: 0%;
+    --p: 50px;
+    --q: 50px;
     background: radial-gradient(circle at var(--p) var(--q), var(--rainbow-red) 40px, transparent 40px, transparent 60px, var(--rainbow-yellow) 60px, var(--rainbow-yellow) 80px, transparent 80px, transparent 100px, var(--rainbow-green) 105px, var(--rainbow-green) 135px, transparent 140px, transparent 170px, var(--rainbow-blue) 180px, var(--rainbow-blue) 220px, transparent 230px, transparent 270px, var(--rainbow-indigo) 285px, var(--rainbow-indigo) 335px, transparent 350px, transparent 400px, var(--rainbow-violet) 420px, var(--rainbow-violet) 480px, transparent 500px);
 }
 
