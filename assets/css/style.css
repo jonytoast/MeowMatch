@@ -81,9 +81,9 @@ body {
 }
 
 #wrapper {
-    --p: 50%;
-    --q: 0%;
-    background: radial-gradient(circle at var(--p) var(--q), var(--rainbow-red) 50px, transparent 50px, transparent 70px, var(--rainbow-yellow) 70px, var(--rainbow-yellow) 90px, transparent 90px, transparent 110px, var(--rainbow-green) 110px, var(--rainbow-green) 130px, transparent 130px, transparent 150px, var(--rainbow-blue) 150px, var(--rainbow-blue) 170px, transparent 170px, transparent 190px, var(--rainbow-indigo) 190px, var(--rainbow-indigo) 210px, transparent 210px, transparent 230px, var(--rainbow-violet) 230px, var(--rainbow-violet) 250px, transparent 250px);
+    --p: 50px;
+    --q: 50px;
+    background: radial-gradient(circle at var(--p) var(--q), var(--rainbow-red) 40px, transparent 40px, transparent 60px, var(--rainbow-yellow) 60px, var(--rainbow-yellow) 80px, transparent 80px, transparent 100px, var(--rainbow-green) 105px, var(--rainbow-green) 135px, transparent 140px, transparent 170px, var(--rainbow-blue) 180px, var(--rainbow-blue) 220px, transparent 230px, transparent 270px, var(--rainbow-indigo) 285px, var(--rainbow-indigo) 335px, transparent 350px, transparent 400px, var(--rainbow-violet) 420px, var(--rainbow-violet) 480px, transparent 500px);
 }
 
 /* Animation for color-shifting text */
