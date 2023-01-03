@@ -82,6 +82,15 @@ $("#empty-cat-list").hide();
 $("#match-results-container").hide();
 
 // Cursor mousemove events for interactive background
+$("#wrapper").on("mousemove",function(event) {
+    var p = event.pageX;
+    var q = event.pageY;
+
+    $("#wrapper").css("--p", `${ p }px`);
+    $("#wrapper").css("--q", `${ q }px`);
+
+})
+
 $("#about-us-container").on("mousemove",function(event) {
 
     var aboutUsContainer = $("#about-us-container");
