@@ -852,6 +852,10 @@ $("#search-again").on("click",function() {
     collapse.play();
     $("input").val("");
     $("input").prop('checked', false);
+    $("#gender-alert").hide();
+    $("#age-alert").hide();
+    $("#zip-alert").hide();
+    $("#error").hide();
     $("#search-again").hide();
     $("#match-results-container").hide();
     $("#result-list-btn").hide();
