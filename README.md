@@ -2,7 +2,7 @@
 
 ## Description
 
-MeowMatch is an app designed to help you find and connect with cats in your area. MeowMatch also allows you to look at cute cat pictures, read random cat facts as well as cat-related charities you can save for later or for possible future donations. 
+MeowMatch is an app designed to help you find and connect with cats in your area. MeowMatch also allows you to look at cute cat pictures, read random cat facts as well as cat-related charities you can save for later or for possible future donations.  
 
 The "Adopt Today" section functions both as a reminder for users to consider adopting a cat, and as a slideshow that displays random cat images. To dismiss the text inside the slideshow, click on "Maybe Later," and the text box will disappear for you to enjoy unlimited adorable cat pictures. 
 
@@ -11,6 +11,15 @@ Once you click on "Start," you will be taken to the cat-search section of the pa
 To view cat facts, click on "Daily Meows" in the navigation bar and the page will take you to the cat fact section, where you can click "NEXT" to display the next cat fact, along with a cute cat GIF.
 
 To browse through the list of charities that are dedicated to cat well-being in the country, click on "Donate" in the navigation bar or scroll down to the bottom of the page, and click on "See Nonprofit List." Once the list is displayed, you can click on "Save This Charity" to place a charity in your saved list for future references. To view your saved list, click on "Your Saved list." In the saved list, you can click on "Remove from List," and that charity will be placed back into the original charity list. You can also choose to clear your entire saved list by clicking on "Clear List."  
+
+MeowMatch uses the following Server-Side API's:  
+
+    Petfiner APi: https://www.petfinder.com/developers <br>
+    CATAAS(Cat as a Service) API: https://cataas.com <br>
+    Cat Facts API: https://catfact.ninja/#/Facts <br>
+    The Cat API: https://developers.thecatapi.com <br>
+    Every.org API: https://www.every.org <br>
+
 
 This App is created for both large and small viewports.
 
@@ -41,17 +50,23 @@ This App is for cat lovers who are looking for a one-stop shop for: looking at c
 
 ## Credits
 
-Development Team:
+Development Team:<br>
+
     Jony Toast: https://github.com/jonytoast <br>
     Benji Decker: https://github.com/BenjiCCB <br>
     Fred Wang: https://github.com/FeddericoWayne <br>
 
-API list:
+API list:<br>
+
     Petfiner APi: https://www.petfinder.com/developers <br>
     CATAAS(Cat as a Service) API: https://cataas.com <br>
     Cat Facts API: https://catfact.ninja/#/Facts <br>
     The Cat API: https://developers.thecatapi.com <br>
     Every.org API: https://www.every.org <br>
+
+CSS Framework: <br>
+
+    Tailwind CSS: https://tailwindcss.com/
 
 ## License
 

@@ -82,6 +82,15 @@ $("#empty-cat-list").hide();
 $("#match-results-container").hide();
 
 // Cursor mousemove events for interactive background
+$("#wrapper").on("mousemove",function(event) {
+    var p = event.pageX;
+    var q = event.pageY;
+
+    $("#wrapper").css("--p", `${ p }px`);
+    $("#wrapper").css("--q", `${ q }px`);
+
+})
+
 $("#about-us-container").on("mousemove",function(event) {
 
     var aboutUsContainer = $("#about-us-container");
@@ -187,7 +196,7 @@ function showFact() {
     // GET request for random cat gifs
     fetch(requestGifUrl)
     .then(function(response){
-        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg shadow-lg w-11/12 sm:w-2/4"))
+        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg shadow-lg w-11/12 sm:w-2/4").attr("alt","random-cat-gif"))
     })
 
     // GET request for random cat facts
@@ -217,7 +226,7 @@ function nextFact() {
     // GET request for next random cat gifs
     fetch(requestNextGifUrl)
     .then(function(response){
-        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg shadow-lg w-11/12 sm:w-2/4"))
+        $("#fact-container").append($("<img>").attr("src",response.url).attr("class","rounded-lg shadow-lg w-11/12 sm:w-2/4").attr("alt","random-cat-gif"))
     })
 
     // GET request for next random cat facts
@@ -606,6 +615,7 @@ function showData(animals){
         var petImage = document.createElement('img');
         petImage.setAttribute("src", petImageURL);
         petImage.setAttribute("class","rounded-lg shadow-lg");
+        petImage.setAttribute("alt","adoptable-cat-image")
         
         petImageDiv.appendChild(petImage)
         mainSectionContainer.appendChild(petImageDiv);
@@ -758,7 +768,7 @@ $("#cat-list-btn").on("click",function() {
 
         $("#cat-list").append(catInfoContainer);
         catInfoContainer.append($("<h3>").html("CAT NAME: " + savedCatObj.catName).attr("class","ml-6 mt-6 sm:text-center text-gray-500"));
-        catInfoContainer.append($("<img>").attr("src", savedCatObj.catUrl).attr("class","rounded-xl w-10/12 shadow-lg mt-4 mb-4 mx-auto border-8 border-grey-400"));
+        catInfoContainer.append($("<img>").attr("src", savedCatObj.catUrl).attr("class","rounded-xl w-10/12 shadow-lg mt-4 mb-4 mx-auto border-8 border-grey-400").attr("alt","saved-cat-image"));
         catInfoContainer.append($("<p>").html("CAT BREED: " + savedCatObj.catBreed).attr("class","ml-6 sm:text-center text-gray-500"));
         catInfoContainer.append($("<p>").html("CAT GENDER: " + savedCatObj.catGender).attr("class","ml-6 sm:text-center text-gray-500"));
         catInfoContainer.append($("<p>").html("CAT AGE: " + savedCatObj.catAge).attr("class","ml-6 sm:text-center text-gray-500"));

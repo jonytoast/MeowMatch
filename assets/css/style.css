@@ -12,6 +12,12 @@
     --bg-taro: #F1E0EA;
     --bg-peach: #FCE6E9;
     --bg-nude: #FBE3D7;
+    --rainbow-red: #FFD1D1;
+    --rainbow-yellow: #FBFFDE;
+    --rainbow-green: #D7FDDF;
+    --rainbow-blue: #E0FFFD;
+    --rainbow-indigo: #D0D0FE;
+    --rainbow-violet: #F9DDFF;
     --linear-gradient: linear-gradient(90deg, var(--blue) 0%, var(--purple) 50%, var(--pink) 100%);
     --btn-gradient: linear-gradient(90deg, var(--periwinkle) 0%, var(--aquamarine) 100%);
 }
@@ -72,6 +78,12 @@ html {
 /* Background color animation */
 body {
     animation: bg-shift 8s ease infinite alternate;
+}
+
+#wrapper {
+    --p: 50%;
+    --q: 0%;
+    background: radial-gradient(circle at var(--p) var(--q), var(--rainbow-red) 50px, transparent 50px, transparent 70px, var(--rainbow-yellow) 70px, var(--rainbow-yellow) 90px, transparent 90px, transparent 110px, var(--rainbow-green) 110px, var(--rainbow-green) 130px, transparent 130px, transparent 150px, var(--rainbow-blue) 150px, var(--rainbow-blue) 170px, transparent 170px, transparent 190px, var(--rainbow-indigo) 190px, var(--rainbow-indigo) 210px, transparent 210px, transparent 230px, var(--rainbow-violet) 230px, var(--rainbow-violet) 250px, transparent 250px);
 }
 
 /* Animation for color-shifting text */
@@ -182,7 +194,7 @@ h1 {
     border-radius: 35px;
     padding: 20px;
     border: 5px solid white; 
-    background: radial-gradient(circle at var(--x) var(--y), white 0%, rgba(255,255,255,0.3) 80%);
+    background: radial-gradient(circle at var(--x) var(--y), white 0%, rgba(255,255,255,0.2) 80%);
     box-shadow: 0px 0px 10px 2px var(--yellow), inset 0px 0px 10px 1px var(--yellow);
     animation: glow 3s infinite;
 }
@@ -287,7 +299,7 @@ h1 {
     border-radius: 35px;
     padding: 20px;
     border: 5px solid white;
-    background: radial-gradient(circle at var(--c) var(--d), white 0%, rgba(255,255,255,0.3) 40%);
+    background: radial-gradient(circle at var(--c) var(--d), white 0%, rgba(255,255,255,0.3) 500px);
     box-shadow: 0px 0px 10px 2px var(--yellow), inset 0px 0px 10px 1px var(--yellow);
     animation: glow 3s infinite;
 }
@@ -297,9 +309,9 @@ h1 {
     margin-right: auto;
     margin-left: auto;
     box-sizing: border-box;
-    border: 15px solid var(--periwinkle);
     border-radius: 25px;
-    animation: slideshow-frame 15s ease infinite alternate-reverse, 
+    border: 15px solid var(--periwinkle);
+    animation: slideshow-frame 15s ease infinite alternate-reverse; 
 }
 
 #next {
